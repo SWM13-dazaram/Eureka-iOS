@@ -28,8 +28,8 @@ struct CustomIngredient: Codable {
 
 //어떤 항목을 어떻게 표시할건지 아직 미정상태
 struct NutrientInfo: Codable {
-    let A: Int
-    let B: Int
+    let a: Int
+    let b: Int
 }
 
 
