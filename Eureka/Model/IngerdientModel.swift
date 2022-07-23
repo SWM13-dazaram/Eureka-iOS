@@ -9,7 +9,7 @@ struct Ingredient: Codable {
 }
 
 struct UserIngredient: Codable {
-    let userIngredientId: Int?
+    let id: Int?
     let insertData: String
     let expireData: String
     let memo: String
@@ -33,4 +33,9 @@ struct NutrientInfo: Codable {
 }
 
 
+struct ReplaceIngredient: Codable {
+    let missingIngredient: Ingredient
+    let ownIngredient: Ingredient
+    let Similarity: Int
+}
 
