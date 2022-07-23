@@ -17,12 +17,6 @@ struct replacedRecipe: Codable {
     let recipeSequenceList: [RecipeSequence]
 }
 
-struct ReplaceIngredient: Codable {
-    let missingIngredient: Ingredient
-    let ownIngredient: Ingredient
-    let Similarity: Int
-}
-
 struct RecipeSequence: Codable {
     let recipeSequenceNumber: Int
     let recipeSequenceContent: String

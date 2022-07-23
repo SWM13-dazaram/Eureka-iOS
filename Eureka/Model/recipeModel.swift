@@ -8,7 +8,7 @@
 import Foundation
 
 struct replacedRecipe: Codable {
-    let recipeId: Int
+    let id: Int
     let name: String
     let image: String
     let isLike: Bool
@@ -17,11 +17,6 @@ struct replacedRecipe: Codable {
     let recipeSequenceList: [RecipeSequence]
 }
 
-struct ReplaceIngredient: Codable {
-    let missingIngredient: Ingredient
-    let ownIngredient: Ingredient
-    let Similarity: Int
-}
 
 struct RecipeSequence: Codable {
     let number: Int
