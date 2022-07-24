@@ -14,17 +14,24 @@ struct MainView: View {
         ZStack{
             Color.white
                 .ignoresSafeArea()
-            VStack(spacing: 30){
-                Spacer()
-                MainTitle("오늘의 레시피를 확인해보세요😋")
-                TitleTabView($selectedIndex)
-                switch selectedIndex {
-                case true:
-                    ReplaceView()
-                case false:
-                    ExpireDateView()
+            GeometryReader { proxy in
+                ScrollView{
+                    VStack(spacing: 30){
+                        Spacer()
+                        MainTitle("오늘의 레시피를 확인해보세요😋")
+                        TitleTabView($selectedIndex)
+                        switch selectedIndex {
+                        case true:
+                            ReplaceView()
+                        case false:
+                            ExpireDateView()
+                        }
+                    }
+                    .frame(height: proxy.size.height)
                 }
+                
             }
+            
         }
     }
 }
