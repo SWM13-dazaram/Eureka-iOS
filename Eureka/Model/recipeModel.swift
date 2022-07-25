@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct replacedRecipe: Codable {
+struct Recipe: Codable {
     let id: Int
     let name: String
     let image: String
     let isLike: Bool
     let ownIngredientList: [Ingredient]
-    let replaceIngredient: ReplaceIngredient
+    let replaceIngredient: ReplaceIngredient?
+    let expireIngredient: Ingredient?
     let recipeSequenceList: [RecipeSequence]
 }
-
 
 struct RecipeSequence: Codable {
     let number: Int
