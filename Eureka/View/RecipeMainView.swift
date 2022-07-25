@@ -16,26 +16,26 @@ struct ReplaceView: View {
                 Content(recipe: idx)
             }
         }
-        .onAppear{
-            self.recipes = ReplaceRecipe().getRecipes()
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+    }
+}
+
+struct ExpireDateView: View{
+    @State var recipes = ExpireDataRecipe().getRecipes()
+    
+    var body: some View {
+        TabView {
+            ForEach(recipes, id: \.self.id){ idx in
+                Content(recipe: idx)
+            }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
 }
 
-struct TmpView: View {
-    @State var tmpText: String
-    var body: some View {
-        Text(tmpText)
-    }
-    init(_ text: String){
-        self.tmpText = text
-    }
-}
 struct Content: View {
-    @State var recipe: replacedRecipe
-    @State var oldIngredient = ""
-    @State var newIngredient = ""
+    @State var recipe: Recipe
+    @State var description = ""
     
     var body: some View{
         VStack{
@@ -45,7 +45,7 @@ struct Content: View {
                 .cornerRadius(20)
             Text(recipe.name)
                 .font(.system(size: 20, weight: .bold))
-            Text("\(oldIngredient) 대신 \(newIngredient)(이)가 있어요!")
+            Text(description)
                 .padding(.init(top: 5, leading: 30, bottom: 5, trailing: 30))
                 .background(.white)
                 .cornerRadius(50)
@@ -58,26 +58,50 @@ struct Content: View {
                         FrameText(text: idx.name)
                     }
                 }
+                if let similarity = recipe.replaceIngredient {
+                    Similarity(similarity)
+                }
             }
             .padding()
-            HStack{
-                Text("\(oldIngredient)(이)랑 \(newIngredient)의 성분 유사도")
-                    .bold()
-                Spacer()
-                Text("\(recipe.replaceIngredient.Similarity)%")
-                    .bold()
-                    .foregroundColor(.green)
-            }
-            .padding()
-            PercentBar(percentage: recipe.replaceIngredient.Similarity)
-            
         }
         .onAppear{
-            oldIngredient = recipe.replaceIngredient.missingIngredient.name
-            newIngredient = recipe.replaceIngredient.ownIngredient.name
+            if let replaced = recipe.replaceIngredient {
+                let old = replaced.missingIngredient.name
+                let new = replaced.ownIngredient.name
+                description = "\(old) 대신 \(new)(이)가 있어요!"
+            }
+            if let expireDate = recipe.expireIngredient {
+                description = "\(expireDate.name)의 유통기한이 임박했어요!"
+            }
         }
     }
 }
+
+struct Similarity : View{
+    let replaceIngredient: ReplaceIngredient
+    let oldIngredient: String
+    let newIngredient: String
+    
+    var body: some View{
+        HStack{
+            Text("\(oldIngredient)(이)랑 \(newIngredient)의 성분 유사도")
+                .bold()
+            Spacer()
+            Text("\(replaceIngredient.Similarity)%")
+                .bold()
+                .foregroundColor(.green)
+        }
+        .padding()
+        PercentBar(percentage: replaceIngredient.Similarity)
+    }
+    
+    init(_ replaceIngredient: ReplaceIngredient){
+        self.replaceIngredient = replaceIngredient
+        self.oldIngredient = replaceIngredient.missingIngredient.name
+        self.newIngredient = replaceIngredient.ownIngredient.name
+    }
+}
+
 
 struct FrameText : View {
     var text: String
@@ -111,9 +135,19 @@ struct PercentBar: View {
     }
 }
 
-struct ReplaceView_Previews: PreviewProvider {
+
+
+//struct ReplaceView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ReplaceView()
+//            .previewInterfaceOrientation(.portrait)
+//    }
+//}
+//
+
+struct ExpireDateView_Previews: PreviewProvider {
     static var previews: some View {
-        ReplaceView()
+        ExpireDateView()
             .previewInterfaceOrientation(.portrait)
     }
 }

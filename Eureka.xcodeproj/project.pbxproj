@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3C638E239F99401D40FCCF04 /* Pods_Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6178333B657027E5B9422F /* Pods_Eureka.framework */; };
+		B919622E288E9E3500B0EE99 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B919622D288E9E3500B0EE99 /* .gitignore */; };
 		B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC7287BE28900A72257 /* EurekaApp.swift */; };
 		B98BBBCA287BE28900A72257 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC9287BE28900A72257 /* ContentView.swift */; };
 		B98BBBCC287BE28B00A72257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98BBBCB287BE28B00A72257 /* Assets.xcassets */; };
 		B98BBBCF287BE28B00A72257 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98BBBCE287BE28B00A72257 /* Preview Assets.xcassets */; };
 		B9E64099288BED9600A0C943 /* customTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E64095288BED9600A0C943 /* customTabView.swift */; };
-		B9E6409A288BED9600A0C943 /* ReplaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E64096288BED9600A0C943 /* ReplaceView.swift */; };
-		B9E6409B288BED9600A0C943 /* ExpireDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E64097288BED9600A0C943 /* ExpireDateView.swift */; };
+		B9E6409A288BED9600A0C943 /* RecipeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E64096288BED9600A0C943 /* RecipeMainView.swift */; };
 		B9E6409C288BED9600A0C943 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E64098288BED9600A0C943 /* MainView.swift */; };
 		B9E640A3288BEDDA00A0C943 /* IngredientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E6409E288BEDDA00A0C943 /* IngredientAPI.swift */; };
 		B9E640A5288BEDDA00A0C943 /* IngerdientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E640A0288BEDDA00A0C943 /* IngerdientModel.swift */; };
@@ -26,14 +26,14 @@
 /* Begin PBXFileReference section */
 		6E869B50A14055ABC3E2D4A5 /* Pods-Eureka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eureka.debug.xcconfig"; path = "Target Support Files/Pods-Eureka/Pods-Eureka.debug.xcconfig"; sourceTree = "<group>"; };
 		AD6178333B657027E5B9422F /* Pods_Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B919622D288E9E3500B0EE99 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B98BBBC4287BE28900A72257 /* Eureka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eureka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98BBBC7287BE28900A72257 /* EurekaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaApp.swift; sourceTree = "<group>"; };
 		B98BBBC9287BE28900A72257 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B98BBBCB287BE28B00A72257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B98BBBCE287BE28B00A72257 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B9E64095288BED9600A0C943 /* customTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTabView.swift; sourceTree = "<group>"; };
-		B9E64096288BED9600A0C943 /* ReplaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceView.swift; sourceTree = "<group>"; };
-		B9E64097288BED9600A0C943 /* ExpireDateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpireDateView.swift; sourceTree = "<group>"; };
+		B9E64096288BED9600A0C943 /* RecipeMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeMainView.swift; sourceTree = "<group>"; };
 		B9E64098288BED9600A0C943 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B9E6409E288BEDDA00A0C943 /* IngredientAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientAPI.swift; sourceTree = "<group>"; };
 		B9E640A0288BEDDA00A0C943 /* IngerdientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngerdientModel.swift; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 		B98BBBBB287BE28900A72257 = {
 			isa = PBXGroup;
 			children = (
+				B919622D288E9E3500B0EE99 /* .gitignore */,
 				B98BBBC6287BE28900A72257 /* Eureka */,
 				B98BBBC5287BE28900A72257 /* Products */,
 				52AA90B704A1B38C58788A8E /* Pods */,
@@ -104,9 +105,9 @@
 				B98BBBC9287BE28900A72257 /* ContentView.swift */,
 				B9E640A8288BF4A900A0C943 /* sampleData.swift */,
 				B98BBBCB287BE28B00A72257 /* Assets.xcassets */,
-				B9E6409D288BEDDA00A0C943 /* Model */,
 				B9E64094288BED9600A0C943 /* View */,
 				B95691FC287E8F2900719602 /* ViewModel */,
+				B9E6409D288BEDDA00A0C943 /* Model */,
 				B98BBBCD287BE28B00A72257 /* Preview Content */,
 			);
 			path = Eureka;
@@ -124,8 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				B9E64095288BED9600A0C943 /* customTabView.swift */,
-				B9E64096288BED9600A0C943 /* ReplaceView.swift */,
-				B9E64097288BED9600A0C943 /* ExpireDateView.swift */,
+				B9E64096288BED9600A0C943 /* RecipeMainView.swift */,
 				B9E64098288BED9600A0C943 /* MainView.swift */,
 			);
 			path = View;
@@ -203,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B98BBBCF287BE28B00A72257 /* Preview Assets.xcassets in Resources */,
+				B919622E288E9E3500B0EE99 /* .gitignore in Resources */,
 				B98BBBCC287BE28B00A72257 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,8 +261,7 @@
 				B9E6409C288BED9600A0C943 /* MainView.swift in Sources */,
 				B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */,
 				B9E640A6288BEDDA00A0C943 /* MoyaAPI.swift in Sources */,
-				B9E6409A288BED9600A0C943 /* ReplaceView.swift in Sources */,
-				B9E6409B288BED9600A0C943 /* ExpireDateView.swift in Sources */,
+				B9E6409A288BED9600A0C943 /* RecipeMainView.swift in Sources */,
 				B9E640A7288BEDDA00A0C943 /* recipeModel.swift in Sources */,
 				B9E640A9288BF4A900A0C943 /* sampleData.swift in Sources */,
 				B9E64099288BED9600A0C943 /* customTabView.swift in Sources */,
