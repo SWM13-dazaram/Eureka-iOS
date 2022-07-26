@@ -12,30 +12,31 @@ struct BottomTabView: View {
         TabView{
             MainView()
                 .tabItem{
-                    Image(systemName: "person")
+                    Image("menu_home")
                     Text("홈")
                 }
             Text("만드는중")
                 .tabItem{
-                    Image(systemName: "person")
+                    Image("menu_ingredient")
                     Text("식재료")
                 }
             Text("만드는중")
                 .tabItem{
-                    Image(systemName: "person")
+                    Image("menu_search")
                     Text("레시피검색")
                 }
             Text("만드는중")
                 .tabItem{
-                    Image(systemName: "person")
+                    Image("menu_community")
                     Text("커뮤니티")
                 }
             Text("만드는중")
                 .tabItem{
-                    Image(systemName: "person")
+                    Image("menu_my")
                     Text("마이페이지")
                 }
         }
+        .accentColor(.appGreen)
     }
 }
 

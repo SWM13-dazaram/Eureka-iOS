@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ReplaceView: View {
-    @State var recipes = ReplaceRecipe().getRecipes()
+    @StateObject var recipeVM = mockAPI()
     
     var body: some View {
         TabView{
-            ForEach(recipes, id: \.self.id) { idx in
+            ForEach(recipeVM.recipe, id: \.self.id) { idx in
                 Content(recipe: idx)
             }
         }
@@ -21,7 +21,7 @@ struct ReplaceView: View {
 }
 
 struct ExpireDateView: View{
-    @State var recipes = ExpireDataRecipe().getRecipes()
+    @State var recipes = [Recipe]()
     
     var body: some View {
         TabView {
@@ -38,21 +38,25 @@ struct Content: View {
     @State var description = ""
     
     var body: some View{
-        VStack{
-            Image(recipe.image)
-                .resizable()
-                .frame(width: 300, height: 200, alignment: .center)
-                .cornerRadius(20)
+        VStack(spacing:20){
+            LoadImage(recipe.image)
+                .frame(width: 300, height: 220, alignment: .center)
+                .cornerRadius(22)
+                .shadow(color: .shadow, radius: 6, x: 0, y: 3)
             Text(recipe.name)
-                .font(.system(size: 20, weight: .bold))
+                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(.appBlack)
             Text(description)
-                .padding(.init(top: 5, leading: 30, bottom: 5, trailing: 30))
-                .background(.white)
-                .cornerRadius(50)
-                .shadow(color: Color(white: 0.5, opacity: 0.5), radius: 1, x: 1, y: 1)
+                .font(.system(size: 14))
+                .background {
+                    Image("TextBubble")
+                        .shadow(color: .shadow, radius: 6, x: 0, y: 3)
+                }
+//                .padding(.init(top: 5, leading: 30, bottom: 5, trailing: 30))
+                
             VStack(alignment: .leading) {
                 Text("내가 보유하고있는 재료!")
-                    .bold()
+                    .font(.system(size: 13, weight: .bold))
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))]){
                     ForEach(recipe.ownIngredientList, id: \.self.id ){ idx in
                         FrameText(text: idx.name)
@@ -85,14 +89,14 @@ struct Similarity : View{
     var body: some View{
         HStack{
             Text("\(oldIngredient)(이)랑 \(newIngredient)의 성분 유사도")
-                .bold()
+                .font(.system(size: 13, weight: .bold))
             Spacer()
-            Text("\(replaceIngredient.Similarity)%")
-                .bold()
-                .foregroundColor(.green)
+            Text("\(Int(replaceIngredient.similarity*100))%")
+                .font(.system(size: 19, weight: .bold))
+                .foregroundColor(.appGreen)
         }
         .padding()
-        PercentBar(percentage: replaceIngredient.Similarity)
+        PercentBar(percentage: replaceIngredient.similarity)
     }
     
     init(_ replaceIngredient: ReplaceIngredient){
@@ -108,8 +112,9 @@ struct FrameText : View {
     
     var body: some View {
         Text(text)
+            .font(.system(size: 13))
             .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
-            .background(Color.gray)
+            .background(Color.white)
             .cornerRadius(50)
             .fixedSize()
     }
@@ -123,16 +128,13 @@ struct PercentBar: View {
         ZStack(alignment: .leading){
             RoundedRectangle(cornerRadius: 100)
                 .frame(width: barSize, height: 10)
-                .foregroundColor(.gray)
+                .foregroundColor(.appGray)
             RoundedRectangle(cornerRadius: 100)
                 .frame(width: barSize * CGFloat(percentage), height: 10)
-                .foregroundColor(.green)
+                .foregroundColor(.appGreen)
         }
     }
     
-    init(percentage: Int){
-        self.percentage = Float(percentage) * 0.01
-    }
 }
 
 
@@ -143,7 +145,7 @@ struct PercentBar: View {
 //            .previewInterfaceOrientation(.portrait)
 //    }
 //}
-//
+
 
 struct ExpireDateView_Previews: PreviewProvider {
     static var previews: some View {

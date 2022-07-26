@@ -12,13 +12,13 @@ struct MainView: View {
     
     var body: some View {
         ZStack{
-            Color.white
+            Color.bg
                 .ignoresSafeArea()
             GeometryReader { proxy in
                 ScrollView{
                     VStack(spacing: 30){
                         Spacer()
-                        MainTitle("오늘의 레시피를 확인해보세요😋")
+                        MainTitle("오늘의 레시피를 확인해보세요 😋")
                         TitleTabView($selectedIndex)
                         switch selectedIndex {
                         case true:
@@ -40,9 +40,16 @@ struct MainTitle: View {
     var text: String
     
     var body: some View {
-        Text(text)
-            .font(.system(size: 30, weight: .bold))
-            .frame(width: 300, alignment: .leading)
+        HStack{
+            Text(text)
+                .bold()
+                .foregroundColor(.title)
+                .font(.system(size: 24, weight: .bold))
+                .frame(width: 160, height: 69)
+                .offset(x:30)
+            Spacer()
+        }
+        
     }
     
     init(_ text: String) {
@@ -59,21 +66,23 @@ struct TitleTabView: View{
                 Button {
                     selectedIndex = true
                 } label: {
-                    Text("🥑 식재료대체")
-                        .frame(width: 160, height: 40, alignment: .center)
-                        .background(selectedIndex == true ? .green : .white)
-                        .foregroundColor(selectedIndex == true ? .white : .gray)
-                        .cornerRadius(100)
+                    Text("🥑 식재료 대체")
+                        .font(.system(size: 12))
+                        .frame(width: 155, height: 34, alignment: .center)
+                        .background(selectedIndex == true ? Color.appGreen : .white)
+                        .foregroundColor(selectedIndex == true ? .white : .appGray)
+                        .cornerRadius(20)
                         
                 }
                 Button {
                     selectedIndex = false
                 } label: {
                     Text("🧨 유통기한")
-                        .frame(width: 160, height: 40, alignment: .center)
-                        .background(selectedIndex == false ? .green : .white)
-                        .foregroundColor(selectedIndex == false ? .white : .gray)
-                        .cornerRadius(100)
+                        .font(.system(size: 12))
+                        .frame(width: 155, height: 34, alignment: .center)
+                        .background(selectedIndex == false ? Color.appGreen : .white)
+                        .foregroundColor(selectedIndex == false ? .white : .appGray)
+                        .cornerRadius(20)
                 }
             }
         }
