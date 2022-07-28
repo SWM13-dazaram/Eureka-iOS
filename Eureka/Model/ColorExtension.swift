@@ -7,4 +7,5 @@ extension Color {
     static let appGray = Color("appGray")
     static let shadow = Color("shadow")
     static let appBlack = Color("appBlack")
+    static let defaultText = Color("defaultText")
 }
