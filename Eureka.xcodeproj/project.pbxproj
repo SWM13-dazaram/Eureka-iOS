@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		3C638E239F99401D40FCCF04 /* Pods_Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6178333B657027E5B9422F /* Pods_Eureka.framework */; };
 		B919622E288E9E3500B0EE99 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B919622D288E9E3500B0EE99 /* .gitignore */; };
-		B959C519288F961F005FF7D8 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C518288F961F005FF7D8 /* RecipeViewModel.swift */; };
 		B959C51B288FF849005FF7D8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C51A288FF849005FF7D8 /* ImageLoader.swift */; };
 		B959C51D288FF8FA005FF7D8 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C51C288FF8FA005FF7D8 /* LoadImage.swift */; };
 		B959C52028900073005FF7D8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B959C51F28900073005FF7D8 /* Colors.xcassets */; };
 		B959C52228900208005FF7D8 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C52128900208005FF7D8 /* ColorExtension.swift */; };
+		B959C5242890181A005FF7D8 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C5232890181A005FF7D8 /* RecipeViewModel.swift */; };
 		B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC7287BE28900A72257 /* EurekaApp.swift */; };
 		B98BBBCA287BE28900A72257 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC9287BE28900A72257 /* ContentView.swift */; };
 		B98BBBCC287BE28B00A72257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98BBBCB287BE28B00A72257 /* Assets.xcassets */; };
@@ -25,18 +25,17 @@
 		B9E640A5288BEDDA00A0C943 /* IngerdientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E640A0288BEDDA00A0C943 /* IngerdientModel.swift */; };
 		B9E640A6288BEDDA00A0C943 /* MoyaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E640A1288BEDDA00A0C943 /* MoyaAPI.swift */; };
 		B9E640A7288BEDDA00A0C943 /* recipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E640A2288BEDDA00A0C943 /* recipeModel.swift */; };
-		B9E640A9288BF4A900A0C943 /* sampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E640A8288BF4A900A0C943 /* sampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6E869B50A14055ABC3E2D4A5 /* Pods-Eureka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eureka.debug.xcconfig"; path = "Target Support Files/Pods-Eureka/Pods-Eureka.debug.xcconfig"; sourceTree = "<group>"; };
 		AD6178333B657027E5B9422F /* Pods_Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B919622D288E9E3500B0EE99 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		B959C518288F961F005FF7D8 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		B959C51A288FF849005FF7D8 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		B959C51C288FF8FA005FF7D8 /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
 		B959C51F28900073005FF7D8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		B959C52128900208005FF7D8 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		B959C5232890181A005FF7D8 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		B98BBBC4287BE28900A72257 /* Eureka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eureka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98BBBC7287BE28900A72257 /* EurekaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaApp.swift; sourceTree = "<group>"; };
 		B98BBBC9287BE28900A72257 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,7 +48,6 @@
 		B9E640A0288BEDDA00A0C943 /* IngerdientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngerdientModel.swift; sourceTree = "<group>"; };
 		B9E640A1288BEDDA00A0C943 /* MoyaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaAPI.swift; sourceTree = "<group>"; };
 		B9E640A2288BEDDA00A0C943 /* recipeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipeModel.swift; sourceTree = "<group>"; };
-		B9E640A8288BF4A900A0C943 /* sampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleData.swift; sourceTree = "<group>"; };
 		F41597E0EB1F34FBE8ECE86B /* Pods-Eureka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eureka.release.xcconfig"; path = "Target Support Files/Pods-Eureka/Pods-Eureka.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +83,7 @@
 		B95691FC287E8F2900719602 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B959C518288F961F005FF7D8 /* RecipeViewModel.swift */,
+				B959C5232890181A005FF7D8 /* RecipeViewModel.swift */,
 				B959C51A288FF849005FF7D8 /* ImageLoader.swift */,
 			);
 			path = ViewModel;
@@ -123,7 +121,6 @@
 			children = (
 				B98BBBC7287BE28900A72257 /* EurekaApp.swift */,
 				B98BBBC9287BE28900A72257 /* ContentView.swift */,
-				B9E640A8288BF4A900A0C943 /* sampleData.swift */,
 				B98BBBCB287BE28B00A72257 /* Assets.xcassets */,
 				B959C51F28900073005FF7D8 /* Colors.xcassets */,
 				B9E64094288BED9600A0C943 /* View */,
@@ -290,8 +287,7 @@
 				B9E640A6288BEDDA00A0C943 /* MoyaAPI.swift in Sources */,
 				B9E6409A288BED9600A0C943 /* RecipeMainView.swift in Sources */,
 				B9E640A7288BEDDA00A0C943 /* recipeModel.swift in Sources */,
-				B9E640A9288BF4A900A0C943 /* sampleData.swift in Sources */,
-				B959C519288F961F005FF7D8 /* RecipeViewModel.swift in Sources */,
+				B959C5242890181A005FF7D8 /* RecipeViewModel.swift in Sources */,
 				B9E64099288BED9600A0C943 /* customTabView.swift in Sources */,
 				B9E640A5288BEDDA00A0C943 /* IngerdientModel.swift in Sources */,
 				B9E640A3288BEDDA00A0C943 /* IngredientAPI.swift in Sources */,

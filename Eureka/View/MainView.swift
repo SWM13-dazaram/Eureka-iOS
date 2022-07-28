@@ -29,9 +29,7 @@ struct MainView: View {
                     }
                     .frame(height: proxy.size.height)
                 }
-                
             }
-            
         }
     }
 }

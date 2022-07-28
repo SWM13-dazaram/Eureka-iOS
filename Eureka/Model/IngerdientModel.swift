@@ -2,13 +2,13 @@
 import Foundation
 import SwiftUI
 
-struct Ingredient: Codable {
+struct Ingredient: Decodable {
     let id: Int
     let name: String
     let icon: String
 }
 
-struct UserIngredient: Codable {
+struct UserIngredient: Decodable {
     let id: Int?
     let insertData: String
     let expireData: String
@@ -33,9 +33,9 @@ struct NutrientInfo: Codable {
 }
 
 
-struct ReplaceIngredient: Codable {
+struct ReplaceIngredient: Decodable {
     let missingIngredient: Ingredient
     let ownIngredient: Ingredient
-    let Similarity: Int
+    let similarity: Float
 }
 

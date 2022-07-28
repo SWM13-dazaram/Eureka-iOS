@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Codable {
+struct Recipe: Decodable {
     let id: Int
     let name: String
     let image: String
@@ -18,14 +18,14 @@ struct Recipe: Codable {
     let recipeSequenceList: [RecipeSequence]
 }
 
-struct RecipeSequence: Codable {
+struct RecipeSequence: Decodable {
     let number: Int
-    let Content: String
+    let content: String
     let hightlightIndexList: [HightlightIndex]?
     
 }
 
-struct HightlightIndex: Codable {
+struct HightlightIndex: Decodable {
     let start: Int
     let end: Int
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReplaceView: View {
-    @StateObject var recipeVM = mockAPI()
+    @StateObject var recipeVM = MockAPI()
     
     var body: some View {
         TabView{
@@ -48,12 +48,14 @@ struct Content: View {
                 .foregroundColor(.appBlack)
             Text(description)
                 .font(.system(size: 14))
+                .foregroundColor(.defaultText)
+                .padding()
                 .background {
                     Image("TextBubble")
+                        .resizable()
                         .shadow(color: .shadow, radius: 6, x: 0, y: 3)
+                        .foregroundColor(.defaultText)
                 }
-//                .padding(.init(top: 5, leading: 30, bottom: 5, trailing: 30))
-                
             VStack(alignment: .leading) {
                 Text("내가 보유하고있는 재료!")
                     .font(.system(size: 13, weight: .bold))
@@ -66,7 +68,7 @@ struct Content: View {
                     Similarity(similarity)
                 }
             }
-            .padding()
+            .offset(x:30)
         }
         .onAppear{
             if let replaced = recipe.replaceIngredient {
@@ -95,7 +97,7 @@ struct Similarity : View{
                 .font(.system(size: 19, weight: .bold))
                 .foregroundColor(.appGreen)
         }
-        .padding()
+        .frame(width: UIScreen.main.bounds.width-60)
         PercentBar(percentage: replaceIngredient.similarity)
     }
     
@@ -112,6 +114,7 @@ struct FrameText : View {
     
     var body: some View {
         Text(text)
+            .foregroundColor(.defaultText)
             .font(.system(size: 13))
             .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
             .background(Color.white)
@@ -122,7 +125,7 @@ struct FrameText : View {
 
 struct PercentBar: View {
     @State var percentage: Float
-    let barSize = UIScreen.main.bounds.width-40
+    let barSize = UIScreen.main.bounds.width-60
     
     var body: some View{
         ZStack(alignment: .leading){
