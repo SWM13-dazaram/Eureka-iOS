@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReplaceView: View {
-    @StateObject var recipeVM = MockAPI()
+    @StateObject var recipeVM = RecipeMockAPI()
     
     var body: some View {
         TabView{
@@ -131,7 +131,7 @@ struct PercentBar: View {
         ZStack(alignment: .leading){
             RoundedRectangle(cornerRadius: 100)
                 .frame(width: barSize, height: 10)
-                .foregroundColor(.appGray)
+                .foregroundColor(.barBackground)
             RoundedRectangle(cornerRadius: 100)
                 .frame(width: barSize * CGFloat(percentage), height: 10)
                 .foregroundColor(.appGreen)
@@ -152,7 +152,7 @@ struct PercentBar: View {
 
 struct ExpireDateView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpireDateView()
+        ReplaceView()
             .previewInterfaceOrientation(.portrait)
     }
 }
