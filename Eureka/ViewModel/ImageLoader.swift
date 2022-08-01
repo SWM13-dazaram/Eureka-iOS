@@ -24,7 +24,9 @@ class ImageLoader: ObservableObject {
             guard let realImage = UIImage(data: realData) else {
                 return
             }
-            self.image = realImage
+            DispatchQueue.global().async {
+                self.image = realImage
+            }
             
         }.resume()
         

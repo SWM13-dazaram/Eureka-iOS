@@ -15,7 +15,7 @@ struct BottomTabView: View {
                     Image("menu_home")
                     Text("홈")
                 }
-            Text("만드는중")
+            IngredientView()
                 .tabItem{
                     Image("menu_ingredient")
                     Text("식재료")
