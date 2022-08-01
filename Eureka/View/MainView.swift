@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var selectedIndex = true
+    var tmp = DataCalculater()
     
     var body: some View {
         ZStack{
@@ -18,7 +19,11 @@ struct MainView: View {
                 ScrollView{
                     VStack(spacing: 30){
                         Spacer()
-                        MainTitle("오늘의 레시피를 확인해보세요 😋")
+                        HStack{
+                            MainTitle("오늘의 레시피를 확인해보세요 😋")
+                                .frame(width: 160, height: 69)
+                            Spacer()
+                        }
                         TitleTabView($selectedIndex)
                         switch selectedIndex {
                         case true:
@@ -31,27 +36,6 @@ struct MainView: View {
                 }
             }
         }
-    }
-}
-
-struct MainTitle: View {
-    var text: String
-    
-    var body: some View {
-        HStack{
-            Text(text)
-                .bold()
-                .foregroundColor(.title)
-                .font(.system(size: 24, weight: .bold))
-                .frame(width: 160, height: 69)
-                .offset(x:30)
-            Spacer()
-        }
-        
-    }
-    
-    init(_ text: String) {
-        self.text = text
     }
 }
 
