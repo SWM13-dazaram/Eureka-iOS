@@ -18,6 +18,7 @@
 		B969DADE28923B5E003CF65B /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DADD28923B5E003CF65B /* IngredientViewModel.swift */; };
 		B969DAE0289246AA003CF65B /* DateCalculater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DADF289246AA003CF65B /* DateCalculater.swift */; };
 		B969DAE2289266FE003CF65B /* MainTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DAE1289266FE003CF65B /* MainTitle.swift */; };
+		B969DAE42893DA5E003CF65B /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DAE32893DA5E003CF65B /* IngredientCell.swift */; };
 		B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC7287BE28900A72257 /* EurekaApp.swift */; };
 		B98BBBCA287BE28900A72257 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC9287BE28900A72257 /* ContentView.swift */; };
 		B98BBBCC287BE28B00A72257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98BBBCB287BE28B00A72257 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		B969DADD28923B5E003CF65B /* IngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModel.swift; sourceTree = "<group>"; };
 		B969DADF289246AA003CF65B /* DateCalculater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculater.swift; sourceTree = "<group>"; };
 		B969DAE1289266FE003CF65B /* MainTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitle.swift; sourceTree = "<group>"; };
+		B969DAE32893DA5E003CF65B /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		B98BBBC4287BE28900A72257 /* Eureka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eureka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98BBBC7287BE28900A72257 /* EurekaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaApp.swift; sourceTree = "<group>"; };
 		B98BBBC9287BE28900A72257 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				B969DADB28923A20003CF65B /* IngredientView.swift */,
+				B969DAE32893DA5E003CF65B /* IngredientCell.swift */,
 			);
 			path = IngredientView;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				B98BBBC9287BE28900A72257 /* ContentView.swift */,
 				B98BBBCB287BE28B00A72257 /* Assets.xcassets */,
 				B959C51F28900073005FF7D8 /* Colors.xcassets */,
+				B959C52128900208005FF7D8 /* ColorExtension.swift */,
 				B9E64094288BED9600A0C943 /* View */,
 				B95691FC287E8F2900719602 /* ViewModel */,
 				B9E6409D288BEDDA00A0C943 /* Model */,
@@ -177,7 +181,6 @@
 				B9E640A0288BEDDA00A0C943 /* IngerdientModel.swift */,
 				B9E640A1288BEDDA00A0C943 /* MoyaAPI.swift */,
 				B9E640A2288BEDDA00A0C943 /* recipeModel.swift */,
-				B959C52128900208005FF7D8 /* ColorExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			files = (
 				B959C51D288FF8FA005FF7D8 /* LoadImage.swift in Sources */,
 				B98BBBCA287BE28900A72257 /* ContentView.swift in Sources */,
+				B969DAE42893DA5E003CF65B /* IngredientCell.swift in Sources */,
 				B9E6409C288BED9600A0C943 /* MainView.swift in Sources */,
 				B959C51B288FF849005FF7D8 /* ImageLoader.swift in Sources */,
 				B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */,

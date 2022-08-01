@@ -9,12 +9,13 @@ struct Ingredient: Decodable {
 }
 
 struct UserIngredient: Decodable {
-    let id: Int?
-    let insertData: String
-    let expireData: String
+//    let id: Int
+    let id: String
+    let insertDate: String
+    let expireDate: String
     let memo: String
     let ingredient: Ingredient
-    let nutrientDetail: NutrientInfo?
+//    let nutrientDetail: NutrientInfo?
 }
 
 struct CustomIngredient: Codable {
