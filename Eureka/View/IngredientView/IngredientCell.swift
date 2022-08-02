@@ -12,7 +12,7 @@ struct ingredientCell : View {
     
     var body: some View {
         HStack{
-            IngredientIcon(userData.ingredient.icon)
+            IngredientIcon(userData.ingredient.icon, expireDate)
                 .offset(x: 15)
             GeometryReader{ geo in
                 VStack{
@@ -22,9 +22,6 @@ struct ingredientCell : View {
                             .foregroundColor(.appBlack)
                         Spacer()
                         expireText(expireDate)
-                            .onAppear{
-                                self.expireDate = dateCal.compareToday(A: userData.expireDate)
-                            }
                         Text(userData.expireDate)
                             .font(.system(size: 11))
                             .foregroundColor(.appGray)
@@ -37,24 +34,8 @@ struct ingredientCell : View {
             }
         }
         .padding(.init(top: 15, leading: 0, bottom: 15, trailing: 0))
-    }
-}
-
-struct IngredientIcon : View {
-    let image:LoadImage
-    
-    init(_ url: String){
-        self.image = LoadImage(url)
-    }
-    
-    var body: some View {
-        ZStack{
-            image
-                .frame(width: 48, height: 48)
-                .cornerRadius(100)
-            Image("alert")
-                .offset(x:20,y:-20)
-            
+        .onAppear{
+            self.expireDate = dateCal.compareToday(A: userData.expireDate)
         }
     }
 }
