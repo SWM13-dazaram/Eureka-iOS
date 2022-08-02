@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3C638E239F99401D40FCCF04 /* Pods_Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6178333B657027E5B9422F /* Pods_Eureka.framework */; };
 		B919622E288E9E3500B0EE99 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B919622D288E9E3500B0EE99 /* .gitignore */; };
+		B9259D562897AC490087C537 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D552897AC490087C537 /* RecipeDetailView.swift */; };
+		B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D572897B4140087C537 /* RecipeComponents.swift */; };
+		B9259D5A2897C6280087C537 /* RecipeIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D592897C6280087C537 /* RecipeIngredientCell.swift */; };
+		B9259D5C2897DD680087C537 /* IngredientIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D5B2897DD680087C537 /* IngredientIcon.swift */; };
 		B959C51B288FF849005FF7D8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C51A288FF849005FF7D8 /* ImageLoader.swift */; };
 		B959C51D288FF8FA005FF7D8 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C51C288FF8FA005FF7D8 /* LoadImage.swift */; };
 		B959C52028900073005FF7D8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B959C51F28900073005FF7D8 /* Colors.xcassets */; };
@@ -36,6 +40,10 @@
 		6E869B50A14055ABC3E2D4A5 /* Pods-Eureka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eureka.debug.xcconfig"; path = "Target Support Files/Pods-Eureka/Pods-Eureka.debug.xcconfig"; sourceTree = "<group>"; };
 		AD6178333B657027E5B9422F /* Pods_Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B919622D288E9E3500B0EE99 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B9259D552897AC490087C537 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		B9259D572897B4140087C537 /* RecipeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponents.swift; sourceTree = "<group>"; };
+		B9259D592897C6280087C537 /* RecipeIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredientCell.swift; sourceTree = "<group>"; };
+		B9259D5B2897DD680087C537 /* IngredientIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientIcon.swift; sourceTree = "<group>"; };
 		B959C51A288FF849005FF7D8 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		B959C51C288FF8FA005FF7D8 /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
 		B959C51F28900073005FF7D8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -90,6 +98,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B9259D542897A51F0087C537 /* RecipeView */ = {
+			isa = PBXGroup;
+			children = (
+				B9259D552897AC490087C537 /* RecipeDetailView.swift */,
+				B9259D592897C6280087C537 /* RecipeIngredientCell.swift */,
+			);
+			path = RecipeView;
+			sourceTree = "<group>";
+		};
 		B95691FC287E8F2900719602 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +123,8 @@
 			children = (
 				B959C51C288FF8FA005FF7D8 /* LoadImage.swift */,
 				B969DAE1289266FE003CF65B /* MainTitle.swift */,
+				B9259D572897B4140087C537 /* RecipeComponents.swift */,
+				B9259D5B2897DD680087C537 /* IngredientIcon.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -168,6 +187,7 @@
 				B9E64098288BED9600A0C943 /* MainView.swift */,
 				B9E64095288BED9600A0C943 /* customTabView.swift */,
 				B9E64096288BED9600A0C943 /* RecipeMainView.swift */,
+				B9259D542897A51F0087C537 /* RecipeView */,
 				B969DADA289239E2003CF65B /* IngredientView */,
 				B959C51E288FF921005FF7D8 /* Component */,
 			);
@@ -307,7 +327,9 @@
 				B9E6409C288BED9600A0C943 /* MainView.swift in Sources */,
 				B959C51B288FF849005FF7D8 /* ImageLoader.swift in Sources */,
 				B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */,
+				B9259D5A2897C6280087C537 /* RecipeIngredientCell.swift in Sources */,
 				B959C52228900208005FF7D8 /* ColorExtension.swift in Sources */,
+				B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */,
 				B969DADE28923B5E003CF65B /* IngredientViewModel.swift in Sources */,
 				B9E640A6288BEDDA00A0C943 /* MoyaAPI.swift in Sources */,
 				B9E6409A288BED9600A0C943 /* RecipeMainView.swift in Sources */,
@@ -318,7 +340,9 @@
 				B969DADC28923A20003CF65B /* IngredientView.swift in Sources */,
 				B969DAE0289246AA003CF65B /* DateCalculater.swift in Sources */,
 				B9E640A5288BEDDA00A0C943 /* IngerdientModel.swift in Sources */,
+				B9259D562897AC490087C537 /* RecipeDetailView.swift in Sources */,
 				B9E640A3288BEDDA00A0C943 /* IngredientAPI.swift in Sources */,
+				B9259D5C2897DD680087C537 /* IngredientIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

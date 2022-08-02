@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ReplaceView: View {
-    @StateObject var recipeVM = RecipeMockAPI()
+    @EnvironmentObject var recipeVM: RecipeMockAPI
     
     var body: some View {
         TabView{
-            ForEach(recipeVM.recipe, id: \.self.id) { idx in
-                Content(recipe: idx)
+            ForEach(recipeVM.replaced, id: \.self.id) { idx in
+                NavigationLink {
+                    RecipeDetailView(recipe: idx)
+                        .ignoresSafeArea()
+                } label: {
+                    Content(recipe: idx)
+                }
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -21,12 +26,17 @@ struct ReplaceView: View {
 }
 
 struct ExpireDateView: View{
-    @State var recipes = [Recipe]()
-    
+    @EnvironmentObject var recipeVM: RecipeMockAPI
+
     var body: some View {
         TabView {
-            ForEach(recipes, id: \.self.id){ idx in
-                Content(recipe: idx)
+            ForEach(recipeVM.expire, id: \.self.id){ idx in
+                NavigationLink {
+                    RecipeDetailView(recipe: idx)
+                        .ignoresSafeArea()
+                } label: {
+                    Content(recipe: idx)
+                }
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -43,22 +53,19 @@ struct Content: View {
                 .frame(width: 300, height: 220, alignment: .center)
                 .cornerRadius(22)
                 .shadow(color: .shadow, radius: 6, x: 0, y: 3)
-            Text(recipe.name)
-                .font(.system(size: 22, weight: .bold))
-                .foregroundColor(.appBlack)
-            Text(description)
-                .font(.system(size: 14))
-                .foregroundColor(.defaultText)
-                .padding()
-                .background {
-                    Image("TextBubble")
-                        .resizable()
-                        .shadow(color: .shadow, radius: 6, x: 0, y: 3)
-                        .foregroundColor(.defaultText)
-                }
+            RecipeName(recipe.name)
+            if let replaced = recipe.replaceIngredient {
+                let old = replaced.missingIngredient.name
+                let new = replaced.ownIngredient.name
+                TextBubble(new:new, old:old)
+            }
+            if let expireDate = recipe.expireIngredient {
+                TextBubble(expire:expireDate.name)
+            }
             VStack(alignment: .leading) {
                 Text("내가 보유하고있는 재료!")
                     .font(.system(size: 13, weight: .bold))
+                    .foregroundColor(.appBlack)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))]){
                     ForEach(recipe.ownIngredientList, id: \.self.id ){ idx in
                         FrameText(text: idx.name)
@@ -69,16 +76,6 @@ struct Content: View {
                 }
             }
             .offset(x:30)
-        }
-        .onAppear{
-            if let replaced = recipe.replaceIngredient {
-                let old = replaced.missingIngredient.name
-                let new = replaced.ownIngredient.name
-                description = "\(old) 대신 \(new)(이)가 있어요!"
-            }
-            if let expireDate = recipe.expireIngredient {
-                description = "\(expireDate.name)의 유통기한이 임박했어요!"
-            }
         }
     }
 }
@@ -92,6 +89,7 @@ struct Similarity : View{
         HStack{
             Text("\(oldIngredient)(이)랑 \(newIngredient)의 성분 유사도")
                 .font(.system(size: 13, weight: .bold))
+                .foregroundColor(.appBlack)
             Spacer()
             Text("\(Int(replaceIngredient.similarity*100))%")
                 .font(.system(size: 19, weight: .bold))

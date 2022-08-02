@@ -8,33 +8,37 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var recipeVM: RecipeMockAPI
     @State var selectedIndex = true
     var tmp = DataCalculater()
     
     var body: some View {
-        ZStack{
-            Color.bg
-                .ignoresSafeArea()
-            GeometryReader { proxy in
-                ScrollView{
-                    VStack(spacing: 30){
-                        Spacer()
-                        HStack{
-                            MainTitle("오늘의 레시피를 확인해보세요 😋")
-                                .frame(width: 160, height: 69)
+        NavigationView{
+            ZStack{
+                Color.bg
+                    .ignoresSafeArea()
+                GeometryReader { proxy in
+                    ScrollView{
+                        VStack(spacing: 30){
                             Spacer()
+                            HStack{
+                                MainTitle("오늘의 레시피를 확인해보세요 😋")
+                                    .frame(width: 160, height: 69)
+                                Spacer()
+                            }
+                            TitleTabView($selectedIndex)
+                            switch selectedIndex {
+                            case true:
+                                ReplaceView()
+                            case false:
+                                ExpireDateView()
+                            }
                         }
-                        TitleTabView($selectedIndex)
-                        switch selectedIndex {
-                        case true:
-                            ReplaceView()
-                        case false:
-                            ExpireDateView()
-                        }
+                        .frame(height: proxy.size.height)
                     }
-                    .frame(height: proxy.size.height)
                 }
             }
+            .navigationBarHidden(true)
         }
     }
 }
@@ -78,5 +82,6 @@ struct TitleTabView: View{
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(RecipeMockAPI())
     }
 }
