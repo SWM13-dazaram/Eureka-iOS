@@ -13,32 +13,29 @@ struct MainView: View {
     var tmp = DataCalculater()
     
     var body: some View {
-        NavigationView{
-            ZStack{
-                Color.bg
-                    .ignoresSafeArea()
-                GeometryReader { proxy in
-                    ScrollView{
-                        VStack(spacing: 30){
+        ZStack{
+            Color.bg
+                .ignoresSafeArea()
+            GeometryReader { proxy in
+                ScrollView{
+                    VStack(spacing: 30){
+                        Spacer()
+                        HStack{
+                            MainTitle("오늘의 레시피를 확인해보세요 😋")
+                                .frame(width: 160, height: 69)
                             Spacer()
-                            HStack{
-                                MainTitle("오늘의 레시피를 확인해보세요 😋")
-                                    .frame(width: 160, height: 69)
-                                Spacer()
-                            }
-                            TitleTabView($selectedIndex)
-                            switch selectedIndex {
-                            case true:
-                                ReplaceView()
-                            case false:
-                                ExpireDateView()
-                            }
                         }
-                        .frame(height: proxy.size.height)
+                        TitleTabView($selectedIndex)
+                        switch selectedIndex {
+                        case true:
+                            ReplaceView()
+                        case false:
+                            ExpireDateView()
+                        }
                     }
+                    .frame(height: proxy.size.height)
                 }
             }
-            .navigationBarHidden(true)
         }
     }
 }
