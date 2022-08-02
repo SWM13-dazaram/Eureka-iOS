@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IngredientView: View {
-    @StateObject var ingredient = IngredientMockAPI()
+    @EnvironmentObject var ingredient: IngredientMockAPI
     
     var body: some View {
         ZStack{
@@ -40,5 +40,6 @@ struct IngredientView: View {
 struct IngredientView_Previews: PreviewProvider {
     static var previews: some View {
         IngredientView()
+            .environmentObject(IngredientMockAPI())
     }
 }
