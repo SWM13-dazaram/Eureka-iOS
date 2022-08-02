@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
-  <g id="ic_menu_home" transform="translate(-19 -832)">
-    <rect id="사각형_41" data-name="사각형 41" width="28" height="28" transform="translate(19 832)" fill="rgba(255,255,255,0)"/>
-    <path id="home_1_" data-name="home (1)" d="M25,11.961v9.553a4.909,4.909,0,0,1-4.889,4.929H7.889A4.909,4.909,0,0,1,3,21.515V11.961A4.945,4.945,0,0,1,4.8,8.144l6.111-5.032a4.858,4.858,0,0,1,6.185,0L23.2,8.144A4.945,4.945,0,0,1,25,11.961ZM11.556,20.639a.917.917,0,0,0,0,1.833h4.889a.917.917,0,0,0,0-1.833Z" transform="translate(19 832)" fill="#b1b1b1" fill-rule="evenodd"/>
-  </g>
-</svg>

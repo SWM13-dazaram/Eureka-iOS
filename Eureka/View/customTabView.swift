@@ -10,6 +10,11 @@ import SwiftUI
 struct BottomTabView: View {
     @State var select = 0
     
+    init(){
+        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().barTintColor = .white
+    }
+    
     var body: some View {
         TabView(selection: $select){
             MainView()
@@ -43,7 +48,6 @@ struct BottomTabView: View {
                 }
                 .tag(4)
         }
-        .background(Color.white)
         .accentColor(.appGreen)
     }
 }
@@ -51,6 +55,7 @@ struct BottomTabView: View {
 struct customTabView_Previews: PreviewProvider {
     static var previews: some View {
         BottomTabView()
+            .environmentObject(RecipeMockAPI())
     }
 }
 
