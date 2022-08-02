@@ -26,7 +26,6 @@ struct BottomTabView: View {
                     }
                     .tag(0)
                 IngredientView()
-                    .navigationBarHidden(true)
                     .tabItem{
                         Image("menu_ingredient")
                         Text("식재료")
@@ -61,6 +60,7 @@ struct customTabView_Previews: PreviewProvider {
     static var previews: some View {
         BottomTabView()
             .environmentObject(RecipeMockAPI())
+            .environmentObject(IngredientMockAPI())
     }
 }
 
