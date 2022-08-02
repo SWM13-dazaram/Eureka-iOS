@@ -8,7 +8,8 @@
 import Foundation
 
 struct Recipe: Decodable {
-    let id: Int
+//    let id: Int
+    let id: String //mockAPI
     let name: String
     let image: String
     let isLike: Bool

@@ -10,7 +10,7 @@ struct Ingredient: Decodable {
 
 struct UserIngredient: Decodable {
 //    let id: Int
-    let id: String
+    let id: String // mockAPI
     let insertDate: String
     let expireDate: String
     let memo: String

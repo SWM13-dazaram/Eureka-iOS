@@ -10,7 +10,7 @@ import Moya
 
 enum API {
     case recommendReplacedRecipe
-//    case recommendAllExpireDateRecipes
+    case recommendAllExpireDateRecipes
     case findAllUserIngredient
 }
 
@@ -23,16 +23,18 @@ extension API: TargetType {
     var path: String {
         switch self {
         case .recommendReplacedRecipe:
-            return "/api/v1/recipes/replacement"
+            return "/recommendReplacedRecipe"
         case .findAllUserIngredient:
 //            return "/api/v1/user-ingredients"
             return "/findAllUserIngredient" //test용 uri
+        case .recommendAllExpireDateRecipes:
+            return "/recommendAllExpireDateRecipes" //test용 uri
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .recommendReplacedRecipe, .findAllUserIngredient:
+        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes:
             return .get
         }
     }
@@ -40,7 +42,7 @@ extension API: TargetType {
     var task: Task {
         //수정
         switch self{
-        case .recommendReplacedRecipe, .findAllUserIngredient:
+        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes:
             return .requestPlain
         }
     }
@@ -51,7 +53,7 @@ extension API: TargetType {
     
     var sampleData: Data {
         switch self {
-        case .recommendReplacedRecipe, .findAllUserIngredient:
+        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes:
             return Data()
         }
     }
