@@ -9,21 +9,23 @@ import Foundation
 import Moya
 
 class RecipeMockAPI: ObservableObject {
-    @Published var recipe = [Recipe]()
+    @Published var replaced = [Recipe]()
+    @Published var expire = [Recipe]()
     let provider = MoyaProvider<API>()
     
     init(){
-        getRecipe()
+        getReplaced()
+        getExpire()
     }
     
-    func getRecipe(){
+    func getReplaced(){
         provider.request(.recommendReplacedRecipe) { response in
             switch response {
             case .success(let result):
                 do{
                     print(result.data)
                     let tmp = try JSONDecoder().decode([Recipe].self, from: result.data)
-                    self.recipe = tmp
+                    self.replaced = tmp
                 }catch(let err){
                     print(err.localizedDescription)
                 }
@@ -32,4 +34,22 @@ class RecipeMockAPI: ObservableObject {
             }
         }
     }
+    
+    func getExpire(){
+        provider.request(.recommendAllExpireDateRecipes) { response in
+            switch response {
+            case .success(let result):
+                do{
+                    print(result.data)
+                    let tmp = try JSONDecoder().decode([Recipe].self, from: result.data)
+                    self.expire = tmp
+                }catch(let err){
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
 }
