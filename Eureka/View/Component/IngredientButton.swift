@@ -7,14 +7,36 @@
 
 import SwiftUI
 
+// @TODO: 에러잡기 EnvironmentObject or StateObject
 struct IngredientButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    let ingredient: Ingredient
+    var icon: IngredientIcon
 
-struct IngredientButton_Previews: PreviewProvider {
-    static var previews: some View {
-        IngredientButton()
+    init(_ ingredient : Ingredient){
+        self.ingredient = ingredient
+        self.icon = IngredientIcon(ingredient.icon, size: 64)
+    }
+
+    var body: some View {
+//        Button {
+//            mockVM.toggleIngredient(ingredient: ingredient)
+//        } label: {
+//            VStack{
+//                ZStack{
+//                    icon
+//                    Circle()
+//                        .stroke(mockVM.toggleStatus(id: ingredient.id) ? Color.appGreen : Color.barBackground, lineWidth: mockVM.toggleStatus(id: ingredient.id) ? 2 : 0)
+//                    if addVM.toggleStatus(id: ingredient.id){
+//                        Image("check")
+//                            .offset(x: 21, y: -21)
+//                    }
+//                }
+//                Text(ingredient.name)
+//                    .font(.system(size: 11))
+//                    .foregroundColor(.appGray)
+//            }
+//
+//        }
+Text("test")
     }
 }

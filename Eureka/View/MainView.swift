@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var recipeVM: RecipeMockAPI
+//    @ObservedObject var mockVM: MockVM
     @State var selectedIndex = true
     var tmp = DataCalculater()
     
@@ -17,7 +17,7 @@ struct MainView: View {
             Color.bg
                 .ignoresSafeArea()
             GeometryReader { proxy in
-                ScrollView{
+                ScrollView(showsIndicators: false){
                     VStack(spacing: 30){
                         Spacer()
                         HStack{
@@ -79,6 +79,6 @@ struct TitleTabView: View{
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .environmentObject(RecipeMockAPI())
+            .environmentObject(MockVM())
     }
 }

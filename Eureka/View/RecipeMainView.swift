@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ReplaceView: View {
-    @EnvironmentObject var recipeVM: RecipeMockAPI
+    @ObservedObject var mockVM : MockVM
+    
+    init(){
+        self.mockVM = MockVM()
+        mockVM.getReplaced()
+    }
     
     var body: some View {
         TabView{
-            ForEach(recipeVM.replaced, id: \.self.id) { idx in
+            ForEach(mockVM.replaced, id: \.self.id) { idx in
                 NavigationLink {
                     RecipeDetailView(recipe: idx)
                         .ignoresSafeArea()
@@ -26,11 +31,16 @@ struct ReplaceView: View {
 }
 
 struct ExpireDateView: View{
-    @EnvironmentObject var recipeVM: RecipeMockAPI
+    @ObservedObject var mockVM: MockVM
+    
+    init(){
+        self.mockVM = MockVM()
+        mockVM.getExpire()
+    }
 
     var body: some View {
         TabView {
-            ForEach(recipeVM.expire, id: \.self.id){ idx in
+            ForEach(mockVM.expire, id: \.self.id){ idx in
                 NavigationLink {
                     RecipeDetailView(recipe: idx)
                         .ignoresSafeArea()
