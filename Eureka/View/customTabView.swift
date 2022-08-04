@@ -59,8 +59,7 @@ struct BottomTabView: View {
 struct customTabView_Previews: PreviewProvider {
     static var previews: some View {
         BottomTabView()
-            .environmentObject(RecipeMockAPI())
-            .environmentObject(IngredientMockAPI())
+            .environmentObject(MockVM())
     }
 }
 

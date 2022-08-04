@@ -12,8 +12,7 @@ struct EurekaApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(RecipeMockAPI()) // mockAPI
-                .environmentObject(IngredientMockAPI()) //mockAPI
+                .environmentObject(MockVM()) // mockAPI
         }
     }
 }

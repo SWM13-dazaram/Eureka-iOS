@@ -12,6 +12,7 @@ enum API {
     case recommendReplacedRecipe
     case recommendAllExpireDateRecipes
     case findAllUserIngredient
+    case findAllIngredientsByCategory
 }
 
 extension API: TargetType {
@@ -29,12 +30,14 @@ extension API: TargetType {
             return "/findAllUserIngredient" //test용 uri
         case .recommendAllExpireDateRecipes:
             return "/recommendAllExpireDateRecipes" //test용 uri
+        case .findAllIngredientsByCategory:
+            return "/findAllIngredientsByCategory"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes:
+        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes, .findAllIngredientsByCategory:
             return .get
         }
     }
@@ -42,7 +45,7 @@ extension API: TargetType {
     var task: Task {
         //수정
         switch self{
-        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes:
+        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes , .findAllIngredientsByCategory:
             return .requestPlain
         }
     }
@@ -53,7 +56,7 @@ extension API: TargetType {
     
     var sampleData: Data {
         switch self {
-        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes:
+        case .recommendReplacedRecipe, .findAllUserIngredient , .recommendAllExpireDateRecipes , .findAllIngredientsByCategory:
             return Data()
         }
     }

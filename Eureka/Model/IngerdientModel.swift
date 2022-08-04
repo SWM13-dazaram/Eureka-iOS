@@ -2,7 +2,7 @@
 import Foundation
 import SwiftUI
 
-struct Ingredient: Decodable {
+struct Ingredient: Decodable, Identifiable {
     let id: Int
     let name: String
     let icon: String
@@ -24,6 +24,14 @@ struct CustomIngredient: Codable {
     let enrollmentData: String
     let expireData: String
     let memo: String
+}
+
+struct CategoryIngredient: Decodable {
+//    let id: Int
+    let categoryId: String //mockAPI
+    let categoryName: String
+    let ingredients: [Ingredient]
+    
 }
 
 

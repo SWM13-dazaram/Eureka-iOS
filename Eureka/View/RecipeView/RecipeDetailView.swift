@@ -12,7 +12,7 @@ struct RecipeDetailView: View {
     @State var description = ""
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack{
                 LoadImage(recipe.image)
                     .frame(height: 350)
