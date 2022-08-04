@@ -26,9 +26,9 @@ extension IngredientAPI: TargetType {
         case .modifyUserIngredient(let userId):
             return "/user-ingerdient/\(userId)"
         case .getSelectedIngredientDetails:
-            return "ingredient/selected" // TODO: 회의하고 변경 사항 있으면 적용
+            return "ingredient/selected"
         case .createCustomIngredient:
-            return "custom-ingredient" // TODO: 회의하고 변경 사항 있으면 적용
+            return "custom-ingredient"
         case .createUserIngredient:
             return "/user-ingredient"
         
