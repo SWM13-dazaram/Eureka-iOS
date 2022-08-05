@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataCalculater {
+class DateCalculater {
     
     func compareAB(A: String, B: String) -> Int {
         let a = changeStrToDate(str: A)
@@ -30,5 +30,17 @@ class DataCalculater {
         }
         let date = DateComponents(year: tmp[0], month: tmp[1], day: tmp[2])
         return Calendar.current.date(from: date)!
+    }
+    
+    func calExpireDate(days: Int) -> String{
+        let today = Date()
+        let date = Calendar.current.date(byAdding: .day, value: days, to: today)
+        return changeDateToStr(date: date!)
+    }
+    
+    func changeDateToStr(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY/MM/dd"
+        return dateFormatter.string(from: date)
     }
 }
