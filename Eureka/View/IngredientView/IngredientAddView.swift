@@ -9,6 +9,7 @@ import SwiftUI
 import Alamofire
 
 struct IngredientAddView: View {
+    @EnvironmentObject var addVM: AddIngredient
     @ObservedObject var mockVM: MockVM
     @State var searchText = ""
     @State var category = 1
@@ -20,8 +21,11 @@ struct IngredientAddView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading){
-            MainTitle("식재료 등록")
+        VStack{
+            HStack{
+                MainTitle("식재료 등록")
+                Spacer()
+            }
             ZStack{
                 RoundedRectangle(cornerRadius: 8)
                     .strokeBorder(Color.barBackground, lineWidth: 1)
@@ -55,14 +59,13 @@ struct IngredientAddView: View {
             CategoryView(ingredient: $mockVM.allIngredient ,category: $category)
                 .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
             Spacer()
-//            if addVM.isClick() {
-//                NavigationLink {
-//                    Text("")
-//                } label: {
-//                    Text("선택한 식재료 추가하기")
-//                }
-//
-//            }
+            if addVM.countSelected() > 0 {
+                NavigationLink {
+                    IngredientAddDetailView()
+                } label: {
+                    BottomButton(text: "선택한 식재료 추가하기")
+                }
+            }
         }
     }
 }
@@ -89,10 +92,13 @@ struct CategoryView: View{
                         }
                 }
                 .padding(.bottom)
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]){
-                    ForEach(idx.ingredients , id: \.self.id){ item in
-                        IngredientButton(item)
+                ScrollView{
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]){
+                        ForEach(idx.ingredients , id: \.self.id){ item in
+                            IngredientButton(item)
+                        }
                     }
+                    .padding(.top)
                 }
             }
         }
@@ -103,5 +109,6 @@ struct IngredientAddView_Previews: PreviewProvider {
     static var previews: some View {
         IngredientAddView()
             .environmentObject(MockVM())
+            .environmentObject(AddIngredient())
     }
 }
