@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Alamofire
 
 struct IngredientAddView: View {
     @EnvironmentObject var addVM: AddIngredient
@@ -62,6 +61,9 @@ struct IngredientAddView: View {
             if addVM.countSelected() > 0 {
                 NavigationLink {
                     IngredientAddDetailView()
+                        .onAppear{
+                            addVM.getDefaultIngredientInfo()
+                        }
                 } label: {
                     BottomButton(text: "선택한 식재료 추가하기")
                 }

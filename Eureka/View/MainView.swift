@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
 //    @ObservedObject var mockVM: MockVM
     @State var selectedIndex = true
-    var tmp = DataCalculater()
+    var tmp = DateCalculater()
     
     var body: some View {
         ZStack{

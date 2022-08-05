@@ -2,12 +2,12 @@ import SwiftUI
 
 struct ingredientCell : View {
     @State var userData: UserIngredient
-    @State var dateCal: DataCalculater
+    @State var dateCal: DateCalculater
     @State var expireDate = 0
     
     init(_ ingredient: UserIngredient){
         self.userData = ingredient
-        self.dateCal = DataCalculater()
+        self.dateCal = DateCalculater()
     }
     
     var body: some View {
