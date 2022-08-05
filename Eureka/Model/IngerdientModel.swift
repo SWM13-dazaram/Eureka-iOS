@@ -2,19 +2,24 @@
 import Foundation
 import SwiftUI
 
-struct Ingredient: Decodable, Identifiable {
+struct Ingredient: Codable, Identifiable {
     let id: Int
-    let name: String
-    let icon: String
+    var name: String
+    var icon: String
 }
 
-struct UserIngredient: Decodable {
-//    let id: Int
-    let id: String // mockAPI
-    let insertDate: String
-    let expireDate: String
-    let memo: String
+struct IngredientInfo: Decodable {
     let ingredient: Ingredient
+    let expirePeriod: Int
+}
+
+struct UserIngredient: Codable {
+//    let id: Int?
+    let id: String? // mockAPI
+    var insertDate: String
+    var expireDate: String
+    var memo: String = ""
+    var ingredient: Ingredient
 //    let nutrientDetail: NutrientInfo?
 }
 

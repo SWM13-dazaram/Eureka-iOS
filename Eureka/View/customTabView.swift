@@ -31,19 +31,19 @@ struct BottomTabView: View {
                         Text("식재료")
                     }
                     .tag(1)
-                Text("만드는중")
+                NotMVPView()
                     .tabItem{
                         Image("menu_search")
                         Text("레시피검색")
                     }
                     .tag(2)
-                Text("만드는중")
+                NotMVPView()
                     .tabItem{
                         Image("menu_community")
                         Text("커뮤니티")
                     }
                     .tag(3)
-                Text("만드는중")
+                NotMVPView()
                     .tabItem{
                         Image("menu_my")
                         Text("마이페이지")
@@ -51,7 +51,6 @@ struct BottomTabView: View {
                     .tag(4)
             }
             .accentColor(.appGreen)
-            
         }
     }
 }
