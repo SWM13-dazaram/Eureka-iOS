@@ -12,8 +12,17 @@ class AddIngredient: ObservableObject {
     @Published var selected = [Int : Bool]()
     @Published var userIngredient = [UserIngredient]()
     let provider = MoyaProvider<API>()
+    var dummyList = [IngredientInfo]()
     
     init(){
+        //더미데이터 임시 생성
+        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 1, name: "고구마", icon :"mushroom"), expirePeriod: 22))
+        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 2, name: "새송이버섯", icon :"mushroom"), expirePeriod: 14))
+        let dateCal = DateCalculater()
+        for dummy in dummyList {
+            let ingredientInfo = UserIngredient(id: nil, name: dummy.ingredient.name, insertDate: dateCal.changeDateToStr(date: Date()), expireDate: dateCal.calExpireDate(days: dummy.expirePeriod), memo: "", ingredient: dummy.ingredient)
+            self.userIngredient.append(ingredientInfo)
+        }
         print("@StateObject init()")
     }
     
@@ -42,7 +51,7 @@ class AddIngredient: ObservableObject {
     }
     
     func getDefaultIngredientInfo(){
-        let dateCal = DateCalculater()
+
         
 //        let ingredientInfoList = [IngredientInfo]()
 //        provider.request(.getSelectedIngredient) { response in
@@ -64,15 +73,7 @@ class AddIngredient: ObservableObject {
 //            self.userIngredient.append(contentsOf: ingredientInfo)
 //        }
         
-        //더미데이터 임시 생성
-        var dummyList = [IngredientInfo]()
-        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 1, name: "고구마", icon :"mushroom"), expirePeriod: 22))
-        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 2, name: "새송이버섯", icon :"mushroom"), expirePeriod: 14))
-        
-        for dummy in dummyList {
-            let ingredientInfo = UserIngredient(id: nil, insertDate: dateCal.changeDateToStr(date: Date()), expireDate: dateCal.calExpireDate(days: dummy.expirePeriod), memo: "", ingredient: dummy.ingredient)
-            self.userIngredient.append(ingredientInfo)
-        }
+
         print("userIngredient : \(userIngredient)")
         
     }
