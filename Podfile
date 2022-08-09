@@ -7,4 +7,5 @@ target 'Eureka' do
 
   # Pods for Eureka
   pod 'Moya/RxSwift', '~> 15.0'
+  pod 'Kingfisher', '~> 7.0'
 end
