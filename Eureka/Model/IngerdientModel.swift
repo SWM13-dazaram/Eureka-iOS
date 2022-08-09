@@ -16,6 +16,7 @@ struct IngredientInfo: Decodable {
 struct UserIngredient: Codable {
 //    let id: Int?
     let id: String? // mockAPI
+    var name: String
     var insertDate: String
     var expireDate: String
     var memo: String = ""

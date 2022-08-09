@@ -105,7 +105,7 @@ struct Similarity : View{
                 .font(.system(size: 19, weight: .bold))
                 .foregroundColor(.appGreen)
         }
-        .frame(width: UIScreen.main.bounds.width-60)
+        .frame(width: UIScreen.main.bounds.width-120)
         PercentBar(percentage: replaceIngredient.similarity)
     }
     
@@ -133,7 +133,7 @@ struct FrameText : View {
 
 struct PercentBar: View {
     @State var percentage: Float
-    let barSize = UIScreen.main.bounds.width-60
+    let barSize = UIScreen.main.bounds.width-120
     
     var body: some View{
         ZStack(alignment: .leading){

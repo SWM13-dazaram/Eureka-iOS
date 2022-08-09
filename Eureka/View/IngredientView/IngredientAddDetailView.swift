@@ -66,24 +66,6 @@ struct IngredientForm: View {
     }
 }
 
-struct DateForm: View {
-    let title: String
-    let range: PartialRangeFrom<Date>
-    @Binding var date: Date
-    
-    var body: some View{
-        HStack{
-            Text(title)
-                .foregroundColor(.black)
-                .font(.system(size: 14))
-            Spacer()
-            DatePicker("", selection: $date, in: range, displayedComponents: .date)
-                .labelsHidden()
-                .accentColor(.appGreen)
-        }
-    }
-}
-
 struct CustomForm: View {
     let title: String
     @Binding var text: String

@@ -9,7 +9,6 @@ struct MainTitle: View {
             .bold()
             .foregroundColor(.title)
             .font(.system(size: 24, weight: .bold))
-            .offset(x:30)
     }
     
     init(_ text: String) {

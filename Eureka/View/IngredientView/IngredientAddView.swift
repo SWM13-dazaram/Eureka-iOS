@@ -28,7 +28,6 @@ struct IngredientAddView: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 8)
                     .strokeBorder(Color.barBackground, lineWidth: 1)
-                    .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
                     .frame(height: 44)
                 HStack{
                     TextField("식재료를 검색해보세요", text: $searchText)
@@ -36,7 +35,7 @@ struct IngredientAddView: View {
                     Spacer()
                     Image("search")
                 }
-                .padding(.init(top: 0, leading: 40, bottom: 0, trailing: 40))
+                .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 10))
             }
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
@@ -54,9 +53,8 @@ struct IngredientAddView: View {
                     }
                 }
             }
-            .padding(.init(top: 20, leading: 30, bottom: 20, trailing: 30))
+            .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
             CategoryView(ingredient: $mockVM.allIngredient ,category: $category)
-                .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
             Spacer()
             if addVM.countSelected() > 0 {
                 NavigationLink {
@@ -69,6 +67,7 @@ struct IngredientAddView: View {
                 }
             }
         }
+        .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
     }
 }
 
@@ -84,14 +83,18 @@ struct CategoryView: View{
                         .font(.system(size: 12))
                         .foregroundColor(.appBlack)
                     Spacer()
-                    Text("+직접추가")
-                        .font(.system(size:11))
-                        .foregroundColor(.appGreen)
-                        .padding(.init(top: 5, leading: 12, bottom: 5, trailing: 12))
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 13)
-                                .stroke(Color.appGreen)
-                        }
+                    NavigationLink {
+                        IngredientUserCustomView()
+                    } label: {
+                        Text("+직접추가")
+                            .font(.system(size:11))
+                            .foregroundColor(.appGreen)
+                            .padding(.init(top: 5, leading: 12, bottom: 5, trailing: 12))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 13)
+                                    .stroke(Color.appGreen)
+                            }
+                    }
                 }
                 .padding(.bottom)
                 ScrollView{
