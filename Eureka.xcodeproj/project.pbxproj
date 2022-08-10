@@ -33,6 +33,12 @@
 		B98BBBCA287BE28900A72257 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC9287BE28900A72257 /* ContentView.swift */; };
 		B98BBBCC287BE28B00A72257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98BBBCB287BE28B00A72257 /* Assets.xcassets */; };
 		B98BBBCF287BE28B00A72257 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98BBBCE287BE28B00A72257 /* Preview Assets.xcassets */; };
+		B9CB93BB28A2273000E0A938 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93BA28A2273000E0A938 /* LoginView.swift */; };
+		B9CB93BD28A23A0F00E0A938 /* SetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93BC28A23A0F00E0A938 /* SetProfileView.swift */; };
+		B9CB93BF28A23FCB00E0A938 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93BE28A23FCB00E0A938 /* ImagePicker.swift */; };
+		B9CB93C128A3661A00E0A938 /* KakaoOauth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93C028A3661A00E0A938 /* KakaoOauth.swift */; };
+		B9CB93C628A38E6600E0A938 /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9CB93C528A38E6600E0A938 /* KeyInfo.plist */; };
+		B9CB93C828A390B000E0A938 /* Eureka++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93C728A390B000E0A938 /* Eureka++Bundle.swift */; };
 		B9DA0DAA289A33D6000E743F /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DA0DA9289A33D6000E743F /* IngredientDetailView.swift */; };
 		B9DA0DAC289A4023000E743F /* IngredientAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DA0DAB289A4023000E743F /* IngredientAddView.swift */; };
 		B9DA0DAE289A74C4000E743F /* IngredientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DA0DAD289A74C4000E743F /* IngredientButton.swift */; };
@@ -75,6 +81,12 @@
 		B98BBBC9287BE28900A72257 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B98BBBCB287BE28B00A72257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B98BBBCE287BE28B00A72257 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B9CB93BA28A2273000E0A938 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B9CB93BC28A23A0F00E0A938 /* SetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileView.swift; sourceTree = "<group>"; };
+		B9CB93BE28A23FCB00E0A938 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B9CB93C028A3661A00E0A938 /* KakaoOauth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoOauth.swift; sourceTree = "<group>"; };
+		B9CB93C528A38E6600E0A938 /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
+		B9CB93C728A390B000E0A938 /* Eureka++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Eureka++Bundle.swift"; sourceTree = "<group>"; };
 		B9DA0DA9289A33D6000E743F /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
 		B9DA0DAB289A4023000E743F /* IngredientAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientAddView.swift; sourceTree = "<group>"; };
 		B9DA0DAD289A74C4000E743F /* IngredientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientButton.swift; sourceTree = "<group>"; };
@@ -143,6 +155,7 @@
 				B959C51A288FF849005FF7D8 /* ImageLoader.swift */,
 				B969DADF289246AA003CF65B /* DateCalculater.swift */,
 				B93D869A289B76E2007C2AF1 /* AddIngredient.swift */,
+				B9CB93BE28A23FCB00E0A938 /* ImagePicker.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -200,7 +213,7 @@
 				B98BBBCB287BE28B00A72257 /* Assets.xcassets */,
 				B959C51F28900073005FF7D8 /* Colors.xcassets */,
 				B959C52128900208005FF7D8 /* ColorExtension.swift */,
-				B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */,
+				B9CB93C728A390B000E0A938 /* Eureka++Bundle.swift */,
 				B9E64094288BED9600A0C943 /* View */,
 				B95691FC287E8F2900719602 /* ViewModel */,
 				B9E6409D288BEDDA00A0C943 /* Model */,
@@ -217,22 +230,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B9DA0DB1289A9A5C000E743F /* API */ = {
+		B9CB93B928A226C500E0A938 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B9CB93BA28A2273000E0A938 /* LoginView.swift */,
+				B9CB93BC28A23A0F00E0A938 /* SetProfileView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B9CB93C228A36BE000E0A938 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				B9E640A1288BEDDA00A0C943 /* MockAPI.swift */,
 				B9E6409E288BEDDA00A0C943 /* IngredientAPI.swift */,
+				B9CB93C528A38E6600E0A938 /* KeyInfo.plist */,
+				B9CB93C028A3661A00E0A938 /* KakaoOauth.swift */,
 			);
-			path = API;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B9E64094288BED9600A0C943 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */,
 				B9E64098288BED9600A0C943 /* MainView.swift */,
 				B9E64095288BED9600A0C943 /* customTabView.swift */,
 				B9E64096288BED9600A0C943 /* RecipeMainView.swift */,
 				B93D86A2289D409A007C2AF1 /* NotMVPView.swift */,
+				B9CB93B928A226C500E0A938 /* Onboarding */,
 				B9259D542897A51F0087C537 /* RecipeView */,
 				B969DADA289239E2003CF65B /* IngredientView */,
 				B959C51E288FF921005FF7D8 /* Component */,
@@ -243,7 +269,7 @@
 		B9E6409D288BEDDA00A0C943 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B9DA0DB1289A9A5C000E743F /* API */,
+				B9CB93C228A36BE000E0A938 /* Service */,
 				B9E640A0288BEDDA00A0C943 /* IngerdientModel.swift */,
 				B9E640A2288BEDDA00A0C943 /* recipeModel.swift */,
 			);
@@ -314,6 +340,7 @@
 				B959C52028900073005FF7D8 /* Colors.xcassets in Resources */,
 				B919622E288E9E3500B0EE99 /* .gitignore in Resources */,
 				B98BBBCC287BE28B00A72257 /* Assets.xcassets in Resources */,
+				B9CB93C628A38E6600E0A938 /* KeyInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +396,7 @@
 				B959C51D288FF8FA005FF7D8 /* LoadImage.swift in Sources */,
 				B98BBBCA287BE28900A72257 /* ContentView.swift in Sources */,
 				B969DAE42893DA5E003CF65B /* IngredientCell.swift in Sources */,
+				B9CB93BF28A23FCB00E0A938 /* ImagePicker.swift in Sources */,
 				B9E6409C288BED9600A0C943 /* MainView.swift in Sources */,
 				B959C51B288FF849005FF7D8 /* ImageLoader.swift in Sources */,
 				B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */,
@@ -376,7 +404,9 @@
 				B959C52228900208005FF7D8 /* ColorExtension.swift in Sources */,
 				B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */,
 				B93D86A3289D409A007C2AF1 /* NotMVPView.swift in Sources */,
+				B9CB93C128A3661A00E0A938 /* KakaoOauth.swift in Sources */,
 				B969DADE28923B5E003CF65B /* MockViewModel.swift in Sources */,
+				B9CB93BD28A23A0F00E0A938 /* SetProfileView.swift in Sources */,
 				B9E640A6288BEDDA00A0C943 /* MockAPI.swift in Sources */,
 				B9E6409A288BED9600A0C943 /* RecipeMainView.swift in Sources */,
 				B9E640A7288BEDDA00A0C943 /* recipeModel.swift in Sources */,
@@ -387,6 +417,7 @@
 				B969DAE0289246AA003CF65B /* DateCalculater.swift in Sources */,
 				B9E640A5288BEDDA00A0C943 /* IngerdientModel.swift in Sources */,
 				B9230AAC289FED1C00F7C7D2 /* DateForm.swift in Sources */,
+				B9CB93C828A390B000E0A938 /* Eureka++Bundle.swift in Sources */,
 				B93D86A1289D3FC7007C2AF1 /* IngredientUserCustomView.swift in Sources */,
 				B9259D562897AC490087C537 /* RecipeDetailView.swift in Sources */,
 				B9E640A3288BEDDA00A0C943 /* IngredientAPI.swift in Sources */,
@@ -396,6 +427,7 @@
 				B9259D5C2897DD680087C537 /* IngredientIcon.swift in Sources */,
 				B9DA0DAC289A4023000E743F /* IngredientAddView.swift in Sources */,
 				B9230AAE28A0F1FD00F7C7D2 /* LoadingView.swift in Sources */,
+				B9CB93BB28A2273000E0A938 /* LoginView.swift in Sources */,
 				B9DA0DAE289A74C4000E743F /* IngredientButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -509,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -540,6 +572,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,7 +582,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -574,6 +607,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,7 +617,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

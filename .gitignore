@@ -98,3 +98,6 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode
+
+## RPIVATE_KEY
+KeyInfo.plist
