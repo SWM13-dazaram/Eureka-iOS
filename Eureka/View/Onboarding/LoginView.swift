@@ -9,9 +9,11 @@ import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import AuthenticationServices
 
 struct LoginView: View {
     @StateObject var oauth = Oauth()
+    @Binding var main: Bool
     
     var body: some View {
         VStack{
@@ -27,7 +29,7 @@ struct LoginView: View {
                 .frame(height: 120)
             LongLineText("시작하기")
             .padding(.bottom)
-            NavigationLink(destination: SetProfileView(), tag: true, selection: $oauth.success) {}
+            NavigationLink(destination: SetProfileView(complete: $main).navigationBarBackButtonHidden(true), tag: true, selection: $oauth.success) {}
             Button {
                 oauth.kakaoLogin()
             } label: {
@@ -47,7 +49,7 @@ struct LoginView: View {
                     .foregroundColor(.appGray)
                     .font(.system(size: 12))
                 Button {
-                    print("로그인하기 버튼")
+                    oauth.success = true
                 } label: {
                     Text("로그인하기")
                         .foregroundColor(.appGreen)
@@ -84,8 +86,8 @@ struct LongLineText: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginView()
+//    }
+//}

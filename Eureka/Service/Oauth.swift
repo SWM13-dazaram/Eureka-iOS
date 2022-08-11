@@ -9,6 +9,7 @@
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import AuthenticationServices
 
 class Oauth: ObservableObject {
     @Published var success: Bool? = false
@@ -34,7 +35,10 @@ class Oauth: ObservableObject {
     }
     
     func appleLogin(){
-        
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.performRequests()
     }
 }
 
