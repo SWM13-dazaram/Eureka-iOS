@@ -9,9 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack{
-            BottomTabView()
-                .ignoresSafeArea()
+        NavigationView {
+            ZStack{
+                // @TODO: 토큰 검사해서 login or mainview 결정
+                Color.bg.edgesIgnoringSafeArea(.all)
+                LoginView()
+                
+    //            BottomTabView()
+    //                .ignoresSafeArea()
+            }
         }
     }
 }

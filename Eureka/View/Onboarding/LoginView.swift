@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 struct LoginView: View {
-    @State var testToggle = false
+    @StateObject var oauth = Oauth()
     
     var body: some View {
         VStack{
@@ -22,22 +25,21 @@ struct LoginView: View {
             Image("MainIcon")
             Spacer()
                 .frame(height: 120)
-            HStack{
-                Rectangle()
-                    .frame(height: 0.5)
-                    .foregroundColor(.appGray)
-                    .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20))
-                Text("시작하기")
-                    .foregroundColor(.appGray)
-                    .font(.system(size: 12))
-                Rectangle()
-                    .frame(height: 0.5)
-                    .foregroundColor(.appGray)
-                    .padding(.init(top: 0, leading: 20, bottom: 0, trailing: 0))
-            }
+            LongLineText("시작하기")
             .padding(.bottom)
-            OauthLoginButton("KakaoLogin")
-            OauthLoginButton("AppleLogin")
+            NavigationLink(destination: SetProfileView(), tag: true, selection: $oauth.success) {}
+            Button {
+                oauth.kakaoLogin()
+            } label: {
+                Image("KakaoLogin")
+            }
+
+            Button {
+                oauth.appleLogin()
+            } label: {
+                Image("AppleLogin")
+            }
+
             Spacer()
                 .frame(height: 80)
             HStack{
@@ -45,31 +47,39 @@ struct LoginView: View {
                     .foregroundColor(.appGray)
                     .font(.system(size: 12))
                 Button {
-                    testToggle.toggle()
+                    print("로그인하기 버튼")
                 } label: {
                     Text("로그인하기")
                         .foregroundColor(.appGreen)
                         .font(.system(size: 12, weight: .bold))
                         .underline()
                 }
-
             }
-
         }
         .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
     }
 }
 
-struct OauthLoginButton: View {
-    let oauth: String
-    init(_ oauth: String){
-        self.oauth = oauth
+struct LongLineText: View {
+    let text: String
+    
+    init(_ text: String){
+        self.text = text
     }
+    
     var body: some View {
-        Button {
-            //soon
-        } label: {
-            Image(oauth)
+        HStack{
+            Rectangle()
+                .frame(height: 0.5)
+                .foregroundColor(.appGray)
+                .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20))
+            Text(text)
+                .foregroundColor(.appGray)
+                .font(.system(size: 12))
+            Rectangle()
+                .frame(height: 0.5)
+                .foregroundColor(.appGray)
+                .padding(.init(top: 0, leading: 20, bottom: 0, trailing: 0))
         }
     }
 }

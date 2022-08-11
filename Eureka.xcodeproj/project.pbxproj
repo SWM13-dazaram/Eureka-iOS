@@ -36,7 +36,7 @@
 		B9CB93BB28A2273000E0A938 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93BA28A2273000E0A938 /* LoginView.swift */; };
 		B9CB93BD28A23A0F00E0A938 /* SetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93BC28A23A0F00E0A938 /* SetProfileView.swift */; };
 		B9CB93BF28A23FCB00E0A938 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93BE28A23FCB00E0A938 /* ImagePicker.swift */; };
-		B9CB93C128A3661A00E0A938 /* KakaoOauth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93C028A3661A00E0A938 /* KakaoOauth.swift */; };
+		B9CB93C128A3661A00E0A938 /* Oauth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93C028A3661A00E0A938 /* Oauth.swift */; };
 		B9CB93C628A38E6600E0A938 /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9CB93C528A38E6600E0A938 /* KeyInfo.plist */; };
 		B9CB93C828A390B000E0A938 /* Eureka++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93C728A390B000E0A938 /* Eureka++Bundle.swift */; };
 		B9DA0DAA289A33D6000E743F /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DA0DA9289A33D6000E743F /* IngredientDetailView.swift */; };
@@ -84,7 +84,7 @@
 		B9CB93BA28A2273000E0A938 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B9CB93BC28A23A0F00E0A938 /* SetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileView.swift; sourceTree = "<group>"; };
 		B9CB93BE28A23FCB00E0A938 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		B9CB93C028A3661A00E0A938 /* KakaoOauth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoOauth.swift; sourceTree = "<group>"; };
+		B9CB93C028A3661A00E0A938 /* Oauth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oauth.swift; sourceTree = "<group>"; };
 		B9CB93C528A38E6600E0A938 /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		B9CB93C728A390B000E0A938 /* Eureka++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Eureka++Bundle.swift"; sourceTree = "<group>"; };
 		B9DA0DA9289A33D6000E743F /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 				B9E640A1288BEDDA00A0C943 /* MockAPI.swift */,
 				B9E6409E288BEDDA00A0C943 /* IngredientAPI.swift */,
 				B9CB93C528A38E6600E0A938 /* KeyInfo.plist */,
-				B9CB93C028A3661A00E0A938 /* KakaoOauth.swift */,
+				B9CB93C028A3661A00E0A938 /* Oauth.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -404,7 +404,7 @@
 				B959C52228900208005FF7D8 /* ColorExtension.swift in Sources */,
 				B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */,
 				B93D86A3289D409A007C2AF1 /* NotMVPView.swift in Sources */,
-				B9CB93C128A3661A00E0A938 /* KakaoOauth.swift in Sources */,
+				B9CB93C128A3661A00E0A938 /* Oauth.swift in Sources */,
 				B969DADE28923B5E003CF65B /* MockViewModel.swift in Sources */,
 				B9CB93BD28A23A0F00E0A938 /* SetProfileView.swift in Sources */,
 				B9E640A6288BEDDA00A0C943 /* MockAPI.swift in Sources */,

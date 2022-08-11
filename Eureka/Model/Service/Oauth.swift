@@ -6,15 +6,14 @@
 //
 
 
-// 카카오톡 설치 여부 확인
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class KakaoLogin {
+class Oauth: ObservableObject {
+    @Published var success: Bool? = false
     
-    func login(){
-        
+    func kakaoLogin(){
         // 카카오톡 설치 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
@@ -23,12 +22,19 @@ class KakaoLogin {
                 }
                 else {
                     print("loginWithKakaoTalk() success.")
-
                     //do something
-                    _ = oauthToken
+                    guard let token = oauthToken else{
+                        return
+                    }
+                    print("token value : \(token.accessToken)")
+                    self.success = true
                 }
             }
         }
+    }
+    
+    func appleLogin(){
+        
     }
 }
 

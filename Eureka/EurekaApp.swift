@@ -13,20 +13,21 @@ import KakaoSDKAuth
 struct EurekaApp: App {
     
     init() {
-            // Kakao SDK 초기화
+        // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: Bundle.main.KAKAO_API_KEY)
         }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(MockVM()) // mockAPI
-                .environmentObject(AddIngredient())
-                .onOpenURL(perform: { url in
+                .onOpenURL{ url in
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
                     }
-                })
+                }
+                .environmentObject(MockVM()) // mockAPI
+                .environmentObject(AddIngredient())
+                .environmentObject(Oauth())
         }
     }
 }
