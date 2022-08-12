@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IngredientView: View {
     @ObservedObject var mockVM: MockVM
+    @State var revert = false
     
     init(){
         self.mockVM = MockVM()
@@ -26,8 +27,8 @@ struct IngredientView: View {
                             .frame(width: 138, height: 35)
                         Spacer()
                             .frame(height: 40)
-                        NavigationLink {
-                            IngredientAddView()
+                        NavigationLink(isActive: $revert) {
+                            IngredientAddView(revert: $revert)
                         } label: {
                             Image("add")
                         }

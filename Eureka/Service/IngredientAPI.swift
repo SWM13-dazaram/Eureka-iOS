@@ -4,10 +4,11 @@ import Moya
 
 enum IngredientAPI {
     case findAllUserIngredient //not API
-    case findAllIngredient
+    case findAllIngredient(categoryId: String)
     case deleteUserIngredient //not API
     case modifyUserIngredient //not API
-    case getSelectedIngredientDetails //not API
+    case getSelectedIngredientInfo(data: [Int])
+    case setSelectedIngredient
     case createCustomIngredient //not API
     case createUserIngredient //not API
 }
@@ -26,8 +27,10 @@ extension IngredientAPI: TargetType {
             return "/user-ingredient"
         case .modifyUserIngredient:
             return "/user-ingerdient"
-        case .getSelectedIngredientDetails:
-            return "ingredient/selected"
+        case .getSelectedIngredientInfo:
+            return "/api/v1/ingredients/selected"
+        case .setSelectedIngredient:
+            return "/api/v1/ingredients/store"
         case .createCustomIngredient:
             return "custom-ingredient"
         case .createUserIngredient:
@@ -41,7 +44,7 @@ extension IngredientAPI: TargetType {
         switch self {
         case .findAllUserIngredient, .findAllIngredient:
             return .get
-        case .getSelectedIngredientDetails, .createCustomIngredient, .createUserIngredient:
+        case .getSelectedIngredientInfo, .setSelectedIngredient, .createCustomIngredient, .createUserIngredient:
             return .post
         case .deleteUserIngredient:
             return .delete
@@ -52,10 +55,14 @@ extension IngredientAPI: TargetType {
     
     var task: Task {
         switch self{
-        case .findAllIngredient:
-            return .requestPlain
+        case .findAllIngredient(let categoryId):
+            return .requestParameters(parameters: ["categoryId" : categoryId], encoding: URLEncoding.queryString)
+        case .getSelectedIngredientInfo(let data):
+            return .requestJSONEncodable(data)
+        case .setSelectedIngredient:
+            return .requestJSONEncodable([UserIngredient].self as! Encodable)
         // FIXME: BE랑 상의후 작성
-        case .findAllUserIngredient, .deleteUserIngredient, .modifyUserIngredient, .getSelectedIngredientDetails, .createCustomIngredient, .createUserIngredient :
+        case .findAllUserIngredient, .deleteUserIngredient, .modifyUserIngredient, .createCustomIngredient, .createUserIngredient :
             return .requestPlain
         }
     }

@@ -11,18 +11,18 @@ import Moya
 class AddIngredient: ObservableObject {
     @Published var selected = [Int : Bool]()
     @Published var userIngredient = [UserIngredient]()
-    let provider = MoyaProvider<API>()
-    var dummyList = [IngredientInfo]()
+    let provider = MoyaProvider<IngredientAPI>()
+//    var dummyList = [IngredientInfo]()
     
     init(){
-        //더미데이터 임시 생성
-        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 1, name: "고구마", icon :"mushroom"), expirePeriod: 22))
-        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 2, name: "새송이버섯", icon :"mushroom"), expirePeriod: 14))
-        let dateCal = DateCalculater()
-        for dummy in dummyList {
-            let ingredientInfo = UserIngredient(id: nil, name: dummy.ingredient.name, insertDate: dateCal.changeDateToStr(date: Date()), expireDate: dateCal.calExpireDate(days: dummy.expirePeriod), memo: "", ingredient: dummy.ingredient)
-            self.userIngredient.append(ingredientInfo)
-        }
+//        //더미데이터 임시 생성
+//        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 1, name: "고구마", icon :"mushroom"), expirePeriod: 22))
+//        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 2, name: "새송이버섯", icon :"mushroom"), expirePeriod: 14))
+//        let dateCal = DateCalculater()
+//        for dummy in dummyList {
+//            let ingredientInfo = UserIngredient(id: nil, name: dummy.ingredient.name, insertDate: dateCal.changeDateToStr(date: Date()), expireDate: dateCal.calExpireDate(days: dummy.expirePeriod), memo: "", ingredient: dummy.ingredient)
+//            self.userIngredient.append(ingredientInfo)
+//        }
         print("@StateObject init()")
     }
     
@@ -46,32 +46,38 @@ class AddIngredient: ObservableObject {
     }
     
     func countSelected() -> Int {
-        let result = selected.filter({(k:Int, v:Bool) -> Bool in return v == true })
+        let result = SelectedIngredientId()
         return result.count
+    }
+    
+    func SelectedIngredientId() -> [Int] {
+        let result = selected.filter({(k:Int, v:Bool) -> Bool in return v == true })
+        return Array(result.keys)
     }
     
     func getDefaultIngredientInfo(){
 
-        
-//        let ingredientInfoList = [IngredientInfo]()
-//        provider.request(.getSelectedIngredient) { response in
-//            switch response {
-//            case .success(let result):
-//                do{
-//                    print(result.data)
-//                    let tmp = try JSONDecoder().decode([IngredientInfo].self, from: result.data)
-//                    defaultIngredientInfo = tmp
-//                }catch(let err){
-//                    print(err.localizedDescription)
-//                }
-//            case .failure(let err):
-//                print(err.localizedDescription)
-//            }
-//        }
-//        for info in ingredientInfoList {
-//            let ingredientInfo = UserIngredient(id: nil, insertDate: 오늘, expireDate: info.expirePeriod, memo: nil, ingredient: info.ingredient)
-//            self.userIngredient.append(contentsOf: ingredientInfo)
-//        }
+        let ingredientId = SelectedIngredientId()
+        print("selected ingredient ID : \(ingredientId)")
+        provider.request(.getSelectedIngredientInfo(data: ingredientId)) { response in
+            switch response {
+            case .success(let result):
+                do{
+                    let data = try JSONDecoder().decode([IngredientInfo].self, from: result.data)
+                    let dateCal = DateCalculater()
+                    let todayString = dateCal.changeDateToStr(date: Date())
+                    let tmpExpireDate = "2022/09/05"
+                    for info in data {
+                        let ingredientInfo = UserIngredient(id: -1, name: "", insertDate: todayString, expireDate: tmpExpireDate, ingredient: info.ingredient)
+                        self.userIngredient.append(ingredientInfo)
+                    }
+                }catch(let err){
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
         
 
         print("userIngredient : \(userIngredient)")

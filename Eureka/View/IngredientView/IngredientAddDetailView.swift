@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IngredientAddDetailView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Binding var revert: Bool
     @EnvironmentObject var addVM: AddIngredient
     @State var selected = 1
     
@@ -34,7 +34,7 @@ struct IngredientAddDetailView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             Spacer()
             Button {
-                self.presentationMode.wrappedValue.dismiss()
+                revert = false
             } label: {
                 BottomButton(text: "저장하기")
             }
@@ -91,7 +91,7 @@ struct CustomForm: View {
 
 struct IngredientAddDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientAddDetailView()
+        IngredientAddDetailView(revert: .constant(true))
             .environmentObject(AddIngredient())
     }
 }

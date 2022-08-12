@@ -68,7 +68,7 @@ struct dateLine: View{
 }
 
 struct IngredientDetailView_Previews: PreviewProvider {
-    static let test = UserIngredient(id: "1", name: "고등어", insertDate: "2022/04/02", expireDate: "2022/09/02", memo: "메모입니다아", ingredient: Ingredient(id: 1, name: "고등어", icon: "https://picsum.photos/50/50"))
+    static let test = UserIngredient(id: 1, name: "고등어", insertDate: "2022/04/02", expireDate: "2022/09/02", memo: "메모입니다아", ingredient: Ingredient(id: 1, name: "고등어", icon: "https://picsum.photos/50/50"))
     
     static var previews: some View {
         IngredientDetailView(test)

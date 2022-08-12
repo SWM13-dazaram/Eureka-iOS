@@ -14,8 +14,7 @@ struct IngredientInfo: Decodable {
 }
 
 struct UserIngredient: Codable {
-//    let id: Int?
-    let id: String? // mockAPI
+    let id: Int
     var name: String
     var insertDate: String
     var expireDate: String
@@ -33,8 +32,7 @@ struct CustomIngredient: Codable {
 }
 
 struct CategoryIngredient: Decodable {
-//    let id: Int
-    let categoryId: String //mockAPI
+    let categoryId: String
     let categoryName: String
     let ingredients: [Ingredient]
     

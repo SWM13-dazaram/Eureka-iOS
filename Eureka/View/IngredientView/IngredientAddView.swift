@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct IngredientAddView: View {
+    @Binding var revert: Bool
     @EnvironmentObject var addVM: AddIngredient
-    @ObservedObject var mockVM: MockVM
-    @State var searchText = ""
-    @State var category = 1
+    @ObservedObject var ingredientVM: IngredientVM
+    @State var search = ""
+    @State var category = "MEAT"
     @State var click = [Ingredient]()
     
-    init(){
-        self.mockVM = MockVM()
-        mockVM.getAllIngredient()
+    init(revert: Binding<Bool>){
+        self._revert = revert
+        self.ingredientVM = IngredientVM()
+        ingredientVM.getAllIngredient()
     }
     
     var body: some View {
@@ -25,40 +27,28 @@ struct IngredientAddView: View {
                 MainTitle("식재료 등록")
                 Spacer()
             }
-            ZStack{
-                RoundedRectangle(cornerRadius: 8)
-                    .strokeBorder(Color.barBackground, lineWidth: 1)
-                    .frame(height: 44)
-                HStack{
-                    TextField("식재료를 검색해보세요", text: $searchText)
-                        .foregroundColor(.appGray)
-                    Spacer()
-                    Image("search")
-                }
-                .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 10))
-            }
+            SearchContiner(placeholder: "식재료를 검색해보세요.", search: $search)
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
-                    ForEach(mockVM.allIngredient, id: \.self.categoryId ){ idx in
+                    ForEach(ingredientVM.allIngredient, id: \.self.categoryId ){ idx in
                         Button {
-                            category = Int(idx.categoryId)!
-                            //mockAPI categoryId String
+                            category = idx.categoryId
                         } label: {
                             Text(idx.categoryName)
                                 .foregroundColor(.white)
                                 .padding(.init(top: 7, leading: 18, bottom: 7, trailing: 18))
-                                .background(Color.appGreen)
+                                .background(category == idx.categoryId ? Color.appGreen : .appGray)
                                 .cornerRadius(20)
                         }
                     }
                 }
             }
             .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
-            CategoryView(ingredient: $mockVM.allIngredient ,category: $category)
+            CategoryView(ingredient: $ingredientVM.allIngredient ,category: $category)
             Spacer()
             if addVM.countSelected() > 0 {
-                NavigationLink {
-                    IngredientAddDetailView()
+                NavigationLink{
+                    IngredientAddDetailView(revert: $revert)
                         .onAppear{
                             addVM.getDefaultIngredientInfo()
                         }
@@ -73,11 +63,11 @@ struct IngredientAddView: View {
 
 struct CategoryView: View{
     @Binding var ingredient: [CategoryIngredient]
-    @Binding var category: Int
+    @Binding var category: String
     
     var body: some View{
         ForEach(ingredient, id: \.self.categoryId){ idx in
-            if category == Int(idx.categoryId)! { //mockAPI categoryId String
+            if category == idx.categoryId {
                 HStack{
                     Text("\(idx.categoryName) 총 \(idx.ingredients.count)개")
                         .font(.system(size: 12))
@@ -112,8 +102,8 @@ struct CategoryView: View{
 
 struct IngredientAddView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientAddView()
-            .environmentObject(MockVM())
+        IngredientAddView(revert: .constant(true))
+            .environmentObject(IngredientVM())
             .environmentObject(AddIngredient())
     }
 }

@@ -36,7 +36,7 @@ struct IngredientUserCustomView: View {
             }
             .listStyle(.plain)
             Button {
-                Text("추가하기 실행 코드작성")
+                
             } label: {
                 BottomButton(text: "추가하기")
             }
