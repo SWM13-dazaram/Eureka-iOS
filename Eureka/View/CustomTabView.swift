@@ -1,16 +1,8 @@
-//
-//  customTabView.swift
-//  Eureka
-//
-//  Created by 김민령 on 2022/07/20.
-//
 
 import SwiftUI
 
 struct CustomTabView: View {
     @State var select = 0
-    @State var title = ""
-    @State var bool = true
     
     init(){
         UITabBar.appearance().backgroundColor = .white
@@ -20,34 +12,40 @@ struct CustomTabView: View {
     var body: some View {
         TabView(selection: $select){
             MainView()
-                .onAppear{
-                    title = ""
-                    bool = true
-                }
+                .navigationTitle("")
+                .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_home")
                     Text("홈")
                 }
                 .tag(0)
             IngredientView()
+                .navigationTitle("")
+                .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_ingredient")
                     Text("식재료")
                 }
                 .tag(1)
             NotMVPView()
+                .navigationTitle("")
+                .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_search")
                     Text("레시피검색")
                 }
                 .tag(2)
             NotMVPView()
+                .navigationTitle("")
+                .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_community")
                     Text("커뮤니티")
                 }
                 .tag(3)
             NotMVPView()
+                .navigationTitle("")
+                .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_my")
                     Text("마이페이지")
@@ -55,13 +53,11 @@ struct CustomTabView: View {
                 .tag(4)
         }
         .accentColor(.appGreen)
-        .navigationTitle(title)
-        .navigationBarHidden(bool)
 
     }
 }
 
-struct customTabView_Previews: PreviewProvider {
+struct CustomTabView_Previews: PreviewProvider {
     static var previews: some View {
         CustomTabView()
             .environmentObject(MockVM())
