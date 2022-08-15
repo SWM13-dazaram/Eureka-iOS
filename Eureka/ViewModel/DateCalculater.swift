@@ -32,10 +32,10 @@ class DateCalculater {
         return Calendar.current.date(from: date)!
     }
     
-    func calExpireDate(days: Int) -> String{
+    func calExpireDate(days: Int) -> Date{
         let today = Date()
         let date = Calendar.current.date(byAdding: .day, value: days, to: today)
-        return changeDateToStr(date: date!)
+        return date!
     }
     
     func changeDateToStr(date: Date) -> String{
@@ -43,4 +43,5 @@ class DateCalculater {
         dateFormatter.dateFormat = "YYYY/MM/dd"
         return dateFormatter.string(from: date)
     }
+    
 }

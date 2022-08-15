@@ -10,40 +10,49 @@ import SwiftUI
 struct IngredientAddDetailView: View {
     @Binding var revert: Bool
     @EnvironmentObject var addVM: AddIngredient
-    @State var selected = 1
+    @State var selected = 0
+    @State var alert = false
     
     var body: some View {
         VStack{
             Spacer()
             HStack{
-                MainTitle("세부정보 입력 (\(selected)/\(addVM.userIngredient.count))")
+                MainTitle("세부정보 입력 (\(selected+1)/\(addVM.userIngredient.count))")
                 Spacer()
             }
             HStack{
                 Text("총 \(addVM.userIngredient.count)개의 식재료의 정보를 입력해주세요.")
                     .font(.system(size: 13))
                     .foregroundColor(.appBlack)
-                    .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
                 Spacer()
             }
             TabView(selection: $selected){
-                ForEach(addVM.userIngredient, id:\.self.ingredient.id) { data in
-                    IngredientForm(formData: data)
+                ForEach(addVM.userIngredient.indices, id: \.self) { index in
+                    IngredientForm(formData: $addVM.userIngredient[index])
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             Spacer()
             Button {
-                revert = false
+                alert = true
             } label: {
                 BottomButton(text: "저장하기")
             }
+            .alert("저장", isPresented: $alert, actions: {
+                Button {
+                    revert = false
+                } label: {
+                    Text("OK")
+                        .foregroundColor(.appGreen)
+                }
+            })
+        .padding(.horizontal, 30)
         }
     }
 }
 
 struct IngredientForm: View {
-    @State var formData: UserIngredient
+    @Binding var formData: UserIngredient
     @State var expire = Date()
     @State var today = Date()
     let dateCal = DateCalculater()
@@ -53,16 +62,18 @@ struct IngredientForm: View {
         VStack{
             IngredientIcon(formData.ingredient.icon, size: 84)
                 .padding(.bottom)
-            CustomForm(title: "품목명", text: $formData.ingredient.name)
+            CustomForm(title: "품목명", text: $formData.name)
             DateForm(title: "등록일", range: Date()..., date: $today)
                 .disabled(true)
             DateForm(title: "유통기한", range: Date()..., date: $expire)
+                .onChange(of: self.expire) { newValue in
+                    formData.expireDate = dateCal.changeDateToStr(date: self.expire)
+                }
             CustomForm(title: "메모" , text: $formData.memo)
         }
         .onAppear{
             expire = dateCal.changeStrToDate(str: formData.expireDate)
         }
-        .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
     }
 }
 

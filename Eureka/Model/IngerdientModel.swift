@@ -10,7 +10,7 @@ struct Ingredient: Codable, Identifiable {
 
 struct IngredientInfo: Decodable {
     let ingredient: Ingredient
-    let expirePeriod: Int
+    let expirePeriod: Int?
 }
 
 struct UserIngredient: Codable {

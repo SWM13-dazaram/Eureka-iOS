@@ -8,7 +8,7 @@ enum IngredientAPI {
     case deleteUserIngredient //not API
     case modifyUserIngredient //not API
     case getSelectedIngredientInfo(data: [Int])
-    case setSelectedIngredient
+    case setSelectedIngredient(data: [UserIngredient])
     case createCustomIngredient //not API
     case createUserIngredient //not API
 }
@@ -59,8 +59,8 @@ extension IngredientAPI: TargetType {
             return .requestParameters(parameters: ["categoryId" : categoryId], encoding: URLEncoding.queryString)
         case .getSelectedIngredientInfo(let data):
             return .requestJSONEncodable(data)
-        case .setSelectedIngredient:
-            return .requestJSONEncodable([UserIngredient].self as! Encodable)
+        case .setSelectedIngredient(let data):
+            return .requestJSONEncodable(data)
         // FIXME: BE랑 상의후 작성
         case .findAllUserIngredient, .deleteUserIngredient, .modifyUserIngredient, .createCustomIngredient, .createUserIngredient :
             return .requestPlain

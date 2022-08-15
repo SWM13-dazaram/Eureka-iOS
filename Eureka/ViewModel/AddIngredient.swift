@@ -12,17 +12,8 @@ class AddIngredient: ObservableObject {
     @Published var selected = [Int : Bool]()
     @Published var userIngredient = [UserIngredient]()
     let provider = MoyaProvider<IngredientAPI>()
-//    var dummyList = [IngredientInfo]()
     
     init(){
-//        //더미데이터 임시 생성
-//        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 1, name: "고구마", icon :"mushroom"), expirePeriod: 22))
-//        dummyList.append(IngredientInfo(ingredient: Ingredient(id: 2, name: "새송이버섯", icon :"mushroom"), expirePeriod: 14))
-//        let dateCal = DateCalculater()
-//        for dummy in dummyList {
-//            let ingredientInfo = UserIngredient(id: nil, name: dummy.ingredient.name, insertDate: dateCal.changeDateToStr(date: Date()), expireDate: dateCal.calExpireDate(days: dummy.expirePeriod), memo: "", ingredient: dummy.ingredient)
-//            self.userIngredient.append(ingredientInfo)
-//        }
         print("@StateObject init()")
     }
     
@@ -56,19 +47,26 @@ class AddIngredient: ObservableObject {
     }
     
     func getDefaultIngredientInfo(){
-
+        
+        userIngredient = []
         let ingredientId = SelectedIngredientId()
         print("selected ingredient ID : \(ingredientId)")
         provider.request(.getSelectedIngredientInfo(data: ingredientId)) { response in
             switch response {
             case .success(let result):
                 do{
+                    print("getSelectedIngredientInfo success : \(result)")
                     let data = try JSONDecoder().decode([IngredientInfo].self, from: result.data)
+                    print("getSelectedIngredientInfo parsing : \(data)")
                     let dateCal = DateCalculater()
                     let todayString = dateCal.changeDateToStr(date: Date())
-                    let tmpExpireDate = "2022/09/05"
+                    var expireString = dateCal.changeDateToStr(date: Date())
                     for info in data {
-                        let ingredientInfo = UserIngredient(id: -1, name: "", insertDate: todayString, expireDate: tmpExpireDate, ingredient: info.ingredient)
+                        if info.expirePeriod != nil {
+                            let tmp = dateCal.calExpireDate(days: info.expirePeriod!)
+                            expireString = dateCal.changeDateToStr(date: tmp)
+                        }
+                        let ingredientInfo = UserIngredient(id: -1, name: info.ingredient.name, insertDate: todayString, expireDate: expireString, ingredient: info.ingredient)
                         self.userIngredient.append(ingredientInfo)
                     }
                 }catch(let err){
@@ -78,10 +76,30 @@ class AddIngredient: ObservableObject {
                 print(err.localizedDescription)
             }
         }
-        
-
-        print("userIngredient : \(userIngredient)")
-        
     }
     
+    func setIngredientData() -> Bool{
+        var returnValue = true
+        
+        provider.request(.setSelectedIngredient(data: userIngredient)) {
+            response in
+            switch response {
+            case .success(let result):
+                do{
+                    print("setSelectedIngredient success : \(result)")
+                    let data = try JSONDecoder().decode([Int].self, from: result.data)
+                    print("setSelectedIngredient response : \(data)")
+                }catch(let err){
+                    returnValue = false
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                returnValue = false
+                print(err.localizedDescription)
+            }
+        }
+        selected = [:]
+        userIngredient = []
+        return returnValue
+    }
 }
