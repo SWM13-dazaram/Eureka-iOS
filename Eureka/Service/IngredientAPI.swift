@@ -3,10 +3,10 @@ import Foundation
 import Moya
 
 enum IngredientAPI {
-    case findAllUserIngredient //not API
+    case findAllUserIngredient
     case findAllIngredient(categoryId: String)
-    case deleteUserIngredient //not API
-    case modifyUserIngredient //not API
+    case deleteUserIngredient(userIngredientId: Int)
+    case updateUserIngredient(UserIngredient: UserIngredient)
     case getSelectedIngredientInfo(data: [Int])
     case setSelectedIngredient(data: [UserIngredient])
     case createCustomIngredient //not API
@@ -22,11 +22,11 @@ extension IngredientAPI: TargetType {
     var path: String {
         switch self {
         case .findAllUserIngredient:
-            return "/user-ingredient"
-        case .deleteUserIngredient:
-            return "/user-ingredient"
-        case .modifyUserIngredient:
-            return "/user-ingerdient"
+            return "/api/v1/user-ingredients"
+        case .deleteUserIngredient(let userIngredientId):
+            return "/api/v1/user-ingredients/\(userIngredientId)"
+        case .updateUserIngredient:
+            return "api/v1/user-ingredients"
         case .getSelectedIngredientInfo:
             return "/api/v1/ingredients/selected"
         case .setSelectedIngredient:
@@ -48,7 +48,7 @@ extension IngredientAPI: TargetType {
             return .post
         case .deleteUserIngredient:
             return .delete
-        case .modifyUserIngredient:
+        case .updateUserIngredient:
             return .put
         }
     }
@@ -61,8 +61,9 @@ extension IngredientAPI: TargetType {
             return .requestJSONEncodable(data)
         case .setSelectedIngredient(let data):
             return .requestJSONEncodable(data)
-        // FIXME: BE랑 상의후 작성
-        case .findAllUserIngredient, .deleteUserIngredient, .modifyUserIngredient, .createCustomIngredient, .createUserIngredient :
+        case .updateUserIngredient(let data):
+            return .requestJSONEncodable(data)
+        case .findAllUserIngredient, .deleteUserIngredient, .createCustomIngredient, .createUserIngredient :
             return .requestPlain
         }
     }

@@ -1,6 +1,7 @@
 
 import Foundation
 import Moya
+import SwiftUI
 
 class IngredientVM: ObservableObject {
     let provider = MoyaProvider<IngredientAPI>()
@@ -41,6 +42,18 @@ class IngredientVM: ObservableObject {
                 }catch(let err){
                     print("getAllIngredient error: \(err.localizedDescription)")
                 }
+            case .failure(let err):
+                print("getAllIngredient failure error: \(err.localizedDescription)")
+            }
+        }
+    }
+    
+    func deleteUserIngredient(index: Int){
+        let data = userIngredient[index].id
+        provider.request(.deleteUserIngredient(userIngredientId: data)) { response in
+            switch response {
+            case .success(let result):
+                print("deleteUserIngredient: \(result.description)")
             case .failure(let err):
                 print("getAllIngredient failure error: \(err.localizedDescription)")
             }
