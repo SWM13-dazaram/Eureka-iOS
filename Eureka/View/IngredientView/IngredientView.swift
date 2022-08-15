@@ -8,38 +8,39 @@
 import SwiftUI
 
 struct IngredientView: View {
-    @ObservedObject var mockVM: MockVM
+    @ObservedObject var ingredientVM: IngredientVM
     @State var revert = false
     
     init(){
-        self.mockVM = MockVM()
-        mockVM.getUserIngredient()
+        self.ingredientVM = IngredientVM()
+        ingredientVM.getUserIngredient()
     }
     
     var body: some View {
             ZStack{
                 Color.bg
                     .ignoresSafeArea()
-                VStack(alignment:.leading){
+                VStack{
                     Spacer()
-                    HStack{
-                        MainTitle("식재료 보관함")
-                            .frame(width: 138, height: 35)
-                        Spacer()
-                            .frame(height: 40)
-                        NavigationLink(isActive: $revert) {
-                            IngredientAddView(revert: $revert)
-                        } label: {
-                            Image("add")
+                    VStack(alignment: .leading){
+                        HStack{
+                            MainTitle("식재료 보관함")
+                                .frame(width: 138, height: 35)
+                            Spacer()
+                                .frame(height: 40)
+                            NavigationLink(isActive: $revert) {
+                                IngredientAddView(revert: $revert)
+                            } label: {
+                                Image("add")
+                            }
                         }
-                        .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 30))
+                        Text(" 총 \(ingredientVM.userIngredient.count)개")
+                            .font(.system(size: 15))
+                            .foregroundColor(.title)
                     }
-                    Text(" 총 \(mockVM.userIngredient.count)개")
-                        .offset(x:30)
-                        .font(.system(size: 15))
-                        .foregroundColor(.title)
+                    .padding(.horizontal, 30)
                     List{
-                        ForEach(mockVM.userIngredient, id: \.self.id){
+                        ForEach(ingredientVM.userIngredient, id: \.self.id){
                             data in
                             NavigationLink {
                                 IngredientDetailView(data)
@@ -48,17 +49,25 @@ struct IngredientView: View {
                                     .listRowBackground(Color.bg)
                             }
                         }
-                        .onDelete(perform: removeList)
+                        .onDelete(perform: removeRow)
                     }
                     .listStyle(PlainListStyle())
                 }
             }
+            .onAppear {
+                //스크롤 부드럽게
+                UIScrollView.appearance().isPagingEnabled = false
+            }
             .navigationBarHidden(true)
     }
     
-    func removeList(at offsets: IndexSet){
-        mockVM.userIngredient.remove(atOffsets: offsets)
+    func removeRow(at offsets: IndexSet){
+        for index in offsets {
+            ingredientVM.deleteUserIngredient(index: index)
+        }
+        ingredientVM.userIngredient.remove(atOffsets: offsets)
         // @TODO: API로도 삭제 요청하기
+        
     }
 }
 

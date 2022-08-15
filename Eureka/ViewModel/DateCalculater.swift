@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class DateCalculater {
     
@@ -42,6 +43,16 @@ class DateCalculater {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY/MM/dd"
         return dateFormatter.string(from: date)
+    }
+    
+    func ingredientColor(days: Int) -> Color{
+        var returnColor = Color.appGreen
+        if days < 0 {
+            returnColor = Color.appRed
+        }else if days < 7 {
+            returnColor = Color.appOrange
+        }
+        return returnColor
     }
     
 }
