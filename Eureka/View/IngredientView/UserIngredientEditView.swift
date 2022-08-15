@@ -40,7 +40,7 @@ struct UserIngredientEditView: View {
                     Text("수정되었습니다.")
                 }
             }
-            
         }
+        .padding(.horizontal, 30)
     }
 }

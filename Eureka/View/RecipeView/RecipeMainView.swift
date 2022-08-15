@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+// @TODO: BUGFIX ING..
 struct ReplaceView: View {
     @ObservedObject var mockVM : MockVM
     let proxy: GeometryProxy
+//    @State var selected = 0
     
     init(proxy: GeometryProxy){
         self.proxy = proxy
@@ -38,6 +40,21 @@ struct ReplaceView: View {
         .onAppear {
             UIScrollView.appearance().isPagingEnabled = true
         }
+//        TabView(selection: $selected){
+//            ForEach(mockVM.replaced, id: \.self.id) { idx in
+//                NavigationLink {
+//                    RecipeDetailView(recipe: idx)
+//    //                            .ignoresSafeArea()
+//                        .onAppear {
+//                            UIScrollView.appearance().isPagingEnabled = false
+//                        }
+//                } label: {
+//                    Content(recipe: idx, proxy: proxy)
+//                        .frame(width: proxy.size.width)
+//                }
+//            }
+//        }
+//        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
 }
 

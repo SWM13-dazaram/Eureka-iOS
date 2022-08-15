@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var main = false
+    @State var main = true
     var body: some View {
-        NavigationView {
-//            ZStack{
-//                // @TODO: 토큰 검사해서 login or mainview 결정
-//                Color.bg.edgesIgnoringSafeArea(.all)
-//
-//            }
-            if main {
-                CustomTabView()
-                    .ignoresSafeArea()
-            }
-            else{
-                LoginView(main: $main)
-//                SetProfileView(complete: $main)
+        ZStack{
+            // @TODO: 토큰 검사해서 login or mainview 결정
+            Color.bg.edgesIgnoringSafeArea(.all)
+            NavigationView {
+                
+                if main {
+                    CustomTabView()
+                }
+                else{
+                    LoginView(main: $main)
+                    //                SetProfileView(complete: $main)
+                }
             }
         }
     }

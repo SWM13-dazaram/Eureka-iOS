@@ -47,8 +47,8 @@ struct IngredientAddDetailView: View {
                         .foregroundColor(.appGreen)
                 }
             })
-        .padding(.horizontal, 30)
         }
+        .padding(.horizontal, 30)
     }
 }
 

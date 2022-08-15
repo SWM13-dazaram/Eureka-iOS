@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
-//    @ObservedObject var mockVM: MockVM
+    @ObservedObject var mockVM = MockVM()
     @State var selectedIndex = true
     var tmp = DateCalculater()
+//    @State var loading = true
     
     var body: some View {
         ZStack{
@@ -28,16 +29,22 @@ struct MainView: View {
                         TitleTabView($selectedIndex)
                         switch selectedIndex {
                         case true:
-                            ReplaceView()
+                            ReplaceView(proxy: proxy)
                         case false:
-                            ExpireDateView()
+                            ExpireDateView(proxy: proxy)
                         }
                     }
-                    .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
-                    .frame(height: proxy.size.height)
+
                 }
             }
+            .padding(.init(top: 10, leading: 30, bottom: 0, trailing: 30))
         }
+//        .overlay(loading ? LoadingView() : nil)
+//        .onAppear {
+//            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+//                loading=false
+//            }
+//        }
     }
 }
 
