@@ -8,20 +8,6 @@
 import SwiftUI
 import Kingfisher
 
-//struct LoadImage: View {
-//    @ObservedObject var loader: ImageLoader
-//
-//    var body: some View {
-//        Image(uiImage: loader.image ?? UIImage())
-//            .resizable()
-//    }
-//
-//    init(_ url: String){
-//        self.loader = ImageLoader(url: url)
-//    }
-//
-//}
-
 struct LoadImage: View {
     let url: String
     init(_ url : String){
