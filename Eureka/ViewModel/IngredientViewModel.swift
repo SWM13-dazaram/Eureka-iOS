@@ -59,4 +59,15 @@ class IngredientVM: ObservableObject {
             }
         }
     }
+    
+    func updateUserIngredient(data: UserIngredient){
+        provider.request(.updateUserIngredient(UserIngredient: data)) { response in
+            switch response {
+            case .success(let result):
+                print("updateUserIngredient:  \(result.description)")
+            case .failure(let err):
+                print("updateUserIngredient failure error: \(err.localizedDescription)")
+            }
+        }
+    }
 }

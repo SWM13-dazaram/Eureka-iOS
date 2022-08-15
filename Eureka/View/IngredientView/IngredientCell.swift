@@ -16,7 +16,7 @@ struct ingredientCell : View {
                 .padding(.trailing, 5)
             VStack{
                 HStack{
-                    Text(userData.ingredient.name)
+                    Text(userData.name)
                         .font(.system(size: 14))
                         .foregroundColor(.appBlack)
                     Spacer()

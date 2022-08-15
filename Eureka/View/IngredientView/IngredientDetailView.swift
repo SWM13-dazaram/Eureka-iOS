@@ -8,21 +8,32 @@
 import SwiftUI
 
 struct IngredientDetailView: View {
-    let userIngredient: UserIngredient
+    @State var userIngredient: UserIngredient
+    @Binding var revert: Bool
     
-    init(_ userIngredient: UserIngredient){
+    init(_ userIngredient: UserIngredient, revert: Binding<Bool>){
         self.userIngredient = userIngredient
+        self._revert = revert
     }
     
     var body: some View {
         VStack{
             Spacer()
                 .frame(height:50)
+                .toolbar {
+                    ToolbarItem{
+                        NavigationLink {
+                            UserIngredientEditView(userIngredient, revert: $revert)
+                        } label: {
+                            Image("edit")
+                        }
+                    }
+                }
             HStack{
                 IngredientIcon(userIngredient.ingredient.icon, size: 78)
                 VStack{
                     HStack{
-                        Text(userIngredient.ingredient.name)
+                        Text(userIngredient.name)
                             .foregroundColor(.appBlack)
                             .font(.system(size: 18))
                             .bold()
@@ -67,10 +78,10 @@ struct dateLine: View{
     }
 }
 
-struct IngredientDetailView_Previews: PreviewProvider {
-    static let test = UserIngredient(id: 1, name: "고등어", insertDate: "2022/04/02", expireDate: "2022/09/02", memo: "메모입니다아", ingredient: Ingredient(id: 1, name: "고등어", icon: "https://picsum.photos/50/50"))
-    
-    static var previews: some View {
-        IngredientDetailView(test)
-    }
-}
+//struct IngredientDetailView_Previews: PreviewProvider {
+//    static let test = UserIngredient(id: 1, name: "고등어", insertDate: "2022/04/02", expireDate: "2022/09/02", memo: "메모입니다아", ingredient: Ingredient(id: 1, name: "고등어", icon: "https://picsum.photos/50/50"))
+//
+//    static var previews: some View {
+//        IngredientDetailView(test)
+//    }
+//}

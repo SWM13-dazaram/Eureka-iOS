@@ -15,6 +15,8 @@
 		B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D572897B4140087C537 /* RecipeComponents.swift */; };
 		B9259D5A2897C6280087C537 /* RecipeIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D592897C6280087C537 /* RecipeIngredientCell.swift */; };
 		B9259D5C2897DD680087C537 /* IngredientIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D5B2897DD680087C537 /* IngredientIcon.swift */; };
+		B92C6ECF28AA35AA002FB016 /* IngredientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C6ECE28AA35AA002FB016 /* IngredientForm.swift */; };
+		B92C6ED128AA3811002FB016 /* UserIngredientEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C6ED028AA3811002FB016 /* UserIngredientEditView.swift */; };
 		B93D869B289B76E2007C2AF1 /* AddIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D869A289B76E2007C2AF1 /* AddIngredient.swift */; };
 		B93D869D289BC63B007C2AF1 /* BottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D869C289BC63B007C2AF1 /* BottomButton.swift */; };
 		B93D869F289BCE98007C2AF1 /* IngredientAddDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D869E289BCE98007C2AF1 /* IngredientAddDetailView.swift */; };
@@ -63,6 +65,8 @@
 		B9259D572897B4140087C537 /* RecipeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponents.swift; sourceTree = "<group>"; };
 		B9259D592897C6280087C537 /* RecipeIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredientCell.swift; sourceTree = "<group>"; };
 		B9259D5B2897DD680087C537 /* IngredientIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientIcon.swift; sourceTree = "<group>"; };
+		B92C6ECE28AA35AA002FB016 /* IngredientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientForm.swift; sourceTree = "<group>"; };
+		B92C6ED028AA3811002FB016 /* UserIngredientEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIngredientEditView.swift; sourceTree = "<group>"; };
 		B93D869A289B76E2007C2AF1 /* AddIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredient.swift; sourceTree = "<group>"; };
 		B93D869C289BC63B007C2AF1 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
 		B93D869E289BCE98007C2AF1 /* IngredientAddDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientAddDetailView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				B9259D5B2897DD680087C537 /* IngredientIcon.swift */,
 				B9DA0DAD289A74C4000E743F /* IngredientButton.swift */,
 				B9230AAB289FED1C00F7C7D2 /* DateForm.swift */,
+				B92C6ECE28AA35AA002FB016 /* IngredientForm.swift */,
 			);
 			path = ingredient;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				B9DA0DAB289A4023000E743F /* IngredientAddView.swift */,
 				B93D869E289BCE98007C2AF1 /* IngredientAddDetailView.swift */,
 				B93D86A0289D3FC7007C2AF1 /* IngredientUserCustomView.swift */,
+				B92C6ED028AA3811002FB016 /* UserIngredientEditView.swift */,
 			);
 			path = IngredientView;
 			sourceTree = "<group>";
@@ -225,8 +231,8 @@
 				B9CB93C728A390B000E0A938 /* Eureka++Bundle.swift */,
 				B9E64094288BED9600A0C943 /* View */,
 				B95691FC287E8F2900719602 /* ViewModel */,
-				B9E6409D288BEDDA00A0C943 /* Model */,
 				B9CB93C228A36BE000E0A938 /* Service */,
+				B9E6409D288BEDDA00A0C943 /* Model */,
 				B98BBBCD287BE28B00A72257 /* Preview Content */,
 			);
 			path = Eureka;
@@ -426,11 +432,13 @@
 				B93D869F289BCE98007C2AF1 /* IngredientAddDetailView.swift in Sources */,
 				B969DADC28923A20003CF65B /* IngredientView.swift in Sources */,
 				B969DAE0289246AA003CF65B /* DateCalculater.swift in Sources */,
+				B92C6ED128AA3811002FB016 /* UserIngredientEditView.swift in Sources */,
 				B9E640A5288BEDDA00A0C943 /* IngerdientModel.swift in Sources */,
 				B9230AAC289FED1C00F7C7D2 /* DateForm.swift in Sources */,
 				B9CB93C828A390B000E0A938 /* Eureka++Bundle.swift in Sources */,
 				B93D86A1289D3FC7007C2AF1 /* IngredientUserCustomView.swift in Sources */,
 				B9259D562897AC490087C537 /* RecipeDetailView.swift in Sources */,
+				B92C6ECF28AA35AA002FB016 /* IngredientForm.swift in Sources */,
 				B9E640A3288BEDDA00A0C943 /* IngredientAPI.swift in Sources */,
 				B9DA0DAA289A33D6000E743F /* IngredientDetailView.swift in Sources */,
 				B93D869B289B76E2007C2AF1 /* AddIngredient.swift in Sources */,

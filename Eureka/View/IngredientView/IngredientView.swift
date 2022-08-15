@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct IngredientView: View {
-    @ObservedObject var ingredientVM: IngredientVM
-    @State var revert = false
+    @ObservedObject var ingredientVM = IngredientVM()
+    @State var addView = false
+    @State var editView = false
     
-    init(){
-        self.ingredientVM = IngredientVM()
-        ingredientVM.getUserIngredient()
-    }
+//    init(){
+//        self.ingredientVM = IngredientVM()
+//        ingredientVM.getUserIngredient()
+//    }
     
     var body: some View {
             ZStack{
@@ -28,8 +29,8 @@ struct IngredientView: View {
                                 .frame(width: 138, height: 35)
                             Spacer()
                                 .frame(height: 40)
-                            NavigationLink(isActive: $revert) {
-                                IngredientAddView(revert: $revert)
+                            NavigationLink(isActive: $addView) {
+                                IngredientAddView(revert: $addView)
                             } label: {
                                 Image("add")
                             }
@@ -42,8 +43,8 @@ struct IngredientView: View {
                     List{
                         ForEach(ingredientVM.userIngredient, id: \.self.id){
                             data in
-                            NavigationLink {
-                                IngredientDetailView(data)
+                            NavigationLink(isActive: $editView) {
+                                IngredientDetailView(data, revert: $editView)
                             } label: {
                                 ingredientCell(data)
                                     .listRowBackground(Color.bg)
@@ -51,6 +52,9 @@ struct IngredientView: View {
                         }
                         .onDelete(perform: removeRow)
                     }
+                    .onAppear(perform: {
+                        ingredientVM.getUserIngredient()
+                    })
                     .listStyle(PlainListStyle())
                 }
             }
@@ -66,8 +70,6 @@ struct IngredientView: View {
             ingredientVM.deleteUserIngredient(index: index)
         }
         ingredientVM.userIngredient.remove(atOffsets: offsets)
-        // @TODO: API로도 삭제 요청하기
-        
     }
 }
 
