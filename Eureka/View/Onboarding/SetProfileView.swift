@@ -13,6 +13,7 @@ struct SetProfileView: View {
     @State var selectedUIImage: UIImage?
     @State var image = Image("profileDefault")
     @State var name = ""
+    @Binding var complete: Bool
     
     func loadImage() {
         guard let selectedImage = selectedUIImage else { return }
@@ -27,7 +28,6 @@ struct SetProfileView: View {
                 Spacer()
             }
             ZStack{
-                //@TODO: 크기 조절하기
                 image
                     .resizable()
                     .frame(width: 100, height: 100)
@@ -64,18 +64,12 @@ struct SetProfileView: View {
             // @TODO: 중복체크 기능 넣은 후 코드 변경
             if name != "" {
                 Button {
-                    
+                    complete = true
                 } label: {
                     BottomButton(text: "완료")
                 }
             }
         }
         .padding(.init(top: 30, leading: 30, bottom: 0, trailing: 30))
-    }
-}
-
-struct SetProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        SetProfileView()
     }
 }

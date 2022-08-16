@@ -35,9 +35,9 @@ struct IngredientAddView: View {
                             category = idx.categoryId
                         } label: {
                             Text(idx.categoryName)
-                                .foregroundColor(.white)
+                                .foregroundColor(category == idx.categoryId ? .white : Color.appGray)
                                 .padding(.init(top: 7, leading: 18, bottom: 7, trailing: 18))
-                                .background(category == idx.categoryId ? Color.appGreen : .appGray)
+                                .background(category == idx.categoryId ? Color.appGreen : .barBackground)
                                 .cornerRadius(20)
                         }
                     }
@@ -92,6 +92,7 @@ struct CategoryView: View{
                         ForEach(idx.ingredients , id: \.self.id){ item in
                             IngredientButton(item)
                         }
+                        .fixedSize(horizontal: true, vertical: false)
                     }
                     .padding(.top)
                 }
