@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct IngredientIcon : View {
-    let image: Image
+    let image: LoadImage
     let days: Int
     let size: CGFloat
     let dateCal = DateCalculater()
     
-    init(_ name: String, _ days: Int = 0, size: CGFloat = 48){
-        self.image = Image(name)
+    init(_ url: String, _ days: Int = 0, size: CGFloat = 48){
+        self.image = LoadImage(url)
         self.days = days
         self.size = size
     }
@@ -19,6 +19,7 @@ struct IngredientIcon : View {
                 .frame(width: size, height: size)
             image
                 .frame(width: size, height: size)
+                .clipShape(Circle())
             if(days<0){
                 Image("alert")
                     .offset(x:20,y:-20)

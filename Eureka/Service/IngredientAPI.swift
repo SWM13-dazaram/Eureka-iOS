@@ -6,11 +6,12 @@ enum IngredientAPI {
     case findAllUserIngredient
     case findAllIngredient(categoryId: String)
     case deleteUserIngredient(userIngredientId: Int)
-    case updateUserIngredient(UserIngredient: UserIngredient)
+    case updateUserIngredient(data: UserIngredient)
     case getSelectedIngredientInfo(data: [Int])
     case setSelectedIngredient(data: [UserIngredient])
-    case createCustomIngredient //not API
-    case createUserIngredient //not API
+    case createCustomIngredient(data: UserIngredient)
+    case getIngredientCategories
+    case getRepresentationIngredient
 }
 
 extension IngredientAPI: TargetType {
@@ -32,19 +33,22 @@ extension IngredientAPI: TargetType {
         case .setSelectedIngredient:
             return "/api/v1/ingredients/store"
         case .createCustomIngredient:
-            return "custom-ingredient"
-        case .createUserIngredient:
-            return "/user-ingredient"
+            return "/api/v1/custom-ingredients"
         case .findAllIngredient:
             return "/api/v1/ingredients/categories"
+            // FIXME: API 완료 후 수정
+        case .getIngredientCategories:
+            return "/api/v1/ingredients-categories"
+        case .getRepresentationIngredient:
+            return "/api/v1/ingredients/representation"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .findAllUserIngredient, .findAllIngredient:
+        case .findAllUserIngredient, .findAllIngredient, .getIngredientCategories, .getRepresentationIngredient:
             return .get
-        case .getSelectedIngredientInfo, .setSelectedIngredient, .createCustomIngredient, .createUserIngredient:
+        case .getSelectedIngredientInfo, .setSelectedIngredient, .createCustomIngredient:
             return .post
         case .deleteUserIngredient:
             return .delete
@@ -61,9 +65,9 @@ extension IngredientAPI: TargetType {
             return .requestJSONEncodable(data)
         case .setSelectedIngredient(let data):
             return .requestJSONEncodable(data)
-        case .updateUserIngredient(let data):
+        case .updateUserIngredient(let data), .createCustomIngredient(let data):
             return .requestJSONEncodable(data)
-        case .findAllUserIngredient, .deleteUserIngredient, .createCustomIngredient, .createUserIngredient :
+        case .findAllUserIngredient, .deleteUserIngredient , .getIngredientCategories, .getRepresentationIngredient:
             return .requestPlain
         }
     }

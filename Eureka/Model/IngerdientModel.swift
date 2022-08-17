@@ -24,7 +24,7 @@ struct UserIngredient: Codable {
 }
 
 struct CustomIngredient: Codable {
-    let category: String?
+    let category: Category
     let ingredientName: String
     let enrollmentData: String
     let expireData: String
@@ -32,10 +32,17 @@ struct CustomIngredient: Codable {
 }
 
 struct CategoryIngredient: Decodable {
+    //FIXME: API 수정되면 변경
     let categoryId: String
     let categoryName: String
+//    let category: Category
     let ingredients: [Ingredient]
     
+}
+
+struct Category: Codable {
+    let id: String
+    let name: String
 }
 
 

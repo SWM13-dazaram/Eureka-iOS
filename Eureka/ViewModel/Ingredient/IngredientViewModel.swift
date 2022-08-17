@@ -27,7 +27,6 @@ class IngredientVM: ObservableObject {
                 print(err.localizedDescription)
             }
         }
-
     }
 
     func getAllIngredient(){
@@ -61,7 +60,7 @@ class IngredientVM: ObservableObject {
     }
     
     func updateUserIngredient(data: UserIngredient){
-        provider.request(.updateUserIngredient(UserIngredient: data)) { response in
+        provider.request(.updateUserIngredient(data: data)) { response in
             switch response {
             case .success(let result):
                 print("updateUserIngredient:  \(result.description)")
