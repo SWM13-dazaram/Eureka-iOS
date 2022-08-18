@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "mushroom.png",
+      "filename" : "fruit.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mushroom@2x.png",
+      "filename" : "fruit@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mushroom@3x.png",
+      "filename" : "fruit@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

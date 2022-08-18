@@ -1,13 +1,15 @@
 import SwiftUI
 
 struct IngredientIcon : View {
-    let image: LoadImage
+//    let image: LoadImage
+    let image: Image
     let days: Int
     let size: CGFloat
     let dateCal = DateCalculater()
     
     init(_ url: String, _ days: Int = 0, size: CGFloat = 48){
-        self.image = LoadImage(url)
+//        self.image = LoadImage(url)
+        self.image = Image(url)
         self.days = days
         self.size = size
     }
@@ -26,5 +28,4 @@ struct IngredientIcon : View {
             }
         }
     }
-    
 }

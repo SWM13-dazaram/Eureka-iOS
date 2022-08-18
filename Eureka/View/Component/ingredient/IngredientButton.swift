@@ -32,10 +32,10 @@ struct IngredientButton: View {
                     }
                 }
                 Text(ingredient.name)
+                    .lineLimit(1)
                     .font(.system(size: 11))
                     .foregroundColor(.appGray)
             }
-
         }
     }
 }
