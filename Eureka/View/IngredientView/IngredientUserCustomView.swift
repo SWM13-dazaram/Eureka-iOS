@@ -20,6 +20,8 @@ struct IngredientUserCustomView: View {
     var body: some View {
         VStack{
             Spacer()
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
             HStack{
                 MainTitle("식재료 직접입력")
                 Spacer()
@@ -29,6 +31,7 @@ struct IngredientUserCustomView: View {
                     Image("close")
                 }
             }
+            Spacer()
             Button {
                 iconModal.toggle()
             } label: {
@@ -61,7 +64,7 @@ let sample = ["채소", "과일"]
 struct SelectIconSheet : View{
     @Binding var close: Bool
     @Binding var icon: String
-    @ObservedObject var ingredientVM = IngredientVM()
+    @EnvironmentObject var addVM: AddIngredient
     var columns: [GridItem] {
         [GridItem(.flexible(maximum: 64)),
          GridItem(.flexible(maximum: 64)),
@@ -72,8 +75,6 @@ struct SelectIconSheet : View{
     init(close: Binding<Bool>, icon: Binding<String>){
         self._icon = icon
         self._close = close
-        self.ingredientVM = IngredientVM()
-        ingredientVM.getAllIngredient()
     }
     
     var body: some View{
@@ -92,7 +93,7 @@ struct SelectIconSheet : View{
             .padding()
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns) {
-                    ForEach(ingredientVM.allIngredient, id: \.self.categoryId ){ idx in
+                    ForEach(addVM.allIngredient, id: \.self.categoryId ){ idx in
                         ForEach(idx.ingredients, id:\.self.id){ data in
                             Button {
                                 icon = data.icon

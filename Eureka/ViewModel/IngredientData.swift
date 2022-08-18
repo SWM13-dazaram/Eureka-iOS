@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class IngredientData: ObservableObject {
+    @Published var userIngredients = [UserIngredient]()
+    
+    func update(data: [UserIngredient]) {
+        self.userIngredients = data
+    }
+}

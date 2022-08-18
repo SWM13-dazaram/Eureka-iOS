@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct IngredientDetailView: View {
-    @State var userIngredient: UserIngredient
-    @Binding var revert: Bool
+    @Binding var userIngredient: UserIngredient
     
-    init(_ userIngredient: UserIngredient, revert: Binding<Bool>){
-        self.userIngredient = userIngredient
-        self._revert = revert
+    init(_ userIngredient: Binding<UserIngredient>){
+        self._userIngredient = userIngredient
     }
     
     var body: some View {
@@ -23,7 +21,7 @@ struct IngredientDetailView: View {
                 .toolbar {
                     ToolbarItem{
                         NavigationLink {
-                            UserIngredientEditView(userIngredient, revert: $revert)
+                            UserIngredientEditView(data: userIngredient, original: userIngredient)
                         } label: {
                             Image("edit")
                         }

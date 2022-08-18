@@ -10,15 +10,12 @@ import SwiftUI
 struct IngredientAddView: View {
     @Binding var revert: Bool
     @EnvironmentObject var addVM: AddIngredient
-    @ObservedObject var ingredientVM: IngredientVM
     @State var search = ""
     @State var category = "MEAT"
     @State var click = [Ingredient]()
     
     init(revert: Binding<Bool>){
         self._revert = revert
-        self.ingredientVM = IngredientVM()
-        ingredientVM.getAllIngredient()
     }
     
     var body: some View {
@@ -30,7 +27,7 @@ struct IngredientAddView: View {
             SearchContiner(placeholder: "식재료를 검색해보세요.", search: $search)
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
-                    ForEach(ingredientVM.allIngredient, id: \.self.categoryId ){ idx in
+                    ForEach(addVM.allIngredient, id: \.self.categoryId ){ idx in
                         Button {
                             category = idx.categoryId
                         } label: {
@@ -44,7 +41,7 @@ struct IngredientAddView: View {
                 }
             }
             .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
-            CategoryView(ingredient: $ingredientVM.allIngredient ,category: $category)
+            CategoryView(ingredient: $addVM.allIngredient ,category: $category)
             Spacer()
             if addVM.countSelected() > 0 {
                 NavigationLink{
@@ -57,6 +54,9 @@ struct IngredientAddView: View {
                 }
             }
         }
+        .onAppear{
+            addVM.getAllIngredient()
+        }
         .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
     }
 }
@@ -64,6 +64,12 @@ struct IngredientAddView: View {
 struct CategoryView: View{
     @Binding var ingredient: [CategoryIngredient]
     @Binding var category: String
+    var columns: [GridItem] {
+        [GridItem(.flexible(maximum: 70)),
+         GridItem(.flexible(maximum: 70)),
+         GridItem(.flexible(maximum: 70)),
+         GridItem(.flexible(maximum: 70))]
+    }
     
     var body: some View{
         ForEach(ingredient, id: \.self.categoryId){ idx in
@@ -88,11 +94,10 @@ struct CategoryView: View{
                 }
                 .padding(.bottom)
                 ScrollView{
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]){
+                    LazyVGrid(columns: columns, spacing: 20){
                         ForEach(idx.ingredients , id: \.self.id){ item in
                             IngredientButton(item)
                         }
-                        .fixedSize(horizontal: true, vertical: false)
                     }
                     .padding(.top)
                 }

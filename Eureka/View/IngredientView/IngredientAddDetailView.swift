@@ -29,24 +29,38 @@ struct IngredientAddDetailView: View {
             TabView(selection: $selected){
                 ForEach(addVM.userIngredient.indices, id: \.self) { index in
                     IngredientForm(formData: $addVM.userIngredient[index])
+                        .tag(index)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .animation(.easeInOut, value: selected)
+            .transition(.slide)
             Spacer()
-            Button {
-                let _ = addVM.setIngredientData() //비동기처리..
-                alert = true
-            } label: {
-                BottomButton(text: "저장하기")
-            }
-            .alert("저장", isPresented: $alert, actions: {
+            if selected+1 == addVM.userIngredient.count {
                 Button {
-                    revert = false
+                    alert = true
+                    let _ = addVM.setIngredientData() // 비동기처리..
                 } label: {
-                    Text("OK")
-                        .foregroundColor(.appGreen)
+                    BottomButton(text: "저장하기")
                 }
-            })
+                .alert("저장되었습니다.", isPresented: $alert){
+                    Button {
+                        revert = false
+                        addVM.resetTmpData()
+                    } label: {
+                        Text("OK")
+                            .foregroundColor(.appGreen)
+                    }
+                }
+            }
+            else if selected+1 < addVM.userIngredient.count {
+                Button {
+                    withAnimation { selected+=1 }
+                } label: {
+                    BottomButton(text: "다음")
+                }
+            }
+
         }
         .padding(.horizontal, 30)
     }

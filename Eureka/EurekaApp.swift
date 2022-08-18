@@ -27,6 +27,7 @@ struct EurekaApp: App {
                 }
                 .environmentObject(MockVM()) // mockAPI
                 .environmentObject(AddIngredient())
+                .environmentObject(IngredientVM())
                 .environmentObject(Oauth())
         }
     }
