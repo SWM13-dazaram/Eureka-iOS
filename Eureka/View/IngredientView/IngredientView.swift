@@ -8,14 +8,8 @@
 import SwiftUI
 
 struct IngredientView: View {
-    @ObservedObject var ingredientVM = IngredientVM()
+    @EnvironmentObject var ingredientVM : IngredientVM
     @State var addView = false
-    @State var editView = false
-    
-//    init(){
-//        self.ingredientVM = IngredientVM()
-//        ingredientVM.getUserIngredient()
-//    }
     
     var body: some View {
             ZStack{
@@ -41,20 +35,23 @@ struct IngredientView: View {
                     }
                     .padding(.horizontal, 30)
                     List{
-                        ForEach(ingredientVM.userIngredient, id: \.self.id){
+                        ForEach(ingredientVM.userIngredient.indices, id:\.self){
                             data in
-                            NavigationLink(isActive: $editView) {
-                                IngredientDetailView(data, revert: $editView)
+                            NavigationLink {
+                                IngredientDetailView($ingredientVM.userIngredient[data])
+                                    .onAppear {
+                                        print("IngredientDetailView: \(data)")
+                                    }
                             } label: {
-                                ingredientCell(data)
+                                ingredientCell($ingredientVM.userIngredient[data])
                                     .listRowBackground(Color.bg)
                             }
                         }
                         .onDelete(perform: removeRow)
                     }
-                    .onAppear(perform: {
+                    .onAppear{
                         ingredientVM.getUserIngredient()
-                    })
+                    }
                     .listStyle(PlainListStyle())
                 }
             }
@@ -78,6 +75,8 @@ struct IngredientView_Previews: PreviewProvider {
         NavigationView{
             IngredientView()
                 .environmentObject(MockVM())
+                .environmentObject(IngredientVM())
+                .environmentObject(AddIngredient())
         }
     }
 }

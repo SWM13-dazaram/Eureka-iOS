@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct UserIngredientEditView: View {
-    @ObservedObject var ingredientVM = IngredientVM()
-    @Binding var revert: Bool
+    @EnvironmentObject var ingredientVM: IngredientVM
     @State var data: UserIngredient
     let original: UserIngredient
     @State var alert = false
-    
-    init(_ data: UserIngredient, revert: Binding<Bool>){
-        self.data = data
-        original = data
-        self._revert = revert
-    }
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         VStack{
@@ -32,7 +26,8 @@ struct UserIngredientEditView: View {
                 }
                 .alert("수정", isPresented: $alert) {
                     Button {
-                        revert = false
+                        ingredientVM.getUserIngredient()
+                        self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("OK")
                     }
