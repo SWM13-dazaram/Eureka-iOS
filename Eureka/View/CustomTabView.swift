@@ -43,7 +43,7 @@ struct CustomTabView: View {
                     Text("커뮤니티")
                 }
                 .tag(3)
-            NotMVPView()
+            MypageView()
                 .navigationTitle("")
                 .navigationBarHidden(true)
                 .tabItem{

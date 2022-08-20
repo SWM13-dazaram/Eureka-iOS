@@ -32,6 +32,31 @@ class Oauth: ObservableObject {
                 }
             }
         }
+        else{
+            print("This User doesn't have KaKaoTalk")
+        }
+    }
+    
+    func kakaoLogout(){
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("logout() success.")
+            }
+        }
+    }
+    
+    func kakaoResign(){
+        UserApi.shared.unlink {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("unlink() success.")
+            }
+        }
     }
     
     func appleLogin(){
@@ -39,6 +64,17 @@ class Oauth: ObservableObject {
         request.requestedScopes = [.fullName, .email]
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.performRequests()
+    }
+    
+    func logout(){
+        //if 카카오 로그인 { kakaoLogout() }
+        //else { appleLogout() }
+    }
+    
+    func resign(){
+        //if 카카오 로그인 { kakaoResign() }
+        //else { appleResign() }
+        
     }
 }
 

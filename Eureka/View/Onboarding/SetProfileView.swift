@@ -11,7 +11,7 @@ struct SetProfileView: View {
     
     @State var showImagePicker = false
     @State var selectedUIImage: UIImage?
-    @State var image = Image("profileDefault")
+    @State var image = Image("profile-default")
     @State var name = ""
     @Binding var complete: Bool
     
