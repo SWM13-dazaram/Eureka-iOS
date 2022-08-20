@@ -19,7 +19,7 @@ class AddIngredient: ObservableObject {
     }
     
     init(){
-        print("@StateObject init()")
+        print("AddIngredient init()")
     }
     
     

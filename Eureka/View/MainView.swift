@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var mockVM = MockVM()
     @State var selectedIndex = true
     var tmp = DateCalculater()
 //    @State var loading = true

@@ -9,6 +9,10 @@ class MockVM: ObservableObject {
     @Published var replaced = [Recipe]()
     @Published var expire = [Recipe]()
     
+    init(){
+        print("MockVM init()")
+    }
+    
     func getReplaced(){
         provider.request(.recommendReplacedRecipe) { response in
             switch response {

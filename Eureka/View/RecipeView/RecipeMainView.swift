@@ -9,14 +9,14 @@ import SwiftUI
 
 // @TODO: BUGFIX ING..
 struct ReplaceView: View {
-    @ObservedObject var mockVM : MockVM
+    @EnvironmentObject var mockVM : MockVM
     let proxy: GeometryProxy
 //    @State var selected = 0
     
     init(proxy: GeometryProxy){
         self.proxy = proxy
-        self.mockVM = MockVM()
-        mockVM.getReplaced()
+//        self.mockVM = MockVM()
+//        mockVM.getReplaced()
     }
     
     var body: some View {
@@ -59,13 +59,13 @@ struct ReplaceView: View {
 }
 
 struct ExpireDateView: View{
-    @ObservedObject var mockVM: MockVM
+    @EnvironmentObject var mockVM: MockVM
     let proxy: GeometryProxy
     
     init(proxy: GeometryProxy){
         self.proxy = proxy
-        self.mockVM = MockVM()
-        mockVM.getExpire()
+//        self.mockVM = MockVM()
+//        mockVM.getExpire()
     }
 
     var body: some View {
