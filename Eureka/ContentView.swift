@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var main = true
     @State var loading = true
-    @EnvironmentObject var mockVM : MockVM
+//    @EnvironmentObject var mainRecipeVM : MainRecipeVM
     
     var body: some View {
         ZStack{
@@ -19,9 +19,9 @@ struct ContentView: View {
             NavigationView {
                 if main {
                     CustomTabView()
-                        .onAppear {
-                            mockVM.getReplaced()
-                        }
+//                        .onAppear {
+//                            MainRecipeVM.getReplaced()
+//                        }
                 }
                 else{
                     LoginView(main: $main)

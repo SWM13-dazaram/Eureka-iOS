@@ -9,20 +9,20 @@ import SwiftUI
 
 // @TODO: BUGFIX ING..
 struct ReplaceView: View {
-    @EnvironmentObject var mockVM : MockVM
+    @ObservedObject var recipeVM : MainRecipeVM
     let proxy: GeometryProxy
 //    @State var selected = 0
     
     init(proxy: GeometryProxy){
         self.proxy = proxy
-//        self.mockVM = MockVM()
-//        mockVM.getReplaced()
+        recipeVM = MainRecipeVM()
+        recipeVM.getReplaced()
     }
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack{
-                ForEach(mockVM.replaced, id: \.self.id) { idx in
+                ForEach(recipeVM.replaced, id: \.self.id) { idx in
                     NavigationLink {
                         RecipeDetailView(recipe: idx)
 //                            .ignoresSafeArea()
@@ -59,27 +59,47 @@ struct ReplaceView: View {
 }
 
 struct ExpireDateView: View{
-    @EnvironmentObject var mockVM: MockVM
+    @ObservedObject var recipeVM : MainRecipeVM
     let proxy: GeometryProxy
     
     init(proxy: GeometryProxy){
         self.proxy = proxy
-//        self.mockVM = MockVM()
-//        mockVM.getExpire()
+        recipeVM = MainRecipeVM()
+        recipeVM.getExpire()
     }
 
     var body: some View {
-        TabView {
-            ForEach(mockVM.expire, id: \.self.id){ idx in
-                NavigationLink {
-                    RecipeDetailView(recipe: idx)
-//                        .ignoresSafeArea()
-                } label: {
-                    Content(recipe: idx, proxy: proxy)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack{
+                ForEach(recipeVM.expire, id: \.self.id) { idx in
+                    NavigationLink {
+                        RecipeDetailView(recipe: idx)
+                            .onAppear {
+                                UIScrollView.appearance().isPagingEnabled = false
+                            }
+                    } label: {
+                        Content(recipe: idx, proxy: proxy)
+                            .frame(width: proxy.size.width)
+                    }
                 }
             }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .frame(width: proxy.size.width)
+        .onAppear {
+            UIScrollView.appearance().isPagingEnabled = true
+        }
+        
+//        TabView {
+//            ForEach(recipeVM.expire, id: \.self.id){ idx in
+//                NavigationLink {
+//                    RecipeDetailView(recipe: idx)
+////                        .ignoresSafeArea()
+//                } label: {
+//                    Content(recipe: idx, proxy: proxy)
+//                }
+//            }
+//        }
+//        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
 }
 
@@ -94,7 +114,7 @@ struct Content: View {
                 .frame(width: 300, height: 220, alignment: .center)
                 .cornerRadius(22)
                 .shadow(color: .shadow, radius: 6, x: 0, y: 3)
-            RecipeName(recipe.name)
+            RecipeName(recipe.title)
             if let replaced = recipe.replaceIngredient {
                 let old = replaced.missingIngredient.name
                 let new = replaced.ownIngredient.name
@@ -108,7 +128,7 @@ struct Content: View {
                     .font(.system(size: 13, weight: .bold))
                     .foregroundColor(.appBlack)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))]){
-                    ForEach(recipe.ownIngredientList, id: \.self.id ){ idx in
+                    ForEach(recipe.ingredients, id: \.self.id ){ idx in
                         FrameText(text: idx.name)
                     }
                 }

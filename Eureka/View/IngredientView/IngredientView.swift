@@ -74,7 +74,8 @@ struct IngredientView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             IngredientView()
-                .environmentObject(MockVM())
+//                .environmentObject(MockVM())
+                .environmentObject(MainRecipeVM())
                 .environmentObject(IngredientVM())
                 .environmentObject(AddIngredient())
         }

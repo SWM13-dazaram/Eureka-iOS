@@ -8,19 +8,19 @@
 import Foundation
 
 struct Recipe: Decodable {
-//    let id: Int
-    let id: String //mockAPI
-    let name: String
+    let id: Int
+    let url: String
+    let title: String
     let image: String
-    let isLike: Bool
-    let ownIngredientList: [Ingredient]
+//    let isLike: Bool
+    let ingredients: [Ingredient]
+    let recipeSequences: [RecipeSequence]
     let replaceIngredient: ReplaceIngredient?
     let expireIngredient: Ingredient?
-    let recipeSequenceList: [RecipeSequence]
 }
 
 struct RecipeSequence: Decodable {
-    let number: Int
+    let sequence: Int
     let content: String
     let hightlightIndexList: [HightlightIndex]?
     

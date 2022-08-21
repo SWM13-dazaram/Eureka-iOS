@@ -13,9 +13,10 @@ struct RecipeIngredientList: View{
     
     init(_ recipe: Recipe){
         self.recipe = recipe
+        print("expireRecipe Ingredient List : \(recipe)")
     }
     var body: some View{
-        ForEach(recipe.ownIngredientList, id: \.self.id){ idx in
+        ForEach(recipe.ingredients, id: \.self.id){ idx in
             if let replaced = recipe.replaceIngredient {
                 if replaced.ownIngredient.id == idx.id {
                     RecipeIngredientCell(replaced.missingIngredient, Status.replaced)
@@ -24,18 +25,22 @@ struct RecipeIngredientList: View{
                     RecipeIngredientCell(idx)
                 }
             }
-            if let expire = recipe.expireIngredient {
-                if expire.id == idx.id {
-                    RecipeIngredientCell(idx, Status.expire)
-                }
-                else{
-                    RecipeIngredientCell(idx)
-                }
-            }
+//            if let expire = recipe.expireIngredient {
+//                if expire.id == idx.id {
+//                    RecipeIngredientCell(idx, Status.expire)
+//                }
+//                else{
+//                    RecipeIngredientCell(idx)
+//                }
+//            }
+            // FIXME: 유통기한 식재료 나오면 위에 코드 사용
+            RecipeIngredientCell(idx)
             
         }
     }
 }
+
+
 struct RecipeIngredientCell: View {
     let ingredientInfo: Ingredient
     let status: IngredientStatus?
@@ -62,7 +67,7 @@ struct RecipeIngredientCell: View {
             Spacer()
             status
         }
-        .padding(.init(top: 10, leading: 30, bottom: 10, trailing: 30))
+        .padding(.vertical, 10)
     }
 }
 

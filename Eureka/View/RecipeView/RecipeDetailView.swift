@@ -16,7 +16,7 @@ struct RecipeDetailView: View {
             VStack{
                 LoadImage(recipe.image)
                     .frame(height: 350)
-                RecipeName(recipe.name)
+                RecipeName(recipe.title)
                 if let replaced = recipe.replaceIngredient {
                     let old = replaced.missingIngredient.name
                     let new = replaced.ownIngredient.name
@@ -24,26 +24,29 @@ struct RecipeDetailView: View {
                     Image("replacedInfo")
                         .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
                 }
-                if let expireDate = recipe.expireIngredient {
-                    TextBubble(expire:expireDate.name)
-                    Image("expireInfo")
-                        .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
-                }
+//                if let expireDate = recipe.expireIngredient {
+//                    TextBubble(expire:expireDate.name)
+//                    Image("expireInfo")
+//                        .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
+//                }
+                // FIXME: 유통기한 식재료 나오면 위에 코드 사용
+                Image("expireInfo")
+                    .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
+                
                 VStack(alignment:.leading){
                     Text("내가 보유하고있는 재료!")
                         .font(.system(size: 15, weight: .bold))
-                        .offset(x:30)
                     RecipeIngredientList(recipe)
                     Text("조리방법")
                         .font(.system(size: 15, weight: .bold))
-                        .offset(x:30)
                         .padding(.init(top: 30, leading: 0, bottom: 20, trailing: 0))
-                    ForEach(recipe.recipeSequenceList, id: \.self.number){ idx in
+                    ForEach(recipe.recipeSequences, id: \.self.sequence){ idx in
                         Sequence(idx)
                     }
                 }
             }
         }
+        .padding(.horizontal, 30)
     }
 }
 
@@ -61,7 +64,7 @@ struct Sequence: View{
     var body: some View {
         HStack{
             VStack{
-                Text(info.number.description)
+                Text(info.sequence.description)
                     .font(.system(size: 11))
                     .foregroundColor(.appGreen)
                     .padding(.init(top: 4, leading: 9, bottom: 4, trailing: 9))
@@ -77,7 +80,6 @@ struct Sequence: View{
             Text(info.content)
                 .font(.system(size: 12))
         }
-        .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
     }
 }
 

@@ -25,7 +25,8 @@ struct EurekaApp: App {
                         _ = AuthController.handleOpenUrl(url: url)
                     }
                 }
-                .environmentObject(MockVM()) // mockAPI
+//                .environmentObject(MockVM()) // mockAPI
+//                .environmentObject(MainRecipeVM())
                 .environmentObject(AddIngredient())
                 .environmentObject(IngredientVM())
                 .environmentObject(Oauth())
