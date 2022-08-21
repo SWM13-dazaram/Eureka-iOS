@@ -12,6 +12,7 @@ struct MypageView: View {
     var body: some View {
         ZStack{
             Color.bg
+                .ignoresSafeArea()
             VStack{
                 HStack{
                     MainTitle("마이페이지")

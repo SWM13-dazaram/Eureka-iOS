@@ -26,6 +26,7 @@
 		B948C5AA28A517DA0037F2AA /* SearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948C5A928A517DA0037F2AA /* SearchContainer.swift */; };
 		B94A7ED528B20E20004D0554 /* RecipeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A7ED428B20E20004D0554 /* RecipeAPI.swift */; };
 		B94A7ED728B20F50004D0554 /* MainRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A7ED628B20F50004D0554 /* MainRecipeViewModel.swift */; };
+		B94A7ED928B22176004D0554 /* EmailForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A7ED828B22176004D0554 /* EmailForm.swift */; };
 		B959C51B288FF849005FF7D8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C51A288FF849005FF7D8 /* ImageLoader.swift */; };
 		B959C51D288FF8FA005FF7D8 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959C51C288FF8FA005FF7D8 /* LoadImage.swift */; };
 		B959C52028900073005FF7D8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B959C51F28900073005FF7D8 /* Colors.xcassets */; };
@@ -84,6 +85,7 @@
 		B948C5A928A517DA0037F2AA /* SearchContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainer.swift; sourceTree = "<group>"; };
 		B94A7ED428B20E20004D0554 /* RecipeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAPI.swift; sourceTree = "<group>"; };
 		B94A7ED628B20F50004D0554 /* MainRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecipeViewModel.swift; sourceTree = "<group>"; };
+		B94A7ED828B22176004D0554 /* EmailForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailForm.swift; sourceTree = "<group>"; };
 		B959C51A288FF849005FF7D8 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		B959C51C288FF8FA005FF7D8 /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
 		B959C51F28900073005FF7D8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				B98C913428AF7EA7001E307F /* MypageView.swift */,
 				B98C913628AF7FD5001E307F /* SettingView.swift */,
+				B94A7ED828B22176004D0554 /* EmailForm.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				B9230AAC289FED1C00F7C7D2 /* DateForm.swift in Sources */,
 				B9CB93C828A390B000E0A938 /* Eureka++Bundle.swift in Sources */,
 				B93D86A1289D3FC7007C2AF1 /* IngredientUserCustomView.swift in Sources */,
+				B94A7ED928B22176004D0554 /* EmailForm.swift in Sources */,
 				B9259D562897AC490087C537 /* RecipeDetailView.swift in Sources */,
 				B92C6ECF28AA35AA002FB016 /* IngredientForm.swift in Sources */,
 				B9E640A3288BEDDA00A0C943 /* IngredientAPI.swift in Sources */,

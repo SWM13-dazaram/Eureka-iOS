@@ -6,26 +6,35 @@
 //
 
 import SwiftUI
+import MessageUI
 
 struct SettingView: View {
     @EnvironmentObject var oauth: Oauth
     @State var logoutAelrt = false
     @State var resignAelrt = false
+    @State var sendMail = false
     
     var body: some View {
         List{
             NavigationLink {
-                
             } label: {
                 Text("공지사항")
             }
-            Text("버전정보")
-            NavigationLink {
-                
+            HStack{
+                Text("버전정보")
+                Spacer()
+                Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
+                    .foregroundColor(.appGray)
+            }
+
+            Button {
+                sendMail.toggle()
             } label: {
                 Text("문의하기")
             }
-            Text("신고하기")
+            .sheet(isPresented: $sendMail) {
+                EmailSender()
+            }
             Button {
                 logoutAelrt.toggle()
             } label: {
