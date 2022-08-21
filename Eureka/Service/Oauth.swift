@@ -27,13 +27,30 @@ class Oauth: ObservableObject {
                     guard let token = oauthToken else{
                         return
                     }
-                    print("token value : \(token.accessToken)")
+                    print("kakao token: \(token)")
                     self.success = true
                 }
             }
         }
         else{
             print("This User doesn't have KaKaoTalk")
+        }
+    }
+    
+    func kakaoInfo(){
+        UserApi.shared.me() {(user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("me() success.")
+                if let userData = user {
+                    print(userData)
+                }
+                
+                //do something
+                _ = user
+            }
         }
     }
     
