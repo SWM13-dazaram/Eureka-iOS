@@ -11,6 +11,7 @@ import KakaoSDKAuth
 
 @main
 struct EurekaApp: App {
+    @State var splash = true
     
     init() {
         // Kakao SDK 초기화
@@ -19,14 +20,14 @@ struct EurekaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen()
                 .onOpenURL{ url in
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
                     }
                 }
 //                .environmentObject(MockVM()) // mockAPI
-//                .environmentObject(MainRecipeVM())
+                .environmentObject(MainRecipeVM())
                 .environmentObject(AddIngredient())
                 .environmentObject(IngredientVM())
                 .environmentObject(Oauth())

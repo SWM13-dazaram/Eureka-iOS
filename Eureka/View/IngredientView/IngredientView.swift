@@ -17,6 +17,7 @@ struct IngredientView: View {
                     .ignoresSafeArea()
                 VStack{
                     Spacer()
+                        .frame(height: 30)
                     VStack(alignment: .leading){
                         HStack{
                             MainTitle("식재료 보관함")
@@ -75,7 +76,6 @@ struct IngredientView_Previews: PreviewProvider {
         NavigationView{
             IngredientView()
 //                .environmentObject(MockVM())
-                .environmentObject(MainRecipeVM())
                 .environmentObject(IngredientVM())
                 .environmentObject(AddIngredient())
         }

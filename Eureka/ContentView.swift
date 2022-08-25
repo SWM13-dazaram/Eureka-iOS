@@ -7,34 +7,60 @@
 
 import SwiftUI
 
+struct SplashScreen: View {
+    @State var splash = true
+    var body: some View {
+        ZStack{
+            ContentView()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                        splash=false
+                    }
+                }
+            if splash {
+                SplashView()
+            }
+        }
+    }
+}
+
 struct ContentView: View {
-    @State var main = true
-    @State var loading = true
-//    @EnvironmentObject var mainRecipeVM : MainRecipeVM
+    @State var loading = false
+    @EnvironmentObject var mainRecipeVM : MainRecipeVM
+    @EnvironmentObject var oauth: Oauth
     
     var body: some View {
         ZStack{
-            // @TODO: 토큰 검사해서 login or mainview 결정
             Color.bg.edgesIgnoringSafeArea(.all)
             NavigationView {
-                if main {
-                    CustomTabView()
-//                        .onAppear {
-//                            MainRecipeVM.getReplaced()
-//                        }
-                }
-                else{
-                    LoginView(main: $main)
-                    //                SetProfileView(complete: $main)
+                if oauth.status {
+                    ZStack{
+                        CustomTabView()
+                            .onAppear {
+                                mainRecipeVM.getReplaced()
+                                mainRecipeVM.getExpire()
+                                DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+                                    loading=false
+                                }
+                            }
+                        if loading {
+                            LoadingView()
+                        }
+                    }
+                }else{
+                    LoginView()
                 }
             }
         }
     }
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .previewInterfaceOrientation(.portrait)
+            .environmentObject(MainRecipeVM())
+            .environmentObject(IngredientVM())
     }
 }

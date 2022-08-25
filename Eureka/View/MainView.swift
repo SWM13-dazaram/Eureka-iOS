@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct MainView: View {
     @State var selectedIndex = true
     var tmp = DateCalculater()
@@ -16,34 +17,33 @@ struct MainView: View {
         ZStack{
             Color.bg
                 .ignoresSafeArea()
-            GeometryReader { proxy in
-                ScrollView(showsIndicators: false){
-                    VStack(spacing: 30){
-                        Spacer()
-                        HStack{
-                            MainTitle("오늘의 레시피를 확인해보세요 😋")
-                                .frame(width: 160, height: 69)
-                            Spacer()
-                        }
-                        TitleTabView($selectedIndex)
-                        switch selectedIndex {
-                        case true:
-                            ReplaceView(proxy: proxy)
-                        case false:
-                            ExpireDateView(proxy: proxy)
-                        }
-                    }
-
+//            GeometryReader { proxy in
+//                ScrollView(showsIndicators: false){
+//
+//
+//                }
+//            }
+            VStack{
+                Spacer()
+                    .frame(height: 30)
+                HStack{
+                    MainTitle("오늘의 레시피를 확인해보세요 😋")
+                        .frame(width: 160, height: 69)
+                    Spacer()
+                }
+                TitleTabView($selectedIndex)
+                switch selectedIndex {
+                case true:
+//                    ReplaceView(proxy: proxy)
+                    ReplaceView()
+                case false:
+//                    ExpireDateView(proxy: proxy)
+                    ExpireDateView()
                 }
             }
             .padding(.init(top: 10, leading: 30, bottom: 0, trailing: 30))
         }
 //        .overlay(loading ? LoadingView() : nil)
-//        .onAppear {
-//            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-//                loading=false
-//            }
-//        }
     }
 }
 
@@ -86,5 +86,7 @@ struct TitleTabView: View{
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(MainRecipeVM())
+            .environmentObject(IngredientVM())
     }
 }

@@ -36,7 +36,7 @@ extension MainRecipeAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        return ["Content-Type": "application/json"]
+        return ["Content-Type": "application/json", "Authorization": "Bearer \(UserDefaults.token()!)"]
     }
     
 //    var sampleData: Data {

@@ -12,8 +12,9 @@ import KakaoSDKUser
 import AuthenticationServices
 
 struct LoginView: View {
-    @StateObject var oauth = Oauth()
-    @Binding var main: Bool
+//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var oauth: Oauth
+//    @Binding var main: Bool
     
     var body: some View {
         VStack{
@@ -29,7 +30,7 @@ struct LoginView: View {
                 .frame(height: 120)
             LongLineText("시작하기")
             .padding(.bottom)
-            NavigationLink(destination: SetProfileView(complete: $main).navigationBarBackButtonHidden(true), tag: true, selection: $oauth.success) {}
+//            NavigationLink(destination: SetProfileView(complete: $main).navigationBarBackButtonHidden(true), tag: true, selection: $oauth.status) {}
             Button {
                 oauth.kakaoLogin()
             } label: {
@@ -38,25 +39,26 @@ struct LoginView: View {
 
             Button {
                 oauth.appleLogin()
+//                self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Image("AppleLogin")
             }
 
             Spacer()
                 .frame(height: 80)
-            HStack{
-                Text("이미 회원이라면?")
-                    .foregroundColor(.appGray)
-                    .font(.system(size: 12))
-                Button {
-                    oauth.success = true
-                } label: {
-                    Text("로그인하기")
-                        .foregroundColor(.appGreen)
-                        .font(.system(size: 12, weight: .bold))
-                        .underline()
-                }
-            }
+//            HStack{
+//                Text("이미 회원이라면?")
+//                    .foregroundColor(.appGray)
+//                    .font(.system(size: 12))
+//                Button {
+//                    oauth.success = true
+//                } label: {
+//                    Text("로그인하기")
+//                        .foregroundColor(.appGreen)
+//                        .font(.system(size: 12, weight: .bold))
+//                        .underline()
+//                }
+//            }
         }
         .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
     }

@@ -14,6 +14,8 @@ struct MypageView: View {
             Color.bg
                 .ignoresSafeArea()
             VStack{
+                Spacer()
+                    .frame(height: 30)
                 HStack{
                     MainTitle("마이페이지")
                     Spacer()

@@ -9,36 +9,41 @@ import SwiftUI
 
 // @TODO: BUGFIX ING..
 struct ReplaceView: View {
-    @ObservedObject var recipeVM : MainRecipeVM
-    let proxy: GeometryProxy
-//    @State var selected = 0
-    
-    init(proxy: GeometryProxy){
-        self.proxy = proxy
-        recipeVM = MainRecipeVM()
-        recipeVM.getReplaced()
-    }
+    @EnvironmentObject var recipeVM : MainRecipeVM
+//    let proxy: GeometryProxy
+////    @State var selected = 0
+//    
+//    init(proxy: GeometryProxy){
+//        self.proxy = proxy
+////        recipeVM = MainRecipeVM()
+////        recipeVM.getReplaced()
+//    }
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack{
-                ForEach(recipeVM.replaced, id: \.self.id) { idx in
-                    NavigationLink {
-                        RecipeDetailView(recipe: idx)
-//                            .ignoresSafeArea()
-                            .onAppear {
-                                UIScrollView.appearance().isPagingEnabled = false
-                            }
-                    } label: {
-                        Content(recipe: idx, proxy: proxy)
-                            .frame(width: proxy.size.width)
+        if recipeVM.replaced.count == 0 {
+            NoneView()
+        }
+        else{
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack{
+                    ForEach(recipeVM.replaced, id: \.self.id) { idx in
+                        NavigationLink {
+                            RecipeDetailView(recipe: idx)
+    //                            .ignoresSafeArea()
+                                .onAppear {
+                                    UIScrollView.appearance().isPagingEnabled = false
+                                }
+                        } label: {
+                            Content(recipe: idx)
+//                                .frame(width: proxy.size.width)
+                        }
                     }
                 }
             }
-        }
-        .frame(width: proxy.size.width)
-        .onAppear {
-            UIScrollView.appearance().isPagingEnabled = true
+//            .frame(width: proxy.size.width)
+            .onAppear {
+                UIScrollView.appearance().isPagingEnabled = true
+            }
         }
 //        TabView(selection: $selected){
 //            ForEach(mockVM.replaced, id: \.self.id) { idx in
@@ -59,34 +64,39 @@ struct ReplaceView: View {
 }
 
 struct ExpireDateView: View{
-    @ObservedObject var recipeVM : MainRecipeVM
-    let proxy: GeometryProxy
-    
-    init(proxy: GeometryProxy){
-        self.proxy = proxy
-        recipeVM = MainRecipeVM()
-        recipeVM.getExpire()
-    }
+    @EnvironmentObject var recipeVM : MainRecipeVM
+//    let proxy: GeometryProxy
+//    
+//    init(proxy: GeometryProxy){
+//        self.proxy = proxy
+////        recipeVM = MainRecipeVM()
+////        recipeVM.getExpire()
+//    }
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack{
-                ForEach(recipeVM.expire, id: \.self.id) { idx in
-                    NavigationLink {
-                        RecipeDetailView(recipe: idx)
-                            .onAppear {
-                                UIScrollView.appearance().isPagingEnabled = false
-                            }
-                    } label: {
-                        Content(recipe: idx, proxy: proxy)
-                            .frame(width: proxy.size.width)
+        if recipeVM.expire.count == 0 {
+            NoneView()
+        }
+        else{
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack{
+                    ForEach(recipeVM.expire, id: \.self.id) { idx in
+                        NavigationLink {
+                            RecipeDetailView(recipe: idx)
+                                .onAppear {
+                                    UIScrollView.appearance().isPagingEnabled = false
+                                }
+                        } label: {
+                            Content(recipe: idx)
+//                                .frame(width: proxy.size.width)
+                        }
                     }
                 }
             }
-        }
-        .frame(width: proxy.size.width)
-        .onAppear {
-            UIScrollView.appearance().isPagingEnabled = true
+//            .frame(width: proxy.size.width)
+            .onAppear {
+                UIScrollView.appearance().isPagingEnabled = true
+            }
         }
         
 //        TabView {
@@ -106,7 +116,7 @@ struct ExpireDateView: View{
 struct Content: View {
     @State var recipe: Recipe
     @State var description = ""
-    let proxy: GeometryProxy
+//    let proxy: GeometryProxy
     
     var body: some View{
         VStack(spacing:20){
@@ -132,9 +142,9 @@ struct Content: View {
                         FrameText(text: idx.name)
                     }
                 }
-                if let similarity = recipe.replaceIngredient {
-                    Similarity(similarity, proxy: proxy)
-                }
+//                if let similarity = recipe.replaceIngredient {
+////                    Similarity(similarity, proxy: proxy)
+//                }
             }
         }
     }
