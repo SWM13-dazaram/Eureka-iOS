@@ -12,14 +12,14 @@ class IngredientVM: ObservableObject {
             switch response {
             case .success(let result):
                 do{
-                    print(result.data)
+                    print("🤖getUserIngredient \(result.description)")
                     let data = try JSONDecoder().decode([UserIngredient].self, from: result.data)
                     self.userIngredient = data
                 }catch(let err){
-                    print(err.localizedDescription)
+                    print("🤖getUserIngredient parse error: \(err.localizedDescription)")
                 }
             case .failure(let err):
-                print(err.localizedDescription)
+                print("🤖getUserIngredient failure error: \(err.localizedDescription)")
             }
         }
     }
