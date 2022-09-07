@@ -35,14 +35,14 @@ struct CustomTabView: View {
                     Text("레시피검색")
                 }
                 .tag(2)
-            NotMVPView()
-                .navigationTitle("")
-                .navigationBarHidden(true)
-                .tabItem{
-                    Image("menu_community")
-                    Text("커뮤니티")
-                }
-                .tag(3)
+//            NotMVPView()
+//                .navigationTitle("")
+//                .navigationBarHidden(true)
+//                .tabItem{
+//                    Image("menu_community")
+//                    Text("커뮤니티")
+//                }
+//                .tag(4)
             MypageView()
                 .navigationTitle("")
                 .navigationBarHidden(true)
@@ -50,7 +50,7 @@ struct CustomTabView: View {
                     Image("menu_my")
                     Text("마이페이지")
                 }
-                .tag(4)
+                .tag(3)
         }
         .accentColor(.appGreen)
 
