@@ -15,6 +15,7 @@ struct LoginView: View {
 //    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var oauth: Oauth
 //    @Binding var main: Bool
+    @State var appleSignInDelegate: SignInWithAppleDelegate! = nil
     
     var body: some View {
         VStack{
@@ -38,7 +39,7 @@ struct LoginView: View {
             }
 
             Button {
-                oauth.appleLogin()
+                appleLogin()
 //                self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Image("AppleLogin")
@@ -46,21 +47,23 @@ struct LoginView: View {
 
             Spacer()
                 .frame(height: 80)
-//            HStack{
-//                Text("이미 회원이라면?")
-//                    .foregroundColor(.appGray)
-//                    .font(.system(size: 12))
-//                Button {
-//                    oauth.success = true
-//                } label: {
-//                    Text("로그인하기")
-//                        .foregroundColor(.appGreen)
-//                        .font(.system(size: 12, weight: .bold))
-//                        .underline()
-//                }
-//            }
         }
         .padding(.init(top: 0, leading: 30, bottom: 0, trailing: 30))
+    }
+}
+
+extension LoginView {
+    private func appleLogin() {
+      appleSignInDelegate = SignInWithAppleDelegate {
+        print("로그인 성공?: \($0)")
+      }
+      let request = ASAuthorizationAppleIDProvider().createRequest()
+      request.requestedScopes = [.fullName, .email]
+   
+      let controller = ASAuthorizationController(authorizationRequests: [request])
+      controller.delegate = appleSignInDelegate
+      controller.presentationContextProvider = appleSignInDelegate
+      controller.performRequests()
     }
 }
 

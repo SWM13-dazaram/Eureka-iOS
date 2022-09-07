@@ -738,7 +738,7 @@
 		9BE97A82256D75098C1DD4417765742A /* ExtensionHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionHelpers.swift; path = Sources/Utility/ExtensionHelpers.swift; sourceTree = "<group>"; };
 		9BF2AF7D1E6E08A8BE7EFB8195DC445E /* TargetType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TargetType.swift; path = Sources/Moya/TargetType.swift; sourceTree = "<group>"; };
 		9C789E7433A06481F9654B036C2D5D15 /* DefaultIfEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultIfEmpty.swift; path = RxSwift/Observables/DefaultIfEmpty.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DA9F8657D72630E8D46A4895B9928EB /* Single.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Single.swift; path = RxSwift/Traits/PrimitiveSequence/Single.swift; sourceTree = "<group>"; };
 		9DACCFC14AF4DA21BC3C85D2CF28DEC2 /* URL+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URL+Utils.swift"; path = "sources/KakaoSDKCommon/common/extension/URL+Utils.swift"; sourceTree = "<group>"; };
 		9E3FBA757C45E3F1616CEC3C17EE913E /* MessageSendResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageSendResult.swift; path = sources/KakaoSDKTalk/model/MessageSendResult.swift; sourceTree = "<group>"; };
@@ -790,6 +790,7 @@
 		B7B906B5D8B17779F25932D7159E94C2 /* Amb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Amb.swift; path = RxSwift/Observables/Amb.swift; sourceTree = "<group>"; };
 		B85BA228BA637BF37FB376F4DC2C6BEA /* Atomic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Atomic.swift; path = Sources/Moya/Atomic.swift; sourceTree = "<group>"; };
 		B8851B31523742456233EBC5D9BC6D85 /* Common.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Common.swift; path = sources/KakaoSDKCommon/common/common/Common.swift; sourceTree = "<group>"; };
+		B90B476F28C1C52200218C65 /* SignInWithAppleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInWithAppleDelegate.swift; path = ../Eureka/Service/SignInWithAppleDelegate.swift; sourceTree = "<group>"; };
 		B943B63678057880098A5FE34FF94844 /* OperationQueueScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OperationQueueScheduler.swift; path = RxSwift/Schedulers/OperationQueueScheduler.swift; sourceTree = "<group>"; };
 		B9ACF249A8C90F82263AF46D88A8519B /* Scan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Scan.swift; path = RxSwift/Observables/Scan.swift; sourceTree = "<group>"; };
 		BA04A08206AC9A4214B2BA4155D43100 /* ParameterEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoder.swift; path = Source/ParameterEncoder.swift; sourceTree = "<group>"; };
@@ -1022,7 +1023,6 @@
 				0280F56F87C34C93FF1F4575CE592C98 /* Network */,
 				260DDF864F9EA63F74FE9C403F974926 /* Support Files */,
 			);
-			name = KakaoSDKCommon;
 			path = KakaoSDKCommon;
 			sourceTree = "<group>";
 		};
@@ -1092,7 +1092,6 @@
 				897C0AC7FDE11BCA7ED2869C118C502E /* WKInterfaceImage+Kingfisher.swift */,
 				CB67E70B2A57EC5ADDB978FF70C2B9BE /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -1118,7 +1117,6 @@
 				6E8E68581D663B633174D964A1444D3E /* TemplateModels.swift */,
 				D789ABEA0A8544EF4F84A7F529D01333 /* Support Files */,
 			);
-			name = KakaoSDKTemplate;
 			path = KakaoSDKTemplate;
 			sourceTree = "<group>";
 		};
@@ -1129,7 +1127,6 @@
 				4BFAF936C0B445DE2302616D1F0D12BA /* RxSwift */,
 				30C3C1172AB93D8FA42348828583EDAB /* Support Files */,
 			);
-			name = Moya;
 			path = Moya;
 			sourceTree = "<group>";
 		};
@@ -1355,7 +1352,6 @@
 				691F0B1C5F6F1CEE7D4C28CAA5B34651 /* Zip+Collection.swift */,
 				88DBAFCB7327B02D0C9344BCFB5DA0D1 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -1413,7 +1409,6 @@
 				16B1B94BE4E7BB19C97BA06F5D9608FA /* TalkProfile.swift */,
 				9C4A2C4C837064636F7A146108AAAACE /* Support Files */,
 			);
-			name = KakaoSDKTalk;
 			path = KakaoSDKTalk;
 			sourceTree = "<group>";
 		};
@@ -1429,7 +1424,6 @@
 				3833A6F2E536696D8083A983894ABDEC /* UserShippingAddresses.swift */,
 				AA00740929A09E25D0E371F9BA7884A2 /* Support Files */,
 			);
-			name = KakaoSDKUser;
 			path = KakaoSDKUser;
 			sourceTree = "<group>";
 		};
@@ -1478,7 +1472,6 @@
 				24971BE356DDFD0FE205BEFF20FDBA64 /* TokenManager.swift */,
 				14E33AF05575C4BCFB06BDEFA738B916 /* Support Files */,
 			);
-			name = KakaoSDKAuth;
 			path = KakaoSDKAuth;
 			sourceTree = "<group>";
 		};
@@ -1555,6 +1548,7 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				B90B476F28C1C52200218C65 /* SignInWithAppleDelegate.swift */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				5E6FE51688E6220176D180C2F96E6E1B /* Pods */,
@@ -1658,7 +1652,6 @@
 				F3EE1E211ECC4FAFE44EB0A861B5BBBE /* Validation.swift */,
 				86DE0EB65D2A1BE51115B0F9BCB453B7 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};

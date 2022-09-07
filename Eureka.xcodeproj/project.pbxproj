@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C638E239F99401D40FCCF04 /* Pods_Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6178333B657027E5B9422F /* Pods_Eureka.framework */; };
+		B90B477128C1C8B900218C65 /* SignInWithAppleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B477028C1C8B900218C65 /* SignInWithAppleDelegate.swift */; };
 		B919622E288E9E3500B0EE99 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B919622D288E9E3500B0EE99 /* .gitignore */; };
 		B9230AAC289FED1C00F7C7D2 /* DateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9230AAB289FED1C00F7C7D2 /* DateForm.swift */; };
 		B9230AAE28A0F1FD00F7C7D2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */; };
@@ -48,7 +49,6 @@
 		B98C913528AF7EA7001E307F /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C913428AF7EA7001E307F /* MypageView.swift */; };
 		B98C913728AF7FD5001E307F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C913628AF7FD5001E307F /* SettingView.swift */; };
 		B98C913A28AF85CF001E307F /* EmptyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C913928AF85CF001E307F /* EmptyButton.swift */; };
-		B9AB37CD28B7450500E4EDA6 /* SigninWithAppleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AB37CC28B7450500E4EDA6 /* SigninWithAppleDelegate.swift */; };
 		B9AB37CF28B76EF300E4EDA6 /* NoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AB37CE28B76EF300E4EDA6 /* NoneView.swift */; };
 		B9AB37D228B7703E00E4EDA6 /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AB37D128B7703E00E4EDA6 /* WhiteButton.swift */; };
 		B9CB93BB28A2273000E0A938 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB93BA28A2273000E0A938 /* LoginView.swift */; };
@@ -72,6 +72,7 @@
 /* Begin PBXFileReference section */
 		6E869B50A14055ABC3E2D4A5 /* Pods-Eureka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eureka.debug.xcconfig"; path = "Target Support Files/Pods-Eureka/Pods-Eureka.debug.xcconfig"; sourceTree = "<group>"; };
 		AD6178333B657027E5B9422F /* Pods_Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B90B477028C1C8B900218C65 /* SignInWithAppleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegate.swift; sourceTree = "<group>"; };
 		B919622D288E9E3500B0EE99 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B9230AAB289FED1C00F7C7D2 /* DateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateForm.swift; sourceTree = "<group>"; };
 		B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		B98C913428AF7EA7001E307F /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		B98C913628AF7FD5001E307F /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B98C913928AF85CF001E307F /* EmptyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyButton.swift; path = "../New Group/EmptyButton.swift"; sourceTree = "<group>"; };
-		B9AB37CC28B7450500E4EDA6 /* SigninWithAppleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninWithAppleDelegate.swift; sourceTree = "<group>"; };
 		B9AB37CE28B76EF300E4EDA6 /* NoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneView.swift; sourceTree = "<group>"; };
 		B9AB37D128B7703E00E4EDA6 /* WhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteButton.swift; sourceTree = "<group>"; };
 		B9CB93BA28A2273000E0A938 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -317,12 +317,12 @@
 		B9CB93C228A36BE000E0A938 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				B90B477028C1C8B900218C65 /* SignInWithAppleDelegate.swift */,
 				B9E640A1288BEDDA00A0C943 /* MockAPI.swift */,
 				B94A7ED428B20E20004D0554 /* RecipeAPI.swift */,
 				B9E6409E288BEDDA00A0C943 /* IngredientAPI.swift */,
 				B94A7EE328B5FF83004D0554 /* UserAPI.swift */,
 				B9CB93C528A38E6600E0A938 /* KeyInfo.plist */,
-				B9AB37CC28B7450500E4EDA6 /* SigninWithAppleDelegate.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -487,6 +487,7 @@
 				B9259D5A2897C6280087C537 /* RecipeIngredientCell.swift in Sources */,
 				B94A7ED728B20F50004D0554 /* MainRecipeViewModel.swift in Sources */,
 				B959C52228900208005FF7D8 /* ColorExtension.swift in Sources */,
+				B90B477128C1C8B900218C65 /* SignInWithAppleDelegate.swift in Sources */,
 				B98C913528AF7EA7001E307F /* MypageView.swift in Sources */,
 				B948C5A728A4F12A0037F2AA /* IngredientViewModel.swift in Sources */,
 				B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */,
@@ -501,7 +502,6 @@
 				B98C913128ACA2DD001E307F /* CustomUserIngredient.swift in Sources */,
 				B9E640A7288BEDDA00A0C943 /* recipeModel.swift in Sources */,
 				B9E64099288BED9600A0C943 /* CustomTabView.swift in Sources */,
-				B9AB37CD28B7450500E4EDA6 /* SigninWithAppleDelegate.swift in Sources */,
 				B9AB37CF28B76EF300E4EDA6 /* NoneView.swift in Sources */,
 				B969DAE2289266FE003CF65B /* MainTitle.swift in Sources */,
 				B94A7EE228B5FEDA004D0554 /* SplashView.swift in Sources */,

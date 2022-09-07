@@ -10,9 +10,10 @@ import SwiftUI
 // @TODO: BUGFIX ING..
 struct ReplaceView: View {
     @EnvironmentObject var recipeVM : MainRecipeVM
+    @State var selected = 0
+    
 //    let proxy: GeometryProxy
-////    @State var selected = 0
-//    
+//
 //    init(proxy: GeometryProxy){
 //        self.proxy = proxy
 ////        recipeVM = MainRecipeVM()
@@ -24,92 +25,91 @@ struct ReplaceView: View {
             NoneView()
         }
         else{
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack{
-                    ForEach(recipeVM.replaced, id: \.self.id) { idx in
-                        NavigationLink {
-                            RecipeDetailView(recipe: idx)
-    //                            .ignoresSafeArea()
-                                .onAppear {
-                                    UIScrollView.appearance().isPagingEnabled = false
-                                }
-                        } label: {
-                            Content(recipe: idx)
-//                                .frame(width: proxy.size.width)
-                        }
+            TabView(selection: $selected){
+                ForEach(recipeVM.replaced, id: \.self.id) { idx in
+                    NavigationLink {
+                        RecipeDetailView(recipe: idx)
+        //                            .ignoresSafeArea()
+                            .onAppear {
+                                UIScrollView.appearance().isPagingEnabled = false
+                            }
+                    } label: {
+                        Content(recipe: idx)
+//                            .frame(width: proxy.size.width)
                     }
                 }
             }
-//            .frame(width: proxy.size.width)
-            .onAppear {
-                UIScrollView.appearance().isPagingEnabled = true
-            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
-//        TabView(selection: $selected){
-//            ForEach(mockVM.replaced, id: \.self.id) { idx in
-//                NavigationLink {
-//                    RecipeDetailView(recipe: idx)
+//            ScrollView(.horizontal, showsIndicators: false) {
+//                HStack{
+//                    ForEach(recipeVM.replaced, id: \.self.id) { idx in
+//                        NavigationLink {
+//                            RecipeDetailView(recipe: idx)
 //    //                            .ignoresSafeArea()
-//                        .onAppear {
-//                            UIScrollView.appearance().isPagingEnabled = false
+//                                .onAppear {
+//                                    UIScrollView.appearance().isPagingEnabled = false
+//                                }
+//                        } label: {
+//                            Content(recipe: idx)
+////                                .frame(width: proxy.size.width)
 //                        }
-//                } label: {
-//                    Content(recipe: idx, proxy: proxy)
-//                        .frame(width: proxy.size.width)
+//                    }
 //                }
 //            }
-//        }
-//        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-    }
+////            .frame(width: proxy.size.width)
+////            .onAppear {
+////                UIScrollView.appearance().isPagingEnabled = true
+////            }
+        }
 }
 
 struct ExpireDateView: View{
     @EnvironmentObject var recipeVM : MainRecipeVM
-//    let proxy: GeometryProxy
-//    
-//    init(proxy: GeometryProxy){
-//        self.proxy = proxy
-////        recipeVM = MainRecipeVM()
-////        recipeVM.getExpire()
-//    }
+    let proxy: GeometryProxy
+    
+    init(proxy: GeometryProxy){
+        self.proxy = proxy
+//        recipeVM = MainRecipeVM()
+//        recipeVM.getExpire()
+    }
 
     var body: some View {
-        if recipeVM.expire.count == 0 {
-            NoneView()
-        }
-        else{
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack{
-                    ForEach(recipeVM.expire, id: \.self.id) { idx in
-                        NavigationLink {
-                            RecipeDetailView(recipe: idx)
-                                .onAppear {
-                                    UIScrollView.appearance().isPagingEnabled = false
-                                }
-                        } label: {
-                            Content(recipe: idx)
-//                                .frame(width: proxy.size.width)
-                        }
+//        if recipeVM.expire.count == 0 {
+//            NoneView()
+//        }
+//        else{
+            TabView {
+                ForEach(recipeVM.expire, id: \.self.id){ idx in
+                    NavigationLink {
+                        RecipeDetailView(recipe: idx)
+    //                        .ignoresSafeArea()
+                    } label: {
+                        Content(recipe: idx)
                     }
                 }
             }
-//            .frame(width: proxy.size.width)
-            .onAppear {
-                UIScrollView.appearance().isPagingEnabled = true
-            }
-        }
-        
-//        TabView {
-//            ForEach(recipeVM.expire, id: \.self.id){ idx in
-//                NavigationLink {
-//                    RecipeDetailView(recipe: idx)
-////                        .ignoresSafeArea()
-//                } label: {
-//                    Content(recipe: idx, proxy: proxy)
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//        }
+//        ScrollView(.horizontal, showsIndicators: false) {
+//            HStack{
+//                ForEach(recipeVM.expire, id: \.self.id) { idx in
+//                    NavigationLink {
+//                        RecipeDetailView(recipe: idx)
+////                            .onAppear {
+////                                UIScrollView.appearance().isPagingEnabled = false
+////                            }
+//                    } label: {
+//                        Content(recipe: idx)
+//                            .frame(width: proxy.size.width-30)
+//                    }
 //                }
 //            }
 //        }
-//        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//        .frame(width: proxy.size.width)
+//        .onAppear {
+//            UIScrollView.appearance().isPagingEnabled = true
+//        }
     }
 }
 
@@ -212,13 +212,13 @@ struct PercentBar: View {
 }
 
 
-//
-//struct ReplaceView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ReplaceView()
-//            .previewInterfaceOrientation(.portrait)
-//    }
-//}
+
+struct ReplaceView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReplaceView()
+            .previewInterfaceOrientation(.portrait)
+    }
+}
 
 
 //struct ExpireDateView_Previews: PreviewProvider {

@@ -33,7 +33,7 @@ struct ContentView: View {
         ZStack{
             Color.bg.edgesIgnoringSafeArea(.all)
             NavigationView {
-                if oauth.status {
+                if oauth.login() {
                     ZStack{
                         CustomTabView()
                             .onAppear {

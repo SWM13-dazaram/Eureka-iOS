@@ -27,7 +27,24 @@ class Oauth: ObservableObject {
         }
         else{
             print("User doesn't have kakaotalk")
+            withoutKaKaoTalk()
         }
+    }
+    
+    func withoutKaKaoTalk(){
+        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoAccount() success.")
+                    guard let token = oauthToken?.accessToken else {
+                        return
+                    }
+                    self.signin(token: token, loginProvider: .KAKAO)
+                    
+                }
+            }
     }
     
     func signin(token: String, loginProvider: LoginProvider){
@@ -77,30 +94,19 @@ class Oauth: ObservableObject {
         status = false
         }
     
-    func appleLogin(){
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.performRequests()
-        
-    }
+//    func appleLogin(){
+//        let request = ASAuthorizationAppleIDProvider().createRequest()
+//        request.requestedScopes = [.fullName, .email]
+//
+//        appleDelegate = SignInWithAppleDelegate() { success in
+//            if
+//        }
+//
+//        let controller = ASAuthorizationController(authorizationRequests: [request])
+//        controller.delegate = SignInWithAppleDelegate
+//
+//        controller.performRequests()
+//
+//    }
     
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIdCredential as ASAuthorizationAppleIDCredential:
-            if let _ = appleIdCredential.email, let _ = appleIdCredential.fullName {
-                print("0️⃣ 최초로그인 (회원가입)")
-                print(appleIdCredential)
-                print(appleIdCredential.identityToken?.description ?? "no Token")
-//                self.signin(token: appleIdCredential.identityToken, loginProvider: .APPLE)
-                
-            } else {
-                print("1️⃣ 재로그인")
-                
-            }
-        default:
-            break
-        }
-    }
 }
-
