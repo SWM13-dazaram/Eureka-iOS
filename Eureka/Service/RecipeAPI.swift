@@ -9,7 +9,9 @@ enum MainRecipeAPI {
 extension MainRecipeAPI: TargetType {
     var baseURL: URL {
         // FIXME: 도메인 나오면 수정
-        return URL(string: "http://43.200.202.57:8080")!
+//        return URL(string: "http://43.200.202.57:8080")!
+        // FIXME: Mock API
+        return URL(string: "https://63187280ece2736550ca343a.mockapi.io")!
     }
     
     var path: String {
@@ -36,8 +38,8 @@ extension MainRecipeAPI: TargetType {
     }
     
     var headers: [String : String]? {
-//        return ["Content-Type": "application/json"]
-        return ["Content-Type": "application/json", "Authorization": "Bearer \(UserDefaults.token()!)"]
+        return ["Content-Type": "application/json"]
+//        , "Authorization": "Bearer \(UserDefaults.token()!)"]
     }
     
 //    var sampleData: Data {

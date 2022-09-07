@@ -18,31 +18,23 @@ struct MainView: View {
             Color.bg
                 .ignoresSafeArea()
             GeometryReader { proxy in
-                ScrollView(showsIndicators: false){
-                    VStack{
-                        Spacer()
-                            .frame(height: 30)
-                        HStack{
-                            MainTitle("오늘의 레시피를 확인해보세요 😋")
-                                .frame(width: 160, height: 69)
-                            Spacer()
-                        }
-                        TitleTabView($selectedIndex)
-                        switch selectedIndex {
-                        case true:
-//                            ReplaceView(proxy: proxy)
-                            ReplaceView()
-                        case false:
-                            ExpireDateView(proxy: proxy)
-//                            ExpireDateView()
-                        }
+                VStack{
+                    MainTitle("오늘의 레시피를 확인해보세요 😋", width: 160, height: 69)
+                    TitleTabView($selectedIndex)
+                    switch selectedIndex {
+                    case true:
+                        ReplaceView(proxy: proxy)
+//                        ReplaceView()
+                    case false:
+                        Text("expire")
+//                        ExpireDateView(proxy: proxy)
+//                        ExpireDateView()
                     }
-                    .padding(.init(top: 10, leading: 30, bottom: 0, trailing: 30))
                 }
             }
-
+            .padding(.init(top: 10, leading: 30, bottom: 0, trailing: 30))
         }
-//        .overlay(loading ? LoadingView() : nil)
+        //        .overlay(loading ? LoadingView() : nil)
     }
 }
 

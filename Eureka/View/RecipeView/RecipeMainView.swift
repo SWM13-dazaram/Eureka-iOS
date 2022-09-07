@@ -11,14 +11,14 @@ import SwiftUI
 struct ReplaceView: View {
     @EnvironmentObject var recipeVM : MainRecipeVM
     @State var selected = 0
+    let proxy: GeometryProxy
     
-//    let proxy: GeometryProxy
-//
-//    init(proxy: GeometryProxy){
-//        self.proxy = proxy
-////        recipeVM = MainRecipeVM()
-////        recipeVM.getReplaced()
-//    }
+    //
+    //    init(proxy: GeometryProxy){
+    //        self.proxy = proxy
+    ////        recipeVM = MainRecipeVM()
+    ////        recipeVM.getReplaced()
+    //    }
     
     var body: some View {
         if recipeVM.replaced.count == 0 {
@@ -29,39 +29,39 @@ struct ReplaceView: View {
                 ForEach(recipeVM.replaced, id: \.self.id) { idx in
                     NavigationLink {
                         RecipeDetailView(recipe: idx)
-        //                            .ignoresSafeArea()
+                        //                            .ignoresSafeArea()
                             .onAppear {
-                                UIScrollView.appearance().isPagingEnabled = false
+                                //                                UIScrollView.appearance().isPagingEnabled = false
                             }
                     } label: {
-                        Content(recipe: idx)
-//                            .frame(width: proxy.size.width)
+                        Content(recipe: idx, proxy: proxy)
+                        //                            .frame(width: proxy.size.width)
                     }
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
-//            ScrollView(.horizontal, showsIndicators: false) {
-//                HStack{
-//                    ForEach(recipeVM.replaced, id: \.self.id) { idx in
-//                        NavigationLink {
-//                            RecipeDetailView(recipe: idx)
-//    //                            .ignoresSafeArea()
-//                                .onAppear {
-//                                    UIScrollView.appearance().isPagingEnabled = false
-//                                }
-//                        } label: {
-//                            Content(recipe: idx)
-////                                .frame(width: proxy.size.width)
-//                        }
-//                    }
-//                }
-//            }
-////            .frame(width: proxy.size.width)
-////            .onAppear {
-////                UIScrollView.appearance().isPagingEnabled = true
-////            }
-        }
+        //            ScrollView(.horizontal, showsIndicators: false) {
+        //                HStack{
+        //                    ForEach(recipeVM.replaced, id: \.self.id) { idx in
+        //                        NavigationLink {
+        //                            RecipeDetailView(recipe: idx)
+        //    //                            .ignoresSafeArea()
+        //                                .onAppear {
+        //                                    UIScrollView.appearance().isPagingEnabled = false
+        //                                }
+        //                        } label: {
+        //                            Content(recipe: idx)
+        ////                                .frame(width: proxy.size.width)
+        //                        }
+        //                    }
+        //                }
+        //            }
+        ////            .frame(width: proxy.size.width)
+        ////            .onAppear {
+        ////                UIScrollView.appearance().isPagingEnabled = true
+        ////            }
+    }
 }
 
 struct ExpireDateView: View{
@@ -70,82 +70,85 @@ struct ExpireDateView: View{
     
     init(proxy: GeometryProxy){
         self.proxy = proxy
-//        recipeVM = MainRecipeVM()
-//        recipeVM.getExpire()
+        //        recipeVM = MainRecipeVM()
+        //        recipeVM.getExpire()
     }
-
+    
     var body: some View {
-//        if recipeVM.expire.count == 0 {
-//            NoneView()
-//        }
-//        else{
-            TabView {
-                ForEach(recipeVM.expire, id: \.self.id){ idx in
-                    NavigationLink {
-                        RecipeDetailView(recipe: idx)
-    //                        .ignoresSafeArea()
-                    } label: {
-                        Content(recipe: idx)
-                    }
+        //        if recipeVM.expire.count == 0 {
+        //            NoneView()
+        //        }
+        //        else{
+        TabView {
+            ForEach(recipeVM.expire, id: \.self.id){ idx in
+                NavigationLink {
+                    RecipeDetailView(recipe: idx)
+                    //                        .ignoresSafeArea()
+                } label: {
+                    Content(recipe: idx, proxy: proxy)
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-//        }
-//        ScrollView(.horizontal, showsIndicators: false) {
-//            HStack{
-//                ForEach(recipeVM.expire, id: \.self.id) { idx in
-//                    NavigationLink {
-//                        RecipeDetailView(recipe: idx)
-////                            .onAppear {
-////                                UIScrollView.appearance().isPagingEnabled = false
-////                            }
-//                    } label: {
-//                        Content(recipe: idx)
-//                            .frame(width: proxy.size.width-30)
-//                    }
-//                }
-//            }
-//        }
-//        .frame(width: proxy.size.width)
-//        .onAppear {
-//            UIScrollView.appearance().isPagingEnabled = true
-//        }
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        //        }
+        //        ScrollView(.horizontal, showsIndicators: false) {
+        //            HStack{
+        //                ForEach(recipeVM.expire, id: \.self.id) { idx in
+        //                    NavigationLink {
+        //                        RecipeDetailView(recipe: idx)
+        ////                            .onAppear {
+        ////                                UIScrollView.appearance().isPagingEnabled = false
+        ////                            }
+        //                    } label: {
+        //                        Content(recipe: idx)
+        //                            .frame(width: proxy.size.width-30)
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        .frame(width: proxy.size.width)
+        //        .onAppear {
+        //            UIScrollView.appearance().isPagingEnabled = true
+        //        }
     }
 }
 
 struct Content: View {
     @State var recipe: Recipe
     @State var description = ""
-//    let proxy: GeometryProxy
+    let proxy: GeometryProxy
     
     var body: some View{
-        VStack(spacing:20){
-            LoadImage(recipe.image)
-                .frame(width: 300, height: 220, alignment: .center)
-                .cornerRadius(22)
-                .shadow(color: .shadow, radius: 6, x: 0, y: 3)
-            RecipeName(recipe.title)
-            if let replaced = recipe.replaceIngredient {
-                let old = replaced.missingIngredient.name
-                let new = replaced.ownIngredient.name
-                TextBubble(new:new, old:old)
-            }
-            if let expireDate = recipe.expireIngredient {
-                TextBubble(expire:expireDate.name)
-            }
-            VStack(alignment: .leading) {
-                Text("내가 보유하고있는 재료!")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundColor(.appBlack)
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))]){
-                    ForEach(recipe.ingredients, id: \.self.id ){ idx in
-                        FrameText(text: idx.name)
+        ScrollView{
+            VStack(spacing:20){
+                LoadImage(recipe.image)
+                    .frame(width: 300, height: 220, alignment: .center)
+                    .cornerRadius(22)
+                    .shadow(color: .shadow, radius: 6, x: 0, y: 3)
+                RecipeName(recipe.title)
+                if let replaced = recipe.replaceIngredient {
+                    let old = replaced.missingIngredient.name
+                    let new = replaced.ownIngredient.name
+                    TextBubble(new:new, old:old)
+                }
+                if let expireDate = recipe.expireIngredient {
+                    TextBubble(expire:expireDate.name)
+                }
+                VStack(alignment: .leading) {
+                    Text("내가 보유하고있는 재료!")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.appBlack)
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))]){
+                        ForEach(recipe.ingredients, id: \.self.id ){ idx in
+                            FrameText(text: idx.name)
+                        }
+                    }
+                    if let similarity = recipe.replaceIngredient {
+                        Similarity(similarity, proxy: proxy)
                     }
                 }
-//                if let similarity = recipe.replaceIngredient {
-////                    Similarity(similarity, proxy: proxy)
-//                }
             }
+            .padding(.vertical)
         }
     }
 }
@@ -195,7 +198,7 @@ struct FrameText : View {
 
 struct PercentBar: View {
     @State var percentage: Float
-//    let barSize = UIScreen.main.bounds.width-120
+    //    let barSize = UIScreen.main.bounds.width-120
     let barSize: CGFloat
     
     var body: some View{
@@ -213,12 +216,12 @@ struct PercentBar: View {
 
 
 
-struct ReplaceView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReplaceView()
-            .previewInterfaceOrientation(.portrait)
-    }
-}
+//struct ReplaceView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ReplaceView()
+//            .previewInterfaceOrientation(.portrait)
+//    }
+//}
 
 
 //struct ExpireDateView_Previews: PreviewProvider {

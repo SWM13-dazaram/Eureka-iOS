@@ -9,10 +9,10 @@ import Foundation
 
 struct Recipe: Decodable {
     let id: Int
-    let url: String
+//    let url: String
     let title: String
     let image: String
-//    let isLike: Bool
+    let isLike: Bool
     let ingredients: [Ingredient]
     let recipeSequences: [RecipeSequence]
     let replaceIngredient: ReplaceIngredient?
