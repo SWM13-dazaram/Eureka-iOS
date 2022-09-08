@@ -16,6 +16,8 @@
 		B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D572897B4140087C537 /* RecipeComponents.swift */; };
 		B9259D5A2897C6280087C537 /* RecipeIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D592897C6280087C537 /* RecipeIngredientCell.swift */; };
 		B9259D5C2897DD680087C537 /* IngredientIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D5B2897DD680087C537 /* IngredientIcon.swift */; };
+		B927F4D328C9B69E00FB340E /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B927F4D228C9B69E00FB340E /* ResponseType.swift */; };
+		B927F4D528C9B76700FB340E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B927F4D428C9B76700FB340E /* ErrorView.swift */; };
 		B92C6ECF28AA35AA002FB016 /* IngredientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C6ECE28AA35AA002FB016 /* IngredientForm.swift */; };
 		B92C6ED128AA3811002FB016 /* UserIngredientEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C6ED028AA3811002FB016 /* UserIngredientEditView.swift */; };
 		B93D869B289B76E2007C2AF1 /* AddIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D869A289B76E2007C2AF1 /* AddIngredient.swift */; };
@@ -80,6 +82,8 @@
 		B9259D572897B4140087C537 /* RecipeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponents.swift; sourceTree = "<group>"; };
 		B9259D592897C6280087C537 /* RecipeIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredientCell.swift; sourceTree = "<group>"; };
 		B9259D5B2897DD680087C537 /* IngredientIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientIcon.swift; sourceTree = "<group>"; };
+		B927F4D228C9B69E00FB340E /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
+		B927F4D428C9B76700FB340E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		B92C6ECE28AA35AA002FB016 /* IngredientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientForm.swift; sourceTree = "<group>"; };
 		B92C6ED028AA3811002FB016 /* UserIngredientEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIngredientEditView.swift; sourceTree = "<group>"; };
 		B93D869A289B76E2007C2AF1 /* AddIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredient.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 				B969DADA289239E2003CF65B /* IngredientView */,
 				B959C51E288FF921005FF7D8 /* Component */,
 				B9AB37CE28B76EF300E4EDA6 /* NoneView.swift */,
+				B927F4D428C9B76700FB340E /* ErrorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				B9E640A0288BEDDA00A0C943 /* IngerdientModel.swift */,
+				B927F4D228C9B69E00FB340E /* ResponseType.swift */,
 				B9E640A2288BEDDA00A0C943 /* recipeModel.swift */,
 				B94A7EDD28B382F0004D0554 /* LoginModel.swift */,
 				B94A7EDF28B5FAF8004D0554 /* UserModel.swift */,
@@ -488,6 +494,7 @@
 				B94A7ED728B20F50004D0554 /* MainRecipeViewModel.swift in Sources */,
 				B959C52228900208005FF7D8 /* ColorExtension.swift in Sources */,
 				B90B477128C1C8B900218C65 /* SignInWithAppleDelegate.swift in Sources */,
+				B927F4D328C9B69E00FB340E /* ResponseType.swift in Sources */,
 				B98C913528AF7EA7001E307F /* MypageView.swift in Sources */,
 				B948C5A728A4F12A0037F2AA /* IngredientViewModel.swift in Sources */,
 				B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */,
@@ -512,6 +519,7 @@
 				B9E640A5288BEDDA00A0C943 /* IngerdientModel.swift in Sources */,
 				B9230AAC289FED1C00F7C7D2 /* DateForm.swift in Sources */,
 				B9CB93C828A390B000E0A938 /* Eureka++Bundle.swift in Sources */,
+				B927F4D528C9B76700FB340E /* ErrorView.swift in Sources */,
 				B93D86A1289D3FC7007C2AF1 /* IngredientUserCustomView.swift in Sources */,
 				B94A7ED928B22176004D0554 /* EmailForm.swift in Sources */,
 				B9259D562897AC490087C537 /* RecipeDetailView.swift in Sources */,

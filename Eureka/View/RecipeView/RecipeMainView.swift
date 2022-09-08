@@ -13,20 +13,17 @@ struct ReplaceView: View {
     @State var selected = 0
     let proxy: GeometryProxy
     
-    //
-    //    init(proxy: GeometryProxy){
-    //        self.proxy = proxy
-    ////        recipeVM = MainRecipeVM()
-    ////        recipeVM.getReplaced()
-    //    }
-    
     var body: some View {
-        if recipeVM.replaced.count == 0 {
+        switch recipeVM.replacedResponse {
+        case .loading :
+            LoadingView()
+        case .empty :
             NoneView()
-        }
-        else{
+        case .error :
+            ErrorView()
+        case .success :
             TabView(selection: $selected){
-                ForEach(recipeVM.replaced, id: \.self.id) { idx in
+                ForEach(recipeVM.replaced!, id: \.self.id) { idx in
                     NavigationLink {
                         RecipeDetailView(recipe: idx)
                         //                            .ignoresSafeArea()
@@ -68,28 +65,27 @@ struct ExpireDateView: View{
     @EnvironmentObject var recipeVM : MainRecipeVM
     let proxy: GeometryProxy
     
-    init(proxy: GeometryProxy){
-        self.proxy = proxy
-        //        recipeVM = MainRecipeVM()
-        //        recipeVM.getExpire()
-    }
-    
     var body: some View {
-        //        if recipeVM.expire.count == 0 {
-        //            NoneView()
-        //        }
-        //        else{
-        TabView {
-            ForEach(recipeVM.expire, id: \.self.id){ idx in
-                NavigationLink {
-                    RecipeDetailView(recipe: idx)
-                    //                        .ignoresSafeArea()
-                } label: {
-                    Content(recipe: idx, proxy: proxy)
+        switch recipeVM.expireResponse {
+        case .loading :
+            LoadingView()
+        case .empty :
+            NoneView()
+        case .error :
+            ErrorView()
+        case .success:
+            TabView {
+                ForEach(recipeVM.expire!, id: \.self.id){ idx in
+                    NavigationLink {
+                        RecipeDetailView(recipe: idx)
+                        //                        .ignoresSafeArea()
+                    } label: {
+                        Content(recipe: idx, proxy: proxy)
+                    }
                 }
             }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         //        }
         //        ScrollView(.horizontal, showsIndicators: false) {
         //            HStack{

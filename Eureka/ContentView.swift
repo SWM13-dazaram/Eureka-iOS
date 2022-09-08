@@ -25,7 +25,6 @@ struct SplashScreen: View {
 }
 
 struct ContentView: View {
-    @State var loading = false
     @EnvironmentObject var mainRecipeVM : MainRecipeVM
     @EnvironmentObject var oauth: Oauth
     
@@ -33,21 +32,16 @@ struct ContentView: View {
         ZStack{
             Color.bg.edgesIgnoringSafeArea(.all)
             NavigationView {
-                if oauth.login() {
+                if oauth.status {
                     ZStack{
                         CustomTabView()
                             .onAppear {
                                 mainRecipeVM.getReplaced()
                                 mainRecipeVM.getExpire()
-                                DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-                                    loading=false
-                                }
                             }
-                        if loading {
-                            LoadingView()
-                        }
                     }
-                }else{
+                }
+                else{
                     LoginView()
                 }
             }

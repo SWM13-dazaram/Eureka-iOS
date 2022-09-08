@@ -26,15 +26,13 @@ struct MainView: View {
                         ReplaceView(proxy: proxy)
 //                        ReplaceView()
                     case false:
-                        Text("expire")
-//                        ExpireDateView(proxy: proxy)
+                        ExpireDateView(proxy: proxy)
 //                        ExpireDateView()
                     }
                 }
             }
             .padding(.init(top: 10, leading: 30, bottom: 0, trailing: 30))
         }
-        //        .overlay(loading ? LoadingView() : nil)
     }
 }
 

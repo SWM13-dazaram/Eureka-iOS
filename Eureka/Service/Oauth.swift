@@ -80,8 +80,8 @@ class Oauth: ObservableObject {
         }
     }
     
-    func login() -> Bool{
-        return UserDefaults.loginStatus()
+    func login(){
+        UserDefaults.setLoginStatus(true)
     }
     
     func logout(){

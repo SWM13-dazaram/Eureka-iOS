@@ -7,7 +7,6 @@ struct LoadingView: View {
             Color.bg
             VStack{
                 Spacer()
-                Image("MainIcon")
                 ProgressView("")
                     .progressViewStyle(CircularProgressViewStyle(tint: .appGreen))
                 Spacer()
