@@ -26,13 +26,9 @@ struct ReplaceView: View {
                 ForEach(recipeVM.replaced!, id: \.self.id) { idx in
                     NavigationLink {
                         RecipeDetailView(recipe: idx)
-                        //                            .ignoresSafeArea()
-                            .onAppear {
-                                //                                UIScrollView.appearance().isPagingEnabled = false
-                            }
+                            .ignoresSafeArea()
                     } label: {
                         Content(recipe: idx, proxy: proxy)
-                        //                            .frame(width: proxy.size.width)
                     }
                 }
             }
@@ -78,7 +74,7 @@ struct ExpireDateView: View{
                 ForEach(recipeVM.expire!, id: \.self.id){ idx in
                     NavigationLink {
                         RecipeDetailView(recipe: idx)
-                        //                        .ignoresSafeArea()
+//                            .ignoresSafeArea()
                     } label: {
                         Content(recipe: idx, proxy: proxy)
                     }
@@ -165,7 +161,7 @@ struct Similarity : View{
                 .font(.system(size: 19, weight: .bold))
                 .foregroundColor(.appGreen)
         }
-        .frame(width: UIScreen.main.bounds.width-120)
+        .frame(width: proxy.size.width)
         PercentBar(percentage: replaceIngredient.similarity, barSize: proxy.size.width)
     }
     
@@ -194,7 +190,6 @@ struct FrameText : View {
 
 struct PercentBar: View {
     @State var percentage: Float
-    //    let barSize = UIScreen.main.bounds.width-120
     let barSize: CGFloat
     
     var body: some View{
