@@ -25,40 +25,40 @@ struct RecipeIngredientList: View{
                     RecipeIngredientCell(idx)
                 }
             }
-//            if let expire = recipe.expireIngredient {
-//                if expire.id == idx.id {
-//                    RecipeIngredientCell(idx, Status.expire)
-//                }
-//                else{
-//                    RecipeIngredientCell(idx)
-//                }
-//            }
-            // FIXME: 유통기한 식재료 나오면 위에 코드 사용
-            RecipeIngredientCell(idx)
-            
+            if let expire = recipe.expireIngredient {
+                if expire.id == idx.id {
+                    RecipeIngredientCell(idx, Status.expire)
+                }
+                else{
+                    RecipeIngredientCell(idx)
+                }
+            }
         }
     }
 }
 
 
 struct RecipeIngredientCell: View {
-    let ingredientInfo: Ingredient
+    let ingredientName: String
+    let ingredientIcon: IngredientIcon
     let status: IngredientStatus?
     
     init(_ ingredientInfo: Ingredient, _ status: Status? = nil){
-        self.ingredientInfo = ingredientInfo
+        self.ingredientName = ingredientInfo.name
         if let statusCode = status{
+            self.ingredientIcon = IngredientIcon(ingredientInfo.icon, statusCode)
             self.status = IngredientStatus(ingredientInfo.name, statusCode)
         }
         else{
+            self.ingredientIcon = IngredientIcon(ingredientInfo.icon)
             self.status = nil
         }
     }
     
     var body: some View {
         HStack{
-            IngredientIcon(ingredientInfo.icon)
-            Text(ingredientInfo.name)
+            ingredientIcon
+            Text(ingredientName)
                 .font(.system(size: 13))
                 .foregroundColor(.appBlack)
             Text("3개")
@@ -68,6 +68,7 @@ struct RecipeIngredientCell: View {
             status
         }
         .padding(.vertical, 10)
+        .padding(.horizontal, 1)
     }
 }
 
