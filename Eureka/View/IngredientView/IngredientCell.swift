@@ -12,7 +12,7 @@ struct ingredientCell : View {
     
     var body: some View {
         HStack{
-            IngredientIcon(userData.ingredient.icon, expireDate)
+            IngredientIconWithExpire(userData.ingredient.icon, expireDate)
                 .padding(.trailing, 5)
             VStack{
                 HStack{

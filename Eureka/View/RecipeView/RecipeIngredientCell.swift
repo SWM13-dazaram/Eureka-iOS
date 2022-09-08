@@ -46,7 +46,7 @@ struct RecipeIngredientCell: View {
     init(_ ingredientInfo: Ingredient, _ status: Status? = nil){
         self.ingredientName = ingredientInfo.name
         if let statusCode = status{
-            self.ingredientIcon = IngredientIcon(ingredientInfo.icon)
+            self.ingredientIcon = IngredientIcon(ingredientInfo.icon, status: statusCode)
             self.status = IngredientStatus(ingredientInfo.name, statusCode)
         }
         else{
