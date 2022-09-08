@@ -18,7 +18,7 @@ class MainRecipeVM: ObservableObject {
             switch response {
             case .success(let result):
                 do{
-                    print("get replaced recipe \(result.description)")
+                    print("🤖 get replaced recipe \(result.description)")
                     if result.statusCode == 200 {
                         let tmp = try JSONDecoder().decode([Recipe].self, from: result.data)
                         self.replaced = tmp
@@ -29,11 +29,11 @@ class MainRecipeVM: ObservableObject {
                     }
                 }catch(let err){
                     self.replacedResponse = .error
-                    print("get replaced recipe parse error : \(err.localizedDescription)")
+                    print("‼️ get replaced recipe parse error : \(err.localizedDescription)")
                 }
             case .failure(let err):
                 self.replacedResponse = .error
-                print("get replaced recipe failure error : \(err.localizedDescription)")
+                print("‼️ get replaced recipe failure error : \(err.localizedDescription)")
             }
         }
     }
@@ -43,7 +43,7 @@ class MainRecipeVM: ObservableObject {
             switch response {
             case .success(let result):
                 do{
-                    print("get expire recipe \(result.description)")
+                    print("🤖 get expire recipe \(result.description)")
                     if result.statusCode == 200 {
                         let tmp = try JSONDecoder().decode([Recipe].self, from: result.data)
                         self.expire = tmp
@@ -54,11 +54,11 @@ class MainRecipeVM: ObservableObject {
                     }
                 }catch(let err){
                     self.expireResponse = .error
-                    print("get expire recipe parse error : \(err.localizedDescription)")
+                    print("‼️ get expire recipe parse error : \(err.localizedDescription)")
                 }
             case .failure(let err):
                 self.expireResponse = .error
-                print("get expire recipe failure error : \(err.localizedDescription)")
+                print("‼️ get expire recipe failure error : \(err.localizedDescription)")
             }
         }
     }

@@ -24,14 +24,11 @@ struct RecipeDetailView: View {
                     Image("replacedInfo")
                         .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
                 }
-//                if let expireDate = recipe.expireIngredient {
-//                    TextBubble(expire:expireDate.name)
-//                    Image("expireInfo")
-//                        .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
-//                }
-                // FIXME: 유통기한 식재료 나오면 위에 코드 사용
-                Image("expireInfo")
-                    .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
+                if let expireDate = recipe.expireIngredient {
+                    TextBubble(expire:expireDate.name)
+                    Image("expireInfo")
+                        .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
+                }
                 
                 VStack(alignment:.leading){
                     Text("내가 보유하고있는 재료!")
