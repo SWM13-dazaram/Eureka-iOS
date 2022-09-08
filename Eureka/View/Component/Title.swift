@@ -40,3 +40,19 @@ struct MainTitle: View {
         }
     }
 }
+
+struct MainButton: View {
+    let btn: Image
+    
+    init(_ btn: String){
+        self.btn = Image(btn)
+    }
+    
+    var body: some View {
+        VStack{
+            Spacer()
+                .frame(height: 30)
+            btn
+        }
+    }
+}

@@ -41,17 +41,6 @@ struct IngredientDetailView: View {
                     dateLine("유통기한", userIngredient.expireDate)
                 }
             }
-            .padding(.init(top: 0, leading: 25, bottom: 0, trailing: 25))
-            Text(userIngredient.memo)
-                .foregroundColor(.appGray)
-                .font(.system(size: 15))
-                .padding()
-                .frame(width: UIScreen.main.bounds.width-50 ,alignment: .leading)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.barBackground, lineWidth: 1)
-                )
-            Spacer()
         }
     }
 }

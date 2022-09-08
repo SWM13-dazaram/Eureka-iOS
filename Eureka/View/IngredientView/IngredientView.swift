@@ -16,23 +16,22 @@ struct IngredientView: View {
                 Color.bg
                     .ignoresSafeArea()
                 VStack{
-                    Spacer()
-                        .frame(height: 30)
-                    VStack(alignment: .leading){
+                    VStack{
                         HStack{
-                            MainTitle("식재료 보관함")
-                                .frame(width: 138, height: 35)
-                            Spacer()
-                                .frame(height: 40)
+                            MainTitle("식재료 보관함", width: 138, height: 35)
                             NavigationLink(isActive: $addView) {
                                 IngredientAddView(revert: $addView)
                             } label: {
-                                Image("add")
+                                MainButton("add")
                             }
                         }
-                        Text(" 총 \(ingredientVM.userIngredient.count)개")
-                            .font(.system(size: 15))
-                            .foregroundColor(.title)
+                        HStack{
+                            Text(" 총 \(ingredientVM.userIngredient.count)개")
+                                .font(.system(size: 15))
+                                .foregroundColor(.title)
+                            Spacer()
+                        }
+                        
                     }
                     .padding(.horizontal, 30)
                     List{

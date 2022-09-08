@@ -39,7 +39,7 @@
 		B969DADC28923A20003CF65B /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DADB28923A20003CF65B /* IngredientView.swift */; };
 		B969DADE28923B5E003CF65B /* MockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DADD28923B5E003CF65B /* MockViewModel.swift */; };
 		B969DAE0289246AA003CF65B /* DateCalculater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DADF289246AA003CF65B /* DateCalculater.swift */; };
-		B969DAE2289266FE003CF65B /* MainTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DAE1289266FE003CF65B /* MainTitle.swift */; };
+		B969DAE2289266FE003CF65B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DAE1289266FE003CF65B /* Title.swift */; };
 		B969DAE42893DA5E003CF65B /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969DAE32893DA5E003CF65B /* IngredientCell.swift */; };
 		B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC7287BE28900A72257 /* EurekaApp.swift */; };
 		B98BBBCA287BE28900A72257 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98BBBC9287BE28900A72257 /* ContentView.swift */; };
@@ -105,7 +105,7 @@
 		B969DADB28923A20003CF65B /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 		B969DADD28923B5E003CF65B /* MockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewModel.swift; sourceTree = "<group>"; };
 		B969DADF289246AA003CF65B /* DateCalculater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculater.swift; sourceTree = "<group>"; };
-		B969DAE1289266FE003CF65B /* MainTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitle.swift; sourceTree = "<group>"; };
+		B969DAE1289266FE003CF65B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		B969DAE32893DA5E003CF65B /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		B98BBBC4287BE28900A72257 /* Eureka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eureka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98BBBC7287BE28900A72257 /* EurekaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaApp.swift; sourceTree = "<group>"; };
@@ -190,7 +190,6 @@
 		B95691FC287E8F2900719602 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB93C028A3661A00E0A938 /* Oauth.swift */,
 				B969DADD28923B5E003CF65B /* MockViewModel.swift */,
 				B959C51A288FF849005FF7D8 /* ImageLoader.swift */,
 				B94A7ED628B20F50004D0554 /* MainRecipeViewModel.swift */,
@@ -207,7 +206,7 @@
 				B9AB37D028B76FF300E4EDA6 /* Button */,
 				B93D8699289B745F007C2AF1 /* ingredient */,
 				B959C51C288FF8FA005FF7D8 /* LoadImage.swift */,
-				B969DAE1289266FE003CF65B /* MainTitle.swift */,
+				B969DAE1289266FE003CF65B /* Title.swift */,
 				B948C5A928A517DA0037F2AA /* SearchContainer.swift */,
 				B9259D572897B4140087C537 /* RecipeComponents.swift */,
 			);
@@ -317,6 +316,7 @@
 		B9CB93C228A36BE000E0A938 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				B9CB93C028A3661A00E0A938 /* Oauth.swift */,
 				B90B477028C1C8B900218C65 /* SignInWithAppleDelegate.swift */,
 				B9E640A1288BEDDA00A0C943 /* MockAPI.swift */,
 				B94A7ED428B20E20004D0554 /* RecipeAPI.swift */,
@@ -503,7 +503,7 @@
 				B9E640A7288BEDDA00A0C943 /* recipeModel.swift in Sources */,
 				B9E64099288BED9600A0C943 /* CustomTabView.swift in Sources */,
 				B9AB37CF28B76EF300E4EDA6 /* NoneView.swift in Sources */,
-				B969DAE2289266FE003CF65B /* MainTitle.swift in Sources */,
+				B969DAE2289266FE003CF65B /* Title.swift in Sources */,
 				B94A7EE228B5FEDA004D0554 /* SplashView.swift in Sources */,
 				B93D869F289BCE98007C2AF1 /* IngredientAddDetailView.swift in Sources */,
 				B969DADC28923A20003CF65B /* IngredientView.swift in Sources */,
