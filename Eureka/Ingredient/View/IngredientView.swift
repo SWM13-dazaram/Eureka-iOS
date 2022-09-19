@@ -66,7 +66,9 @@ struct IngredientView: View {
         for index in offsets {
             ingredientVM.deleteUserIngredient(index: index)
         }
-        ingredientVM.userIngredient.remove(atOffsets: offsets)
+        
+        //TODO: 테스트 해보기
+//        ingredientVM.userIngredient.remove(atOffsets: offsets)
     }
 }
 

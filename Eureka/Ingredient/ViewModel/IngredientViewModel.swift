@@ -34,6 +34,7 @@ class IngredientVM: ObservableObject {
                 print("getAllIngredient failure error: \(err.localizedDescription)")
             }
         }
+        getUserIngredient()
     }
     
     func updateUserIngredient(data: UserIngredient){
