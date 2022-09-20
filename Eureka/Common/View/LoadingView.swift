@@ -5,6 +5,7 @@ struct LoadingView: View {
     var body: some View {
         ZStack{
             Color.bg
+                .ignoresSafeArea()
             VStack{
                 Spacer()
                 ProgressView("")
