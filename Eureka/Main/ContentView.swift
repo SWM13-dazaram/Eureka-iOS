@@ -9,16 +9,36 @@ import SwiftUI
 
 struct SplashScreen: View {
     @State var splash = true
+    @ObservedObject var networkManager = NetworkManager()
+    @State var alertToggle = true
+    
     var body: some View {
-        ZStack{
-            ContentView()
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                        splash=false
-                    }
-                }
+        Group{
             if splash {
                 SplashView()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                            splash=false
+                        }
+                    }
+            }
+            else{
+                Group{
+                    if networkManager.isConnected {
+                        ContentView()
+                    }
+                    else {
+                        SplashView()
+                            .alert("네트워크 상태", isPresented: $alertToggle) {
+                                Button("확인") {
+                                    alertToggle.toggle()
+                                    exit(0)
+                                }
+                            } message: {
+                                Text("네트워크 연결이 불안정 합니다 :(")
+                            }
+                    }
+                }
             }
         }
     }
