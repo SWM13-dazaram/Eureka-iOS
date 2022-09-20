@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IngredientAddDetailView: View {
     @Binding var revert: Bool
-    @EnvironmentObject var addVM: AddIngredient
+    @EnvironmentObject var addVM: AddIngredientViewModel
     @State var selected = 0
     @State var alert = false
     
@@ -92,7 +92,7 @@ struct CustomForm: View {
 struct IngredientAddDetailView_Previews: PreviewProvider {
     static var previews: some View {
         IngredientAddDetailView(revert: .constant(true))
-            .environmentObject(AddIngredient())
+            .environmentObject(AddIngredientViewModel())
     }
 }
 

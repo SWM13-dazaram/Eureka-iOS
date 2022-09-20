@@ -78,7 +78,7 @@ struct IngredientView_Previews: PreviewProvider {
             IngredientView()
 //                .environmentObject(MockVM())
                 .environmentObject(IngredientVM())
-                .environmentObject(AddIngredient())
+                .environmentObject(AddIngredientViewModel())
         }
     }
 }

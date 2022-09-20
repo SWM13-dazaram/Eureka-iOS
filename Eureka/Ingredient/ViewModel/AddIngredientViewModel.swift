@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-class AddIngredient: ObservableObject {
+class AddIngredientViewModel: ObservableObject {
     let provider = MoyaProvider<IngredientAPI>()
     @Published var selected = [Int : Bool]()
     @Published var userIngredient = [UserIngredient]()

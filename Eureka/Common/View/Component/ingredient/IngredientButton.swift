@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IngredientButton: View {
-    @EnvironmentObject var addVM: AddIngredient
+    @EnvironmentObject var addVM: AddIngredientViewModel
     let ingredient: Ingredient
     var icon: IngredientIcon
 

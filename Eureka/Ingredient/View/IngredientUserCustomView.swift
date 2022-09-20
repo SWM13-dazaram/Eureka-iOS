@@ -64,7 +64,7 @@ let sample = ["채소", "과일"]
 struct SelectIconSheet : View{
     @Binding var close: Bool
     @Binding var icon: String
-    @EnvironmentObject var addVM: AddIngredient
+    @EnvironmentObject var addVM: AddIngredientViewModel
     var columns: [GridItem] {
         [GridItem(.flexible(maximum: 64)),
          GridItem(.flexible(maximum: 64)),

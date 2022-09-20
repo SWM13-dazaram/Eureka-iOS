@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IngredientAddView: View {
     @Binding var revert: Bool
-    @EnvironmentObject var addVM: AddIngredient
+    @EnvironmentObject var addVM: AddIngredientViewModel
     @State var search = ""
     @State var category = "MEAT"
     @State var click = [Ingredient]()
@@ -110,6 +110,6 @@ struct IngredientAddView_Previews: PreviewProvider {
     static var previews: some View {
         IngredientAddView(revert: .constant(true))
             .environmentObject(IngredientVM())
-            .environmentObject(AddIngredient())
+            .environmentObject(AddIngredientViewModel())
     }
 }
