@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct CustomTabView: View {
-    @State var select = 0
+    @EnvironmentObject var tabselector: TabSelector
     
     init(){
         UITabBar.appearance().backgroundColor = .white
@@ -10,7 +10,7 @@ struct CustomTabView: View {
     }
     // TODO: navigation bar bug fix
     var body: some View {
-        TabView(selection: $select){
+        TabView(selection: $tabselector.selectedTab){
             MainView()
                 .navigationTitle("")
                 .navigationBarHidden(true)
@@ -53,7 +53,6 @@ struct CustomTabView: View {
                 .tag(3)
         }
         .accentColor(.appGreen)
-
     }
 }
 

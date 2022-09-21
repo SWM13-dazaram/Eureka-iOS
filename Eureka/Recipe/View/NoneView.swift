@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NoneView: View {
+    @EnvironmentObject var tabSeletor: TabSelector
+    
     var body: some View {
         VStack(spacing: 20){
             Spacer()
@@ -15,6 +17,9 @@ struct NoneView: View {
             Text("재료가 부족해 추천에 실패했어요 🥺")
                 .foregroundColor(.appGray)
             WhiteButton(text: "+ 식재료 추가하기")
+                .onTapGesture {
+                    tabSeletor.selectedTab = 1
+                }
             Spacer()
         }
     }

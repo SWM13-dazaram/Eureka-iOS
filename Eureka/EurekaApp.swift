@@ -31,6 +31,7 @@ struct EurekaApp: App {
                 .environmentObject(AddIngredientViewModel())
                 .environmentObject(IngredientVM())
                 .environmentObject(Oauth())
+                .environmentObject(TabSelector())
         }
     }
 }
