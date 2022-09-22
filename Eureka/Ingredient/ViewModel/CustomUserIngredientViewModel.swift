@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-class CustomUserIngredient: ObservableObject {
+class CustomUserIngredientViewModel: ObservableObject {
     let provider = MoyaProvider<IngredientAPI>()
     @Published var categories = [Category]()
     @Published var representaion = [Ingredient]()

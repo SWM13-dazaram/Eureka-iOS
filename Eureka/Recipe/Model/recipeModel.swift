@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum RecipeType {
+    case replace
+    case expire
+}
+
 struct Recipe: Decodable {
     let id: Int
 //    let url: String

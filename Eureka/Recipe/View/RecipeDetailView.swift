@@ -47,6 +47,7 @@ struct RecipeDetailView: View {
     }
 }
 
+//TODO: RecipeType으로 통일
 enum Status : String {
     case replaced
     case expire

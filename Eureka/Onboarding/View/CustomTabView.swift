@@ -8,10 +8,10 @@ struct CustomTabView: View {
         UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().barTintColor = .white
     }
-    // TODO: navigation bar bug fix
+    
     var body: some View {
         TabView(selection: $tabselector.selectedTab){
-            MainView()
+            RecipeMainView()
                 .navigationTitle("")
                 .navigationBarHidden(true)
                 .tabItem{
@@ -19,7 +19,7 @@ struct CustomTabView: View {
                     Text("홈")
                 }
                 .tag(0)
-            IngredientView()
+            IngredientMainView()
                 .navigationTitle("")
                 .navigationBarHidden(true)
                 .tabItem{

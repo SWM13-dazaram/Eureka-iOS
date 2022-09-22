@@ -5,7 +5,7 @@ import KakaoSDKUser
 import AuthenticationServices
 import Moya
 
-class Oauth: ObservableObject {
+class LoginViewModel: ObservableObject {
     let provider = MoyaProvider<UserAPI>()
     @Published var status = UserDefaults.loginStatus()
     

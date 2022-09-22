@@ -3,7 +3,7 @@ import SwiftUI
 
 
 class SignInWithAppleDelegate: NSObject {
-    var oauth = Oauth()
+    var oauth = LoginViewModel()
     
     private let signInSucceeded: (Bool) -> Void
     init(onSignedIn: @escaping (Bool) -> Void) {

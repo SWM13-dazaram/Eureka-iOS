@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NoneView: View {
+struct RecipeNoneView: View {
     @EnvironmentObject var tabSeletor: TabSelector
     
     var body: some View {
@@ -27,6 +27,6 @@ struct NoneView: View {
 
 struct NoneView_Previews: PreviewProvider {
     static var previews: some View {
-        NoneView()
+        RecipeNoneView()
     }
 }

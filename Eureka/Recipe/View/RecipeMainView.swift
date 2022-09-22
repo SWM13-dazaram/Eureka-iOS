@@ -1,5 +1,5 @@
 //
-//  ReplaceView.swift
+//  MainView.swift
 //  Eureka
 //
 //  Created by 김민령 on 2022/07/20.
@@ -7,217 +7,79 @@
 
 import SwiftUI
 
-// @TODO: BUGFIX ING..
-struct ReplaceView: View {
+
+struct RecipeMainView: View {
+    @State var recipeType = RecipeType.replace
     @EnvironmentObject var recipeVM : MainRecipeVM
-    @State var selected = 0
-    let proxy: GeometryProxy
+//    @State var loading = true
     
     var body: some View {
-        switch recipeVM.replacedResponse {
-        case .loading :
-            LoadingView()
-        case .empty :
-            NoneView()
-        case .error :
-            ErrorView()
-        case .success :
-            TabView(selection: $selected){
-                ForEach(recipeVM.replaced!, id: \.self.id) { idx in
-                    NavigationLink {
-                        RecipeDetailView(recipe: idx)
-                            .ignoresSafeArea()
-                    } label: {
-                        Content(recipe: idx, proxy: proxy)
+        ZStack{
+            Color.bg
+                .ignoresSafeArea()
+            GeometryReader { proxy in
+                VStack{
+                    MainTitle("오늘의 레시피를 확인해보세요 😋", width: 160, height: 69)
+                    TitleTabView($recipeType)
+                    switch recipeType {
+                    case .replace:
+                        ReplaceView(proxy: proxy)
+                            .onAppear{
+                                recipeVM.getReplaced()
+                            }
+                    case .expire:
+                        ExpireDateView(proxy: proxy)
+                            .onAppear{
+                                recipeVM.getExpire()
+                            }
                     }
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .padding(.init(top: 10, leading: 30, bottom: 0, trailing: 30))
         }
-        //            ScrollView(.horizontal, showsIndicators: false) {
-        //                HStack{
-        //                    ForEach(recipeVM.replaced, id: \.self.id) { idx in
-        //                        NavigationLink {
-        //                            RecipeDetailView(recipe: idx)
-        //    //                            .ignoresSafeArea()
-        //                                .onAppear {
-        //                                    UIScrollView.appearance().isPagingEnabled = false
-        //                                }
-        //                        } label: {
-        //                            Content(recipe: idx)
-        ////                                .frame(width: proxy.size.width)
-        //                        }
-        //                    }
-        //                }
-        //            }
-        ////            .frame(width: proxy.size.width)
-        ////            .onAppear {
-        ////                UIScrollView.appearance().isPagingEnabled = true
-        ////            }
     }
 }
 
-struct ExpireDateView: View{
-    @EnvironmentObject var recipeVM : MainRecipeVM
-    let proxy: GeometryProxy
+struct TitleTabView: View{
+    @Binding var recipeType: RecipeType
     
     var body: some View {
-        switch recipeVM.expireResponse {
-        case .loading :
-            LoadingView()
-        case .empty :
-            NoneView()
-        case .error :
-            ErrorView()
-        case .success:
-            TabView {
-                ForEach(recipeVM.expire!, id: \.self.id){ idx in
-                    NavigationLink {
-                        RecipeDetailView(recipe: idx)
-//                            .ignoresSafeArea()
-                    } label: {
-                        Content(recipe: idx, proxy: proxy)
-                    }
+        VStack{
+            HStack{
+                Button {
+                    recipeType = .replace
+                } label: {
+                    Text("🥑 식재료 대체")
+                        .font(.system(size: 12))
+                        .frame(width: 155, height: 34, alignment: .center)
+                        .background(recipeType == .replace ? Color.appGreen : .white)
+                        .foregroundColor(recipeType == .replace ? .white : .appGray)
+                        .cornerRadius(20)
+                        
+                }
+                Button {
+                    recipeType = .expire
+                } label: {
+                    Text("🧨 유통기한")
+                        .font(.system(size: 12))
+                        .frame(width: 155, height: 34, alignment: .center)
+                        .background(recipeType == .expire ? Color.appGreen : .white)
+                        .foregroundColor(recipeType == .expire ? .white : .appGray)
+                        .cornerRadius(20)
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        }
-        //        }
-        //        ScrollView(.horizontal, showsIndicators: false) {
-        //            HStack{
-        //                ForEach(recipeVM.expire, id: \.self.id) { idx in
-        //                    NavigationLink {
-        //                        RecipeDetailView(recipe: idx)
-        ////                            .onAppear {
-        ////                                UIScrollView.appearance().isPagingEnabled = false
-        ////                            }
-        //                    } label: {
-        //                        Content(recipe: idx)
-        //                            .frame(width: proxy.size.width-30)
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        .frame(width: proxy.size.width)
-        //        .onAppear {
-        //            UIScrollView.appearance().isPagingEnabled = true
-        //        }
-    }
-}
-
-struct Content: View {
-    @State var recipe: Recipe
-    @State var description = ""
-    let proxy: GeometryProxy
-    
-    var body: some View{
-        ScrollView{
-            VStack(spacing:20){
-                LoadImage(recipe.image)
-                    .frame(width: 300, height: 220, alignment: .center)
-                    .cornerRadius(22)
-                    .shadow(color: .shadow, radius: 6, x: 0, y: 3)
-                RecipeName(recipe.title)
-                if let replaced = recipe.replaceIngredient {
-                    let old = replaced.missingIngredient.name
-                    let new = replaced.ownIngredient.name
-                    TextBubble(new:new, old:old)
-                }
-                if let expireDate = recipe.expireIngredient {
-                    TextBubble(expire:expireDate.name)
-                }
-                VStack(alignment: .leading) {
-                    Text("내가 보유하고있는 재료!")
-                        .font(.system(size: 13, weight: .bold))
-                        .foregroundColor(.appBlack)
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))]){
-                        ForEach(recipe.ingredients, id: \.self.id ){ idx in
-                            FrameText(text: idx.name)
-                        }
-                    }
-                    if let similarity = recipe.replaceIngredient {
-                        Similarity(similarity, proxy: proxy)
-                    }
-                }
-            }
-            .padding(.vertical)
-        }
-    }
-}
-
-struct Similarity : View{
-    let replaceIngredient: ReplaceIngredient
-    let oldIngredient: String
-    let newIngredient: String
-    let proxy: GeometryProxy
-    
-    var body: some View{
-        HStack{
-            Text("\(oldIngredient)(이)랑 \(newIngredient)의 성분 유사도")
-                .font(.system(size: 13, weight: .bold))
-                .foregroundColor(.appBlack)
-            Spacer()
-            Text("\(Int(replaceIngredient.similarity*100))%")
-                .font(.system(size: 19, weight: .bold))
-                .foregroundColor(.appGreen)
-        }
-        .frame(width: proxy.size.width)
-        PercentBar(percentage: replaceIngredient.similarity, barSize: proxy.size.width)
-    }
-    
-    init(_ replaceIngredient: ReplaceIngredient, proxy: GeometryProxy){
-        self.replaceIngredient = replaceIngredient
-        self.oldIngredient = replaceIngredient.missingIngredient.name
-        self.newIngredient = replaceIngredient.ownIngredient.name
-        self.proxy = proxy
-    }
-}
-
-
-struct FrameText : View {
-    var text: String
-    
-    var body: some View {
-        Text(text)
-            .foregroundColor(.defaultText)
-            .font(.system(size: 13))
-            .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
-            .background(Color.white)
-            .cornerRadius(50)
-            .fixedSize()
-    }
-}
-
-struct PercentBar: View {
-    @State var percentage: Float
-    let barSize: CGFloat
-    
-    var body: some View{
-        ZStack(alignment: .leading){
-            RoundedRectangle(cornerRadius: 100)
-                .frame(width: barSize, height: 10)
-                .foregroundColor(.barBackground)
-            RoundedRectangle(cornerRadius: 100)
-                .frame(width: barSize * CGFloat(percentage), height: 10)
-                .foregroundColor(.appGreen)
         }
     }
     
+    init(_ recipeType: Binding<RecipeType>){
+        self._recipeType = recipeType
+    }
 }
 
-
-
-//struct ReplaceView_Previews: PreviewProvider {
+//struct MainView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ReplaceView()
-//            .previewInterfaceOrientation(.portrait)
-//    }
-//}
-
-
-//struct ExpireDateView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ReplaceView()
-//            .previewInterfaceOrientation(.portrait)
+//        RecipeMainView()
+//            .environmentObject(MainRecipeVM())
+//            .environmentObject(IngredientVM())
 //    }
 //}

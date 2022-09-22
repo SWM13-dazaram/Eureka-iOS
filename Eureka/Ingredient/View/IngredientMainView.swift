@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IngredientView: View {
+struct IngredientMainView: View {
     @EnvironmentObject var ingredientVM : IngredientVM
     @State var addView = false
     
@@ -17,7 +17,7 @@ struct IngredientView: View {
             case .loading:
                 LoadingView()
             case .empty:
-                NoneView()
+                RecipeNoneView()
             case .error:
                 ErrorView()
             case .success:
@@ -83,13 +83,13 @@ struct IngredientView: View {
     }
 }
 
-struct IngredientView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView{
-            IngredientView()
-//                .environmentObject(MockVM())
-                .environmentObject(IngredientVM())
-                .environmentObject(AddIngredientViewModel())
-        }
-    }
-}
+//struct IngredientView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView{
+//            IngredientMainView()
+////                .environmentObject(MockVM())
+//                .environmentObject(IngredientVM())
+//                .environmentObject(AddIngredientViewModel())
+//        }
+//    }
+//}

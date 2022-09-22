@@ -20,7 +20,7 @@ struct EurekaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashScreen()
+            StartView()
                 .onOpenURL{ url in
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
@@ -30,7 +30,7 @@ struct EurekaApp: App {
                 .environmentObject(MainRecipeVM())
                 .environmentObject(AddIngredientViewModel())
                 .environmentObject(IngredientVM())
-                .environmentObject(Oauth())
+                .environmentObject(LoginViewModel())
                 .environmentObject(TabSelector())
         }
     }

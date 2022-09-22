@@ -1,14 +1,16 @@
 //
-//  ContentView.swift
+//  StartView.swift
 //  Eureka
 //
-//  Created by 김민령 on 2022/07/11.
+//  Created by 김민령 on 2022/09/22.
 //
 
+import Foundation
 import SwiftUI
 
-struct SplashScreen: View {
+struct StartView: View {
     @State var splash = true
+    //TODO: ViewModel 만들어서 옮기기
     @ObservedObject var networkManager = NetworkManager()
     @State var alertToggle = true
     
@@ -43,40 +45,5 @@ struct SplashScreen: View {
                 }
             }
         }
-    }
-}
-
-struct ContentView: View {
-    @EnvironmentObject var mainRecipeVM : MainRecipeVM
-    @EnvironmentObject var oauth: Oauth
-    
-    var body: some View {
-        ZStack{
-            Color.bg.edgesIgnoringSafeArea(.all)
-            NavigationView {
-                if oauth.status {
-                    ZStack{
-                        CustomTabView()
-                            .onAppear {
-                                mainRecipeVM.getReplaced()
-                                mainRecipeVM.getExpire()
-                            }
-                    }
-                }
-                else{
-                    LoginView()
-                }
-            }
-        }
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .previewInterfaceOrientation(.portrait)
-            .environmentObject(MainRecipeVM())
-            .environmentObject(IngredientVM())
     }
 }

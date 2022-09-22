@@ -13,7 +13,7 @@ import AuthenticationServices
 
 struct LoginView: View {
 //    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var oauth: Oauth
+    @EnvironmentObject var loginVM: LoginViewModel
 //    @Binding var main: Bool
     @State var appleSignInDelegate: SignInWithAppleDelegate! = nil
     
@@ -29,11 +29,23 @@ struct LoginView: View {
             Image("MainIcon")
             Spacer()
                 .frame(height: 120)
-            LongLineText("시작하기")
+            HStack{
+                Rectangle()
+                    .frame(height: 0.5)
+                    .foregroundColor(.appGray)
+                    .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20))
+                Text("시작하기")
+                    .foregroundColor(.appGray)
+                    .font(.system(size: 12))
+                Rectangle()
+                    .frame(height: 0.5)
+                    .foregroundColor(.appGray)
+                    .padding(.init(top: 0, leading: 20, bottom: 0, trailing: 0))
+            }
             .padding(.bottom)
 //            NavigationLink(destination: SetProfileView(complete: $main).navigationBarBackButtonHidden(true), tag: true, selection: $oauth.status) {}
             Button {
-                oauth.kakaoLogin()
+                loginVM.kakaoLogin()
             } label: {
                 Image("KakaoLogin")
             }
@@ -64,30 +76,6 @@ extension LoginView {
       controller.delegate = appleSignInDelegate
       controller.presentationContextProvider = appleSignInDelegate
       controller.performRequests()
-    }
-}
-
-struct LongLineText: View {
-    let text: String
-    
-    init(_ text: String){
-        self.text = text
-    }
-    
-    var body: some View {
-        HStack{
-            Rectangle()
-                .frame(height: 0.5)
-                .foregroundColor(.appGray)
-                .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20))
-            Text(text)
-                .foregroundColor(.appGray)
-                .font(.system(size: 12))
-            Rectangle()
-                .frame(height: 0.5)
-                .foregroundColor(.appGray)
-                .padding(.init(top: 0, leading: 20, bottom: 0, trailing: 0))
-        }
     }
 }
 
