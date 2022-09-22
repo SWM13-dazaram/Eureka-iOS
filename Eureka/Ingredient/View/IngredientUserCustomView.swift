@@ -23,7 +23,7 @@ struct IngredientUserCustomView: View {
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
             HStack{
-                MainTitle("식재료 직접입력")
+                MainTitle("Input Custom Ingredient".localized())
                 Spacer()
                 Button {
                     self.presentationMode.wrappedValue.dismiss()
@@ -50,7 +50,7 @@ struct IngredientUserCustomView: View {
                     //FIXME: API
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
-                    BottomButton(text: "추가하기")
+                    BottomButton(text: "Adding Ingredient".localized())
                 }
             }
         }
@@ -80,7 +80,7 @@ struct SelectIconSheet : View{
     var body: some View{
         VStack{
             HStack{
-                Text("식재료 아이콘 선택")
+                Text("Select Ingredient Icon".localized())
                     .font(.system(size: 18))
                     .fontWeight(.bold)
                 Spacer()
@@ -112,17 +112,19 @@ struct SelectIconSheet : View{
 }
 
 struct IngredientCategory: View {
-    @State var category = "카테고리를 선택해주세요."
+    //TODO: 카테고리 API로 주면 첫번째 값 default하기
+    @State var category = ""
+    
     var body: some View{
         HStack{
-            Text("카테고리")
+            Text("Category".localized())
             Spacer()
             Picker(selection: $category) {
                 ForEach(sample, id:\.self){
                     Text($0)
                 }
             } label: {
-                Text("카테고리를 선택해주세요.")
+                Text("Select Category".localized())
             }
             .accentColor(.appGray)
             .pickerStyle(.menu)
@@ -140,21 +142,21 @@ struct IngredientCustomForm: View{
     
     var body: some View{
         HStack{
-            Text("품목명")
+            Text("Ingredient Name".localized())
             Spacer()
                 .frame(width: 50)
-            TextField("품목명을 입력해주세요.", text: $name)
+            TextField("Input Ingredient Name Please".localized(), text: $name)
         }
         .foregroundColor(.appBlack)
         .font(.system(size: 14))
-        DateForm(title: "등록일", range: Date()..., date: $today)
+        DateForm(title: "Insert Date".localized(), range: Date()..., date: $today)
             .disabled(true)
-        DateForm(title: "유통기한", range: Date()..., date: $expire)
+        DateForm(title: "Expire".localized(), range: Date()..., date: $expire)
         HStack{
-            Text("메모")
+            Text("Memo".localized())
             Spacer()
                 .frame(width: 50)
-            TextField("메모를 입력해주세요.", text: $memo)
+            TextField("Input Memo Please".localized(), text: $memo)
         }
         .foregroundColor(.appBlack)
         .font(.system(size: 14))

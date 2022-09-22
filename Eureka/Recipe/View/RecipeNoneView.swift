@@ -14,9 +14,9 @@ struct RecipeNoneView: View {
         VStack(spacing: 20){
             Spacer()
             Image("empty_main")
-            Text("재료가 부족해 추천에 실패했어요 🥺")
+            Text("Recipe Empty".localized())
                 .foregroundColor(.appGray)
-            WhiteButton(text: "+ 식재료 추가하기")
+            WhiteButton(text: "+"+"Adding Ingredient".localized())
                 .onTapGesture {
                     tabSeletor.selectedTab = 1
                 }

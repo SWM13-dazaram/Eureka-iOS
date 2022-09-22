@@ -7,11 +7,9 @@ struct EmailSender: UIViewControllerRepresentable {
 
   func makeUIViewController(context: Context) -> MFMailComposeViewController {
     let mail = MFMailComposeViewController()
-    let contents = """
-      사용에 불편하거나 개선할점이 있으면 자유롭게 문의해 주시기 바랍니다.
-    """
+      let contents = "Email Comment".localized()
 
-    mail.setSubject("유레카APP 문의하기")
+    mail.setSubject("App Name".localized()+"APP"+"Contact".localized())
     mail.setToRecipients(["dazaram2022@gmail.com"])
     mail.setMessageBody(contents, isHTML: false)
 

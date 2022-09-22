@@ -19,7 +19,7 @@ struct RecipeMainView: View {
                 .ignoresSafeArea()
             GeometryReader { proxy in
                 VStack{
-                    MainTitle("오늘의 레시피를 확인해보세요 😋", width: 160, height: 69)
+                    MainTitle("Recipe Title".localized(), width: 160, height: 69)
                     TitleTabView($recipeType)
                     switch recipeType {
                     case .replace:
@@ -49,7 +49,7 @@ struct TitleTabView: View{
                 Button {
                     recipeType = .replace
                 } label: {
-                    Text("🥑 식재료 대체")
+                    Text("🥑 "+"Replce".localized())
                         .font(.system(size: 12))
                         .frame(width: 155, height: 34, alignment: .center)
                         .background(recipeType == .replace ? Color.appGreen : .white)
@@ -60,7 +60,7 @@ struct TitleTabView: View{
                 Button {
                     recipeType = .expire
                 } label: {
-                    Text("🧨 유통기한")
+                    Text("🧨 "+"Expire".localized())
                         .font(.system(size: 12))
                         .frame(width: 155, height: 34, alignment: .center)
                         .background(recipeType == .expire ? Color.appGreen : .white)

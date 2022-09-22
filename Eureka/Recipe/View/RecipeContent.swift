@@ -29,7 +29,7 @@ struct RecipeContent : View {
                     TextBubble(expire:expireDate.name)
                 }
                 VStack(alignment: .leading) {
-                    Text("내가 보유하고있는 재료!")
+                    Text("My Ingredient".localized())
                         .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.appBlack)
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))]){
@@ -55,7 +55,7 @@ struct Similarity : View{
     
     var body: some View{
         HStack{
-            Text("\(oldIngredient)(이)랑 \(newIngredient)의 성분 유사도")
+            Text("%@ And %@ Similarity".localized(with: [oldIngredient, newIngredient]))
                 .font(.system(size: 13, weight: .bold))
                 .foregroundColor(.appBlack)
             Spacer()

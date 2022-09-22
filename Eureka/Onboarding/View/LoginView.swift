@@ -19,11 +19,11 @@ struct LoginView: View {
     
     var body: some View {
         VStack{
-            Text("신박한 레시피, 똑똑한 냉장고 정리엔")
+            Text("App Title".localized())
                 .foregroundColor(.appGray)
                 .font(.system(size: 14))
                 .padding(.init(top: 0, leading: 0, bottom: 1, trailing: 0))
-            Text("유레카")
+            Text("App Name".localized())
                 .foregroundColor(.appBlack)
                 .font(.system(size: 34, weight: .bold))
             Image("MainIcon")

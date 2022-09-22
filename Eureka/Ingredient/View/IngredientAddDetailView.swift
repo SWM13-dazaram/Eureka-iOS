@@ -17,11 +17,11 @@ struct IngredientAddDetailView: View {
         VStack{
             Spacer()
             HStack{
-                MainTitle("세부정보 입력 (\(selected+1)/\(addVM.userIngredient.count))")
+                MainTitle("Input Detail Information".localized()+" (\(selected+1)/\(addVM.userIngredient.count))")
                 Spacer()
             }
             HStack{
-                Text("총 \(addVM.userIngredient.count)개의 식재료의 정보를 입력해주세요.")
+                Text("All %d".localized(with: addVM.userIngredient.count)+"Input Detail Information Please".localized())
                     .font(.system(size: 13))
                     .foregroundColor(.appBlack)
                 Spacer()
@@ -41,14 +41,14 @@ struct IngredientAddDetailView: View {
                     alert = true
                     let _ = addVM.setIngredientData() // 비동기처리..
                 } label: {
-                    BottomButton(text: "저장하기")
+                    BottomButton(text: "Save".localized())
                 }
-                .alert("저장되었습니다.", isPresented: $alert){
+                .alert("Save Text".localized(), isPresented: $alert){
                     Button {
                         revert = false
                         addVM.resetTmpData()
                     } label: {
-                        Text("OK")
+                        Text("Ok".localized())
                             .foregroundColor(.appGreen)
                     }
                 }
@@ -57,7 +57,7 @@ struct IngredientAddDetailView: View {
                 Button {
                     withAnimation { selected+=1 }
                 } label: {
-                    BottomButton(text: "다음")
+                    BottomButton(text: "Next".localized())
                 }
             }
 
@@ -68,6 +68,7 @@ struct IngredientAddDetailView: View {
 
 struct CustomForm: View {
     let title: String
+    let placeholder: String
     @Binding var text: String
     
     var body: some View {
@@ -76,7 +77,7 @@ struct CustomForm: View {
                 .foregroundColor(.black)
                 .font(.system(size: 14))
             Spacer()
-            TextField("\(title)을 입력하세요.", text: $text)
+            TextField(placeholder, text: $text)
                 .font(.system(size: 14))
                 .frame(width: 250)
                 .padding(.init(top: 10, leading: 10, bottom: 10, trailing: 0))

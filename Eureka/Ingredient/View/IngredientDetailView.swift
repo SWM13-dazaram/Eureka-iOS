@@ -37,8 +37,8 @@ struct IngredientDetailView: View {
                             .bold()
                         Spacer()
                     }
-                    dateLine("등록일", userIngredient.insertDate)
-                    dateLine("유통기한", userIngredient.expireDate)
+                    dateLine("Insert Date".localized(), userIngredient.insertDate)
+                    dateLine("Expire".localized(), userIngredient.expireDate)
                 }
             }
         }

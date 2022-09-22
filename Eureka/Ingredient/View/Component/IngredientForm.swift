@@ -11,14 +11,14 @@ struct IngredientForm: View {
         VStack{
             IngredientIcon(formData.ingredient.icon, size: 84)
                 .padding(.bottom)
-            CustomForm(title: "품목명", text: $formData.name)
-            DateForm(title: "등록일", range: Date()..., date: $today)
+            CustomForm(title: "Ingredient Name".localized(), placeholder: "Input Ingredient Name Please".localized(), text: $formData.name)
+            DateForm(title: "Insert Date".localized(), range: Date()..., date: $today)
                 .disabled(true)
-            DateForm(title: "유통기한", range: Date()..., date: $expire)
+            DateForm(title: "Expire".localized(), range: Date()..., date: $expire)
                 .onChange(of: self.expire) { newValue in
                     formData.expireDate = dateCal.changeDateToStr(date: self.expire)
                 }
-            CustomForm(title: "메모" , text: $formData.memo)
+            CustomForm(title: "Memo".localized(), placeholder: "Input Memo Please".localized() , text: $formData.memo)
         }
         .onAppear{
             expire = dateCal.changeStrToDate(str: formData.expireDate)

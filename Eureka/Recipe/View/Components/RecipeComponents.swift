@@ -18,7 +18,7 @@ struct TextBubble: View{
     var description: AttributedString
     
     init(new: String, old: String){
-        description = AttributedString("\(old)대신 \(new)(이)가 있어요!")
+        description = AttributedString("%@ Replace With %@".localized(with: [old, new]))
         let oldCustom = description.range(of: old)!
         let newCustom = description.range(of: new)!
         description[oldCustom].foregroundColor = .appBlack
@@ -27,7 +27,7 @@ struct TextBubble: View{
     }
     
     init(expire: String){
-        description = AttributedString("\(expire)의 유통기한이 임박했어요!")
+        description = AttributedString("%@ Expire Soon".localized(with: expire))
         let expireCustom = description.range(of: expire)!
         description[expireCustom].foregroundColor = .appRed
     }

@@ -1,0 +1,83 @@
+/* 
+  Localizable.strings
+  Eureka
+
+  Created by 김민령 on 2022/09/22.
+  
+*/
+
+//MARK: Onborading
+"Network Status" = "네트워크 상태";
+"Network Error" = "네트워크 연결이 불안정 합니다 🥺";
+"App Title" = "신박한 레시피, 똑똑한 냉장고 정리엔";
+"App Name" = "유레카";
+
+//MARK: Tab Title
+"Home" = "홈";
+"Ingredient" = "식재료";
+"Search" = "레시피검색";
+"Mypage" = "마이페이지";
+
+//MARK: Recipe
+"Recipe Title" = "오늘의 레시피를 확인해보세요 😋";
+"Replce" = "식재료 대체";
+"Expire" = "유통기한";
+"Recipe Empty" = "재료가 부족해 추천에 실패했어요 🥺";
+"My Ingredient" = "내가 보유하고 있는 재료!";
+"%@ And %@ Similarity" = "%@(이)랑 %@의 성분 유사도";
+"Recipe" = "조리방법";
+"%@ Replace Ingredient" = "%@ 대체재료";
+"Expire Ingredient" = "유통기한 임박재료";
+"%d Amount" = "%d개";
+"%@ Replace With %@" = "%@대신 %@(이)가 있어요!";
+"%@ Expire Soon" = "%@의 유통기한이 임박했어요!";
+
+//MARK: Ingredient
+"Ingredient Title" = "식재료 보관함";
+"All %d" = "총 %d개";
+"Insert Date" = "등록일";
+"Adding Selected Ingredient" = "선택한 식재료 추가하기";
+"Adding Custom Ingredient" = "직접추가";
+"%d Day Left" = "%d일 남음";
+"%d Day After" = "%d일 지남";
+"Until Today" = "오늘까지";
+"Input Detail Information" = "세부정보 입력";
+"Input Detail Information Please" = "의 식재료 정보를 입력해주세요.";
+"Next" = "다음";
+"Input Custom Ingredient" = "식재료 직접입력";
+"Select Ingredient Icon" = "식재료 아이콘 선택";
+"Select Category" = "카테고리를 선택해주세요.";
+"Category" = "카테고리";
+"Ingredient Name" = "품목명";
+"Memo" = "메모";
+"Input Memo Please" = "메모를 입력하세요.";
+"Input Ingredient Name Please" = "품목명을 입력해주세요.";
+"Insert Date" = "등록일";
+
+//MARK: Mypage
+"Profile Title" = "프로필을 등록해주세요";
+"Nickname" = "닉네임";
+"Input Nickname Please" = "사용하실 닉네임을 입력해주세요.";
+"Mypage Title" = "마이페이지";
+"Edit Profile" = "프로필수정";
+"Notice" = "공지사항";
+"Version Info" = "버전정보";
+"Contact" = "문의하기";
+"Logout" = "로그아웃";
+"Logout Check Comment" = "정말 로그아웃 하시겠습니까?";
+"Leave" = "탈퇴하기";
+"Leave Check Comment" = "탈퇴하면 식재료 보관함을 비롯한 모든 데이터가 삭제됩니다. \n 정말 탈퇴 하시겠습니까?";
+"Email Comment" = "사용에 불편하거나 개선할점이 있으면 자유롭게 문의해 주시기 바랍니다.";
+
+
+
+//MARK: Common
+"Save" = "저장하기";
+"Save Text" = "저장되었습니다.";
+"Modify" = "수정";
+"Modify Text" = "수정되었습니다.";
+"Ok" = "확인";
+"Cancle" = "취소";
+"Adding Ingredient" = "식재료 추가하기";
+"Yes" = "예";
+"No" = "아니오";

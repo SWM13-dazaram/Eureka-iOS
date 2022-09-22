@@ -21,7 +21,7 @@ struct IngredientAddView: View {
     var body: some View {
         VStack{
             HStack{
-                MainTitle("식재료 등록")
+                MainTitle("Adding Ingredient".localized())
                 Spacer()
             }
             SearchContiner(placeholder: "식재료를 검색해보세요.", search: $search)
@@ -50,7 +50,7 @@ struct IngredientAddView: View {
                             addVM.getDefaultIngredientInfo()
                         }
                 } label: {
-                    BottomButton(text: "선택한 식재료 추가하기")
+                    BottomButton(text: "Adding Selected Ingredient".localized())
                 }
             }
         }
@@ -75,14 +75,14 @@ struct CategoryView: View{
         ForEach(ingredient, id: \.self.categoryId){ idx in
             if category == idx.categoryId {
                 HStack{
-                    Text("\(idx.categoryName) 총 \(idx.ingredients.count)개")
+                    Text("\(idx.categoryName)"+"All %d".localized(with: idx.ingredients.count, comment: "총갯수"))
                         .font(.system(size: 12))
                         .foregroundColor(.appBlack)
                     Spacer()
                     NavigationLink {
                         IngredientUserCustomView()
                     } label: {
-                        Text("+직접추가")
+                        Text("+"+"Adding Custom Ingredient".localized(comment: "유저 커스텀 식재료 추가"))
                             .font(.system(size:11))
                             .foregroundColor(.appGreen)
                             .padding(.init(top: 5, leading: 12, bottom: 5, trailing: 12))

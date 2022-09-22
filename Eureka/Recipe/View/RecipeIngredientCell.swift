@@ -61,7 +61,7 @@ struct RecipeIngredientCell: View {
             Text(ingredientName)
                 .font(.system(size: 13))
                 .foregroundColor(.appBlack)
-            Text("3개")
+            Text("%d Amount".localized(with: 3))
                 .font(.system(size: 13))
                 .foregroundColor(.appBlack)
             Spacer()
@@ -75,18 +75,19 @@ struct RecipeIngredientCell: View {
 struct IngredientStatus: View{
     let textColor: Color
     let bgColor: Color
-    let text: String
+    var text: String
     
     init(_ ingredient: String, _ color: Status){
         switch color {
         case .replaced:
             self.textColor = .appGreen
             self.bgColor = .bgGreen
-            self.text = "\(ingredient) 대체재료"
+            self.text = "%@ Replace Ingredient".localized(with: "\(ingredient)")
         case .expire:
             self.textColor = .appRed
             self.bgColor = .bgRed
-            self.text = "유통기한 임박재료"
+            self.text = ""
+            self.text = "Expire Ingredient".localized()
         }
     }
     

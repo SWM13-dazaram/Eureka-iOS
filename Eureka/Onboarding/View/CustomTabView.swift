@@ -16,7 +16,7 @@ struct CustomTabView: View {
                 .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_home")
-                    Text("홈")
+                    Text("Home".localized())
                 }
                 .tag(0)
             IngredientMainView()
@@ -24,7 +24,7 @@ struct CustomTabView: View {
                 .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_ingredient")
-                    Text("식재료")
+                    Text("Ingredient".localized())
                 }
                 .tag(1)
             NotMVPView()
@@ -32,7 +32,7 @@ struct CustomTabView: View {
                 .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_search")
-                    Text("레시피검색")
+                    Text("Search".localized())
                 }
                 .tag(2)
 //            NotMVPView()
@@ -48,7 +48,7 @@ struct CustomTabView: View {
                 .navigationBarHidden(true)
                 .tabItem{
                     Image("menu_my")
-                    Text("마이페이지")
+                    Text("Mypage".localized())
                 }
                 .tag(3)
         }

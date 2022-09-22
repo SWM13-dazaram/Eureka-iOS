@@ -45,11 +45,11 @@ struct expireText : View {
     init(_ days: Int){
         self.days = days
         if(days > 0){
-            text = "\(days)일 남음"
+            text = "%d Day Left".localized(with: days)
         }else if(days==0){
-            text = "오늘까지"
+            text = "Until Today".localized()
         }else {
-            text = "\(-days)일 지남"
+            text = "%d Day After".localized(with: -days)
         }
         self.textColor = dateCal.ingredientColor(days: days)
     }

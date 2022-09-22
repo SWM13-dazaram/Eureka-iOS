@@ -31,10 +31,10 @@ struct RecipeDetailView: View {
                 }
                 
                 VStack(alignment:.leading){
-                    Text("내가 보유하고있는 재료!")
+                    Text("My Ingredient".localized())
                         .font(.system(size: 15, weight: .bold))
                     RecipeIngredientList(recipe)
-                    Text("조리방법")
+                    Text("Recipe".localized())
                         .font(.system(size: 15, weight: .bold))
                         .padding(.init(top: 30, leading: 0, bottom: 20, trailing: 0))
                     ForEach(recipe.recipeSequences, id: \.self.sequence){ idx in

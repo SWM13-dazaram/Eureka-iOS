@@ -31,15 +31,15 @@ struct StartView: View {
                     }
                     else {
                         SplashView()
-                            .alert("네트워크 상태", isPresented: $alertToggle) {
-                                Button("확인") {
+                            .alert("NetWork Status".localized(), isPresented: $alertToggle) {
+                                Button("Ok".localized()) {
                                     alertToggle.toggle()
                                     //TODO: 리팩토링하기..
                                     //네트워크 상태 안좋으면 일단 종료 시키기
                                     exit(0)
                                 }
                             } message: {
-                                Text("네트워크 연결이 불안정 합니다 :(")
+                                Text("Network Error".localized())
                             }
                     }
                 }

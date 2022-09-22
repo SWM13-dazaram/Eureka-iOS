@@ -18,10 +18,10 @@ struct SettingView: View {
         List{
             NavigationLink {
             } label: {
-                Text("공지사항")
+                Text("Notice".localized())
             }
             HStack{
-                Text("버전정보")
+                Text("Version Info".localized())
                 Spacer()
                 Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
                     .foregroundColor(.appGray)
@@ -30,7 +30,7 @@ struct SettingView: View {
             Button {
                 sendMail.toggle()
             } label: {
-                Text("문의하기")
+                Text("Contact".localized())
             }
             .sheet(isPresented: $sendMail) {
                 EmailSender()
@@ -38,32 +38,32 @@ struct SettingView: View {
             Button {
                 logoutAelrt.toggle()
             } label: {
-                Text("로그아웃")
+                Text("Logout".localized())
             }
-            .alert("로그아웃", isPresented: $logoutAelrt) {
-                Button("네") {
+            .alert("Logout".localized(), isPresented: $logoutAelrt) {
+                Button("Yes".localized()) {
                     oauth.logout()
                 }
-                Button("아니오"){
+                Button("No".localized()){
                     logoutAelrt.toggle()
                 }
             } message: {
-                Text("정말 로그아웃 하시겠습니까?")
+                Text("Logout Check Comment".localized())
             }
             Button {
                 resignAelrt.toggle()
             } label: {
-                Text("탈퇴하기")
+                Text("Leave".localized())
             }
-            .alert("탈퇴하기", isPresented: $resignAelrt) {
-                Button("네") {
+            .alert("Leave".localized(), isPresented: $resignAelrt) {
+                Button("Yes".localized()) {
                     oauth.resign()
                 }
-                Button("아니오"){
+                Button("No".localized()){
                     resignAelrt.toggle()
                 }
             } message: {
-                Text("탈퇴하면 식재료 보관함을 비롯한 모든 데이터가 삭제됩니다. \n 정말 탈퇴 하시겠습니까?")
+                Text("Leave Check Comment".localized())
             }
         }
         .foregroundColor(.appBlack)

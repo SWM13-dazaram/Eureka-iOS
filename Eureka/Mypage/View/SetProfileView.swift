@@ -23,7 +23,7 @@ struct SetProfileView: View {
     var body: some View {
         VStack{
             HStack{
-                MainTitle("프로필을 등록해주세요 :)")
+                MainTitle("Profile Title".localized()+":)")
                     .frame(width: 160)
                 Spacer()
             }
@@ -46,13 +46,13 @@ struct SetProfileView: View {
             }
             .padding()
             HStack{
-                Text("닉네임")
+                Text("Nickname".localized())
                     .foregroundColor(.appBlack)
                     .font(.system(size: 13, weight: .bold))
                 Spacer()
             }
             ZStack{
-                TextField("사용하실 닉네임을 입력해주세요.", text: $name)
+                TextField("Input Nickname Please".localized(), text: $name)
                     .font(.system(size: 14))
                     .padding()
                 RoundedRectangle(cornerRadius: 6)
@@ -66,7 +66,7 @@ struct SetProfileView: View {
                 Button {
                     complete = true
                 } label: {
-                    BottomButton(text: "완료")
+                    BottomButton(text: "Save".localized())
                 }
             }
         }

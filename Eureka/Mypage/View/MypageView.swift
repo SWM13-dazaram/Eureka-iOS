@@ -17,7 +17,7 @@ struct MypageView: View {
                 Spacer()
                     .frame(height: 30)
                 HStack{
-                    MainTitle("마이페이지")
+                    MainTitle("Mypage".localized())
                     Spacer()
                     NavigationLink {
                         SettingView()
@@ -32,7 +32,7 @@ struct MypageView: View {
                 NavigationLink {
                     SetProfileView(complete: $tmp)
                 } label: {
-                    EmptyButton(text: "프로필수정")
+                    EmptyButton(text: "Edit Profile".localized())
                 }
                 Spacer()
             }

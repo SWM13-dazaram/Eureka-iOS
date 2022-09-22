@@ -22,17 +22,17 @@ struct UserIngredientEditView: View {
                     ingredientVM.updateUserIngredient(data: data)
                     alert = true
                 } label: {
-                    BottomButton(text: "저장하기")
+                    BottomButton(text: "Save".localized())
                 }
-                .alert("수정", isPresented: $alert) {
+                .alert("Modify".localized(), isPresented: $alert) {
                     Button {
                         ingredientVM.getUserIngredient()
                         self.presentationMode.wrappedValue.dismiss()
                     } label: {
-                        Text("OK")
+                        Text("Ok".localized())
                     }
                 } message: {
-                    Text("수정되었습니다.")
+                    Text("Modify Text".localized())
                 }
             }
         }
