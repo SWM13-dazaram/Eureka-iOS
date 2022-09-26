@@ -325,9 +325,9 @@
 		B969DADA289239E2003CF65B /* Ingredient */ = {
 			isa = PBXGroup;
 			children = (
-				B93B79D628D8DDE8004D903C /* Model */,
-				B98C912F28ACA2BC001E307F /* ViewModel */,
 				B93B79D228D8DD3C004D903C /* View */,
+				B98C912F28ACA2BC001E307F /* ViewModel */,
+				B93B79D628D8DDE8004D903C /* Model */,
 			);
 			path = Ingredient;
 			sourceTree = "<group>";

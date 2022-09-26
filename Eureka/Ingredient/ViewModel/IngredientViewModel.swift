@@ -38,11 +38,12 @@ class IngredientVM: ObservableObject {
             switch response {
             case .success(let result):
                 print("deleteUserIngredient: \(result.description)")
+                self.dataResponse = .loading
+                self.getUserIngredient()
             case .failure(let err):
                 print("getAllIngredient failure error: \(err.localizedDescription)")
             }
         }
-        getUserIngredient()
     }
     
     func updateUserIngredient(data: UserIngredient){
