@@ -45,7 +45,6 @@ struct SettingView: View {
                     oauth.logout()
                 }
                 Button("No".localized()){
-                    logoutAelrt.toggle()
                 }
             } message: {
                 Text("Logout Check Comment".localized())
@@ -60,7 +59,6 @@ struct SettingView: View {
                     oauth.resign()
                 }
                 Button("No".localized()){
-                    resignAelrt.toggle()
                 }
             } message: {
                 Text("Leave Check Comment".localized())
