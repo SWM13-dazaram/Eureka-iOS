@@ -2,12 +2,10 @@ import SwiftUI
 
 struct ingredientCell : View {
     @Binding var userData: UserIngredient
-    @State var dateCal: DateCalculater
     @State var expireDate = 0
     
     init(_ ingredient: Binding<UserIngredient>){
         self._userData = ingredient
-        self.dateCal = DateCalculater()
     }
     
     var body: some View {
@@ -31,7 +29,7 @@ struct ingredientCell : View {
         }
         .padding(15)
         .onAppear{
-            self.expireDate = dateCal.compareToday(A: userData.expireDate)
+            self.expireDate = DateCalculater.compareToday(A: userData.expireDate)
         }
     }
 }
@@ -40,7 +38,7 @@ struct expireText : View {
     let days: Int
     var text: String
     var textColor: Color
-    let dateCal = DateCalculater()
+//    let dateCal = DateCalculater()
     
     init(_ days: Int){
         self.days = days
@@ -51,7 +49,7 @@ struct expireText : View {
         }else {
             text = "%d Day After".localized(with: -days)
         }
-        self.textColor = dateCal.ingredientColor(days: days)
+        self.textColor = DateCalculater.ingredientColor(days: days)
     }
     var body: some View {
         Text(text)
@@ -66,7 +64,7 @@ struct expireBar : View {
     let color: Color
     
     init(_ days: Int){
-        self.color = dateCal.ingredientColor(days: days)
+        self.color = DateCalculater.ingredientColor(days: days)
         if days < 0{
             self.days = 0
         }else if days >= 100 {

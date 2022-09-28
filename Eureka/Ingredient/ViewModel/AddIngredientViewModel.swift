@@ -83,13 +83,12 @@ class AddIngredientViewModel: ObservableObject {
                     print("getSelectedIngredientInfo success : \(result)")
                     let data = try JSONDecoder().decode([IngredientInfo].self, from: result.data)
                     print("getSelectedIngredientInfo parsing : \(data)")
-                    let dateCal = DateCalculater()
-                    let todayString = dateCal.changeDateToStr(date: Date())
-                    var expireString = dateCal.changeDateToStr(date: Date())
+                    let todayString = DateCalculater.changeDateToStr(date: Date())
+                    var expireString = DateCalculater.changeDateToStr(date: Date())
                     for info in data {
                         if info.expirePeriod != nil {
-                            let tmp = dateCal.calExpireDate(days: info.expirePeriod!)
-                            expireString = dateCal.changeDateToStr(date: tmp)
+                            let tmp = DateCalculater.calExpireDate(days: info.expirePeriod!)
+                            expireString = DateCalculater.changeDateToStr(date: tmp)
                         }
                         let ingredientInfo = UserIngredient(id: -1, name: info.ingredient.name, insertDate: todayString, expireDate: expireString, ingredient: info.ingredient)
                         self.userIngredient.append(ingredientInfo)

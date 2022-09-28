@@ -4,7 +4,6 @@ struct IngredientForm: View {
     @Binding var formData: UserIngredient
     @State var expire = Date()
     @State var today = Date()
-    let dateCal = DateCalculater()
     @State var toggle = false
     
     var body: some View {
@@ -16,12 +15,12 @@ struct IngredientForm: View {
                 .disabled(true)
             DateForm(title: "Expire".localized(), range: Date()..., date: $expire)
                 .onChange(of: self.expire) { newValue in
-                    formData.expireDate = dateCal.changeDateToStr(date: self.expire)
+                    formData.expireDate = DateCalculater.changeDateToStr(date: self.expire)
                 }
             CustomForm(title: "Memo".localized(), placeholder: "Input Memo Please".localized() , text: $formData.memo)
         }
         .onAppear{
-            expire = dateCal.changeStrToDate(str: formData.expireDate)
+            expire = DateCalculater.changeStrToDate(str: formData.expireDate)
         }
     }
 }

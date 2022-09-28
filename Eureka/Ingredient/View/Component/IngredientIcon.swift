@@ -37,7 +37,6 @@ struct IngredientIconWithExpire : View {
     let image: Image
     let days: Int
     let size: CGFloat
-    let dateCal = DateCalculater()
 
     init(_ url: String, _ days: Int = 0, size: CGFloat = 48){
 //        self.image = LoadImage(url)
@@ -49,7 +48,7 @@ struct IngredientIconWithExpire : View {
     var body: some View {
         ZStack{
             Circle()
-                .stroke(size == 48 ? dateCal.ingredientColor(days: days) : Color.barBackground, lineWidth: 1)
+                .stroke(size == 48 ? DateCalculater.ingredientColor(days: days) : Color.barBackground, lineWidth: 1)
                 .frame(width: size, height: size)
             image
                 .frame(width: size, height: size)

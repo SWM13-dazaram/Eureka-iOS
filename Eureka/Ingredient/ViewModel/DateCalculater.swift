@@ -10,7 +10,7 @@ import SwiftUI
 
 class DateCalculater {
     
-    func compareAB(A: String, B: String) -> Int {
+    static func compareAB(A: String, B: String) -> Int {
         let a = changeStrToDate(str: A)
         let b = changeStrToDate(str: B)
         
@@ -19,13 +19,13 @@ class DateCalculater {
         
     }
     
-    func compareToday(A: String) -> Int {
+    static func compareToday(A: String) -> Int {
         let a = changeStrToDate(str: A)
         let result = Calendar.current.dateComponents([.day], from: Date(), to: a).day
         return result!
     }
     
-    func changeStrToDate(str: String) -> Date{
+    static func changeStrToDate(str: String) -> Date{
         let tmp = str.components(separatedBy: "/").map { (value: String) -> Int in
             return Int(value)!
         }
@@ -33,19 +33,19 @@ class DateCalculater {
         return Calendar.current.date(from: date)!
     }
     
-    func calExpireDate(days: Int) -> Date{
+    static func calExpireDate(days: Int) -> Date{
         let today = Date()
         let date = Calendar.current.date(byAdding: .day, value: days, to: today)
         return date!
     }
     
-    func changeDateToStr(date: Date) -> String{
+    static func changeDateToStr(date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY/MM/dd"
         return dateFormatter.string(from: date)
     }
     
-    func ingredientColor(days: Int) -> Color{
+    static func ingredientColor(days: Int) -> Color{
         var returnColor = Color.appGreen
         if days < 0 {
             returnColor = Color.appRed
