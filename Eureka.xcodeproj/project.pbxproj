@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C638E239F99401D40FCCF04 /* Pods_Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6178333B657027E5B9422F /* Pods_Eureka.framework */; };
 		B90B477128C1C8B900218C65 /* SignInWithAppleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B477028C1C8B900218C65 /* SignInWithAppleDelegate.swift */; };
+		B91463E028EEAC05008C5C9C /* MemoBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91463DF28EEAC05008C5C9C /* MemoBox.swift */; };
 		B919622E288E9E3500B0EE99 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B919622D288E9E3500B0EE99 /* .gitignore */; };
 		B9230AAC289FED1C00F7C7D2 /* DateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9230AAB289FED1C00F7C7D2 /* DateForm.swift */; };
 		B9230AAE28A0F1FD00F7C7D2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */; };
@@ -81,6 +82,7 @@
 		6E869B50A14055ABC3E2D4A5 /* Pods-Eureka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eureka.debug.xcconfig"; path = "Target Support Files/Pods-Eureka/Pods-Eureka.debug.xcconfig"; sourceTree = "<group>"; };
 		AD6178333B657027E5B9422F /* Pods_Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90B477028C1C8B900218C65 /* SignInWithAppleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegate.swift; sourceTree = "<group>"; };
+		B91463DF28EEAC05008C5C9C /* MemoBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoBox.swift; sourceTree = "<group>"; };
 		B919622D288E9E3500B0EE99 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B9230AAB289FED1C00F7C7D2 /* DateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateForm.swift; sourceTree = "<group>"; };
 		B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				B9DA0DAD289A74C4000E743F /* IngredientButton.swift */,
 				B9230AAB289FED1C00F7C7D2 /* DateForm.swift */,
 				B92C6ECE28AA35AA002FB016 /* IngredientForm.swift */,
+				B91463DF28EEAC05008C5C9C /* MemoBox.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B93B79E228D9FB49004D903C /* NetworkManager.swift in Sources */,
+				B91463E028EEAC05008C5C9C /* MemoBox.swift in Sources */,
 				B959C51D288FF8FA005FF7D8 /* LoadImage.swift in Sources */,
 				B94A7EE028B5FAF8004D0554 /* UserModel.swift in Sources */,
 				B98C913728AF7FD5001E307F /* SettingView.swift in Sources */,

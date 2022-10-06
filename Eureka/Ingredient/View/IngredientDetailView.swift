@@ -15,9 +15,9 @@ struct IngredientDetailView: View {
     }
     
     var body: some View {
-        VStack{
+        VStack(spacing:20){
             Spacer()
-                .frame(height:50)
+                .frame(height:0)
                 .toolbar {
                     ToolbarItem{
                         NavigationLink {
@@ -29,7 +29,7 @@ struct IngredientDetailView: View {
                 }
             HStack{
                 IngredientIcon(userIngredient.ingredient.icon, size: 78)
-                VStack{
+                VStack(spacing:5){
                     HStack{
                         Text(userIngredient.name)
                             .foregroundColor(.appBlack)
@@ -41,7 +41,10 @@ struct IngredientDetailView: View {
                     dateLine("Expire".localized(), userIngredient.expireDate)
                 }
             }
+            MemoBox(userIngredient.memo)
+            Spacer()
         }
+        .padding(.horizontal, 30)
     }
 }
 
