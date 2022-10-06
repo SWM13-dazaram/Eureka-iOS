@@ -15,7 +15,7 @@
 		B9230AAE28A0F1FD00F7C7D2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */; };
 		B9259D562897AC490087C537 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D552897AC490087C537 /* RecipeDetailView.swift */; };
 		B9259D582897B4140087C537 /* RecipeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D572897B4140087C537 /* RecipeComponents.swift */; };
-		B9259D5A2897C6280087C537 /* RecipeIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D592897C6280087C537 /* RecipeIngredientCell.swift */; };
+		B9259D5A2897C6280087C537 /* RecipeIngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D592897C6280087C537 /* RecipeIngredientList.swift */; };
 		B9259D5C2897DD680087C537 /* IngredientIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259D5B2897DD680087C537 /* IngredientIcon.swift */; };
 		B927F4D328C9B69E00FB340E /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B927F4D228C9B69E00FB340E /* ResponseType.swift */; };
 		B927F4D528C9B76700FB340E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B927F4D428C9B76700FB340E /* ErrorView.swift */; };
@@ -88,7 +88,7 @@
 		B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B9259D552897AC490087C537 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		B9259D572897B4140087C537 /* RecipeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponents.swift; sourceTree = "<group>"; };
-		B9259D592897C6280087C537 /* RecipeIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredientCell.swift; sourceTree = "<group>"; };
+		B9259D592897C6280087C537 /* RecipeIngredientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredientList.swift; sourceTree = "<group>"; };
 		B9259D5B2897DD680087C537 /* IngredientIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientIcon.swift; sourceTree = "<group>"; };
 		B927F4D228C9B69E00FB340E /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
 		B927F4D428C9B76700FB340E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 				B93B79F028DC4B07004D903C /* ExpireDateView.swift */,
 				B93B79F228DC4B28004D903C /* RecipeContent.swift */,
 				B9259D552897AC490087C537 /* RecipeDetailView.swift */,
-				B9259D592897C6280087C537 /* RecipeIngredientCell.swift */,
+				B9259D592897C6280087C537 /* RecipeIngredientList.swift */,
 				B93B7A2328DC57C7004D903C /* Components */,
 			);
 			path = View;
@@ -213,10 +213,10 @@
 		B93B79D028D8DD0E004D903C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB93BE28A23FCB00E0A938 /* ImagePicker.swift */,
-				B9CB93BC28A23A0F00E0A938 /* SetProfileView.swift */,
 				B98C913428AF7EA7001E307F /* MypageView.swift */,
 				B98C913628AF7FD5001E307F /* SettingView.swift */,
+				B9CB93BE28A23FCB00E0A938 /* ImagePicker.swift */,
+				B9CB93BC28A23A0F00E0A938 /* SetProfileView.swift */,
 				B94A7ED828B22176004D0554 /* EmailForm.swift */,
 			);
 			path = View;
@@ -582,7 +582,7 @@
 				B9AB37D228B7703E00E4EDA6 /* WhiteButton.swift in Sources */,
 				B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */,
 				B93B79F328DC4B28004D903C /* RecipeContent.swift in Sources */,
-				B9259D5A2897C6280087C537 /* RecipeIngredientCell.swift in Sources */,
+				B9259D5A2897C6280087C537 /* RecipeIngredientList.swift in Sources */,
 				B94A7ED728B20F50004D0554 /* MainRecipeViewModel.swift in Sources */,
 				B959C52228900208005FF7D8 /* ExtensionData.swift in Sources */,
 				B90B477128C1C8B900218C65 /* SignInWithAppleDelegate.swift in Sources */,

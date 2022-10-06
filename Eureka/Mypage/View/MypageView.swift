@@ -13,16 +13,15 @@ struct MypageView: View {
         ZStack{
             Color.bg
                 .ignoresSafeArea()
+                .navigationBarHidden(true)
             VStack{
-                Spacer()
-                    .frame(height: 30)
                 HStack{
                     MainTitle("Mypage".localized())
                     Spacer()
                     NavigationLink {
                         SettingView()
                     } label: {
-                        Image("setting")
+                        MainButton("setting")
                     }
                 }
                 Spacer()

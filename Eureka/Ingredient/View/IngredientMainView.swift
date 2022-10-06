@@ -27,13 +27,15 @@ struct IngredientMainView: View {
                     VStack{
                         VStack{
                             HStack{
-                                MainTitle("Ingredient Title".localized(), width: 138, height: 35)
+                                MainTitle("Ingredient Title".localized())
                                 NavigationLink(isActive: $addView) {
                                     IngredientAddView(revert: $addView)
                                 } label: {
                                     MainButton("add")
                                 }
                             }
+                            Spacer()
+                                .frame(height:20)
                             HStack{
                                 Text("All %d".localized(with: ingredientVM.userIngredient.count, comment: "총갯수"))
                                     .font(.system(size: 15))

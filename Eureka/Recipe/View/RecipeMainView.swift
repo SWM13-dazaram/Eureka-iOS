@@ -19,7 +19,7 @@ struct RecipeMainView: View {
                 .ignoresSafeArea()
             GeometryReader { proxy in
                 VStack{
-                    MainTitle("Recipe Title".localized(), width: 160, height: 69)
+                    MainTitle("Recipe Title".localized(), width: 160)
                     TitleTabView($recipeType)
                     switch recipeType {
                     case .replace:

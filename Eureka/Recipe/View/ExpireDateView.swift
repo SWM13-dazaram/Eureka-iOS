@@ -24,7 +24,6 @@ struct ExpireDateView: View{
                 ForEach(recipeVM.expire!, id: \.self.id){ idx in
                     NavigationLink {
                         RecipeDetailView(recipe: idx)
-//                            .ignoresSafeArea()
                     } label: {
                         RecipeContent(recipe: idx, proxy: proxy)
                     }

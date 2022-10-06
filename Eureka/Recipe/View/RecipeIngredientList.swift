@@ -13,7 +13,7 @@ struct RecipeIngredientList: View{
     
     init(_ recipe: Recipe){
         self.recipe = recipe
-        print("expireRecipe Ingredient List : \(recipe)")
+//        print("expireRecipe Ingredient List : \(recipe)")
     }
     var body: some View{
         ForEach(recipe.ingredients, id: \.self.id){ idx in

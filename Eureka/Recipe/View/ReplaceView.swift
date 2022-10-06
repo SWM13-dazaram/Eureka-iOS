@@ -26,7 +26,6 @@ struct ReplaceView: View {
                 ForEach(recipeVM.replaced!, id: \.self.id) { idx in
                     NavigationLink {
                         RecipeDetailView(recipe: idx)
-                            .ignoresSafeArea()
                     } label: {
                         RecipeContent(recipe: idx, proxy: proxy)
                     }

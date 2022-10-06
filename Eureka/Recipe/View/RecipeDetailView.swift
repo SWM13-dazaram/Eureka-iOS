@@ -13,10 +13,12 @@ struct RecipeDetailView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
+            LoadImage(recipe.image)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                .navigationBarTitleDisplayMode(.inline)
             VStack{
-                LoadImage(recipe.image)
-                    .frame(height: 350)
                 RecipeName(recipe.title)
+                // 식재료 대체 or 유통기한 판별해서 다른 view 노출
                 if let replaced = recipe.replaceIngredient {
                     let old = replaced.missingIngredient.name
                     let new = replaced.ownIngredient.name
@@ -42,8 +44,8 @@ struct RecipeDetailView: View {
                     }
                 }
             }
+            .padding(.horizontal, 30)
         }
-        .padding(.horizontal, 30)
     }
 }
 
