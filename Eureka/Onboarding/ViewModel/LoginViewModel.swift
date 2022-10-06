@@ -82,10 +82,12 @@ class LoginViewModel: ObservableObject {
     
     func login(){
         UserDefaults.setLoginStatus(true)
+        status = true
     }
     
     func logout(){
         UserDefaults.setLoginStatus(false)
+        status = false
     }
 
     func resign(){

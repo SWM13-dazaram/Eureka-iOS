@@ -16,17 +16,19 @@ struct ContentView: View {
         ZStack{
             Color.bg.edgesIgnoringSafeArea(.all)
             NavigationView {
-                if loginVM.status {
-                    ZStack{
-                        CustomTabView()
-//                            .onAppear {
-//                                mainRecipeVM.getReplaced()
-//                                mainRecipeVM.getExpire()
-//                            }
+                Group{
+                    if loginVM.status {
+                        ZStack{
+                            CustomTabView()
+    //                            .onAppear {
+    //                                mainRecipeVM.getReplaced()
+    //                                mainRecipeVM.getExpire()
+    //                            }
+                        }
                     }
-                }
-                else{
-                    LoginView()
+                    else{
+                        LoginView()
+                    }
                 }
             }
         }
