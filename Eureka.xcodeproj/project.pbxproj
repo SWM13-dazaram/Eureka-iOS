@@ -10,6 +10,10 @@
 		3C638E239F99401D40FCCF04 /* Pods_Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6178333B657027E5B9422F /* Pods_Eureka.framework */; };
 		B90B477128C1C8B900218C65 /* SignInWithAppleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B477028C1C8B900218C65 /* SignInWithAppleDelegate.swift */; };
 		B91463E028EEAC05008C5C9C /* MemoBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91463DF28EEAC05008C5C9C /* MemoBox.swift */; };
+		B91463E228EECE95008C5C9C /* ReplaceRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91463E128EECE95008C5C9C /* ReplaceRecipeViewModel.swift */; };
+		B91463E428EECFD8008C5C9C /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91463E328EECFD8008C5C9C /* CacheManager.swift */; };
+		B91463E628EED5A9008C5C9C /* ExpireRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91463E528EED5A9008C5C9C /* ExpireRecipeViewModel.swift */; };
+		B91463E828EED63D008C5C9C /* ProtocolRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91463E728EED63D008C5C9C /* ProtocolRecipeViewModel.swift */; };
 		B919622E288E9E3500B0EE99 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B919622D288E9E3500B0EE99 /* .gitignore */; };
 		B9230AAC289FED1C00F7C7D2 /* DateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9230AAB289FED1C00F7C7D2 /* DateForm.swift */; };
 		B9230AAE28A0F1FD00F7C7D2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */; };
@@ -37,7 +41,6 @@
 		B948C5A728A4F12A0037F2AA /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948C5A628A4F12A0037F2AA /* IngredientViewModel.swift */; };
 		B948C5AA28A517DA0037F2AA /* SearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948C5A928A517DA0037F2AA /* SearchContainer.swift */; };
 		B94A7ED528B20E20004D0554 /* RecipeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A7ED428B20E20004D0554 /* RecipeAPI.swift */; };
-		B94A7ED728B20F50004D0554 /* MainRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A7ED628B20F50004D0554 /* MainRecipeViewModel.swift */; };
 		B94A7ED928B22176004D0554 /* EmailForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A7ED828B22176004D0554 /* EmailForm.swift */; };
 		B94A7EDE28B382F0004D0554 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A7EDD28B382F0004D0554 /* LoginModel.swift */; };
 		B94A7EE028B5FAF8004D0554 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A7EDF28B5FAF8004D0554 /* UserModel.swift */; };
@@ -83,6 +86,10 @@
 		AD6178333B657027E5B9422F /* Pods_Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90B477028C1C8B900218C65 /* SignInWithAppleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegate.swift; sourceTree = "<group>"; };
 		B91463DF28EEAC05008C5C9C /* MemoBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoBox.swift; sourceTree = "<group>"; };
+		B91463E128EECE95008C5C9C /* ReplaceRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceRecipeViewModel.swift; sourceTree = "<group>"; };
+		B91463E328EECFD8008C5C9C /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		B91463E528EED5A9008C5C9C /* ExpireRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpireRecipeViewModel.swift; sourceTree = "<group>"; };
+		B91463E728EED63D008C5C9C /* ProtocolRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolRecipeViewModel.swift; sourceTree = "<group>"; };
 		B919622D288E9E3500B0EE99 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B9230AAB289FED1C00F7C7D2 /* DateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateForm.swift; sourceTree = "<group>"; };
 		B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -113,7 +120,6 @@
 		B948C5A828A4F4EA0037F2AA /* Eureka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eureka.entitlements; sourceTree = "<group>"; };
 		B948C5A928A517DA0037F2AA /* SearchContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainer.swift; sourceTree = "<group>"; };
 		B94A7ED428B20E20004D0554 /* RecipeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAPI.swift; sourceTree = "<group>"; };
-		B94A7ED628B20F50004D0554 /* MainRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecipeViewModel.swift; sourceTree = "<group>"; };
 		B94A7ED828B22176004D0554 /* EmailForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailForm.swift; sourceTree = "<group>"; };
 		B94A7EDD28B382F0004D0554 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		B94A7EDF28B5FAF8004D0554 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -252,7 +258,9 @@
 		B93B79D328D8DD68004D903C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B94A7ED628B20F50004D0554 /* MainRecipeViewModel.swift */,
+				B91463E128EECE95008C5C9C /* ReplaceRecipeViewModel.swift */,
+				B91463E528EED5A9008C5C9C /* ExpireRecipeViewModel.swift */,
+				B91463E728EED63D008C5C9C /* ProtocolRecipeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -444,6 +452,7 @@
 				B93D86A2289D409A007C2AF1 /* NotMVPView.swift */,
 				B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */,
 				B93B7A2828DC5854004D903C /* Localizable.strings */,
+				B91463E328EECFD8008C5C9C /* CacheManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -567,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B91463E228EECE95008C5C9C /* ReplaceRecipeViewModel.swift in Sources */,
 				B93B79E228D9FB49004D903C /* NetworkManager.swift in Sources */,
 				B91463E028EEAC05008C5C9C /* MemoBox.swift in Sources */,
 				B959C51D288FF8FA005FF7D8 /* LoadImage.swift in Sources */,
@@ -583,7 +593,6 @@
 				B98BBBC8287BE28900A72257 /* EurekaApp.swift in Sources */,
 				B93B79F328DC4B28004D903C /* RecipeContent.swift in Sources */,
 				B9259D5A2897C6280087C537 /* RecipeIngredientList.swift in Sources */,
-				B94A7ED728B20F50004D0554 /* MainRecipeViewModel.swift in Sources */,
 				B959C52228900208005FF7D8 /* ExtensionData.swift in Sources */,
 				B90B477128C1C8B900218C65 /* SignInWithAppleDelegate.swift in Sources */,
 				B927F4D328C9B69E00FB340E /* ResponseType.swift in Sources */,
@@ -596,6 +605,7 @@
 				B969DADE28923B5E003CF65B /* MockViewModel.swift in Sources */,
 				B94A7ED528B20E20004D0554 /* RecipeAPI.swift in Sources */,
 				B9CB93BD28A23A0F00E0A938 /* SetProfileView.swift in Sources */,
+				B91463E828EED63D008C5C9C /* ProtocolRecipeViewModel.swift in Sources */,
 				B9E640A6288BEDDA00A0C943 /* MockAPI.swift in Sources */,
 				B9E6409A288BED9600A0C943 /* ReplaceView.swift in Sources */,
 				B98C913128ACA2DD001E307F /* CustomUserIngredientViewModel.swift in Sources */,
@@ -618,6 +628,7 @@
 				B94A7EE428B5FF83004D0554 /* UserAPI.swift in Sources */,
 				B93B79F128DC4B07004D903C /* ExpireDateView.swift in Sources */,
 				B92C6ECF28AA35AA002FB016 /* IngredientForm.swift in Sources */,
+				B91463E628EED5A9008C5C9C /* ExpireRecipeViewModel.swift in Sources */,
 				B94A7EDE28B382F0004D0554 /* LoginModel.swift in Sources */,
 				B9E640A3288BEDDA00A0C943 /* IngredientAPI.swift in Sources */,
 				B93B79E028D8E5BC004D903C /* ImageLoader.swift in Sources */,
@@ -626,6 +637,7 @@
 				B93B79EF28DC4338004D903C /* StartView.swift in Sources */,
 				B9259D5C2897DD680087C537 /* IngredientIcon.swift in Sources */,
 				B9DA0DAC289A4023000E743F /* IngredientAddView.swift in Sources */,
+				B91463E428EECFD8008C5C9C /* CacheManager.swift in Sources */,
 				B9230AAE28A0F1FD00F7C7D2 /* LoadingView.swift in Sources */,
 				B9CB93BB28A2273000E0A938 /* LoginView.swift in Sources */,
 				B9DA0DAE289A74C4000E743F /* IngredientButton.swift in Sources */,

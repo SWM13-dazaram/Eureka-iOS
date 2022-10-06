@@ -10,8 +10,6 @@ import SwiftUI
 
 struct RecipeMainView: View {
     @State var recipeType = RecipeType.replace
-    @EnvironmentObject var recipeVM : MainRecipeVM
-//    @State var loading = true
     
     var body: some View {
         ZStack{
@@ -24,14 +22,8 @@ struct RecipeMainView: View {
                     switch recipeType {
                     case .replace:
                         ReplaceView(proxy: proxy)
-                            .onAppear{
-                                recipeVM.getReplaced()
-                            }
                     case .expire:
                         ExpireDateView(proxy: proxy)
-                            .onAppear{
-                                recipeVM.getExpire()
-                            }
                     }
                 }
             }

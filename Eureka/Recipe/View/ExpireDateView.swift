@@ -8,30 +8,34 @@
 import SwiftUI
 
 struct ExpireDateView: View{
-    @EnvironmentObject var recipeVM : MainRecipeVM
+    @ObservedObject var recipeVM = ExpireRecipeVM()
     let proxy: GeometryProxy
     
     var body: some View {
-        switch recipeVM.expireResponse {
-        case .loading :
-            LoadingView()
-        case .empty :
-            RecipeNoneView()
-        case .error :
-            ErrorView()
-        case .success:
-            TabView {
-                ForEach(recipeVM.expire!, id: \.self.id){ idx in
-                    NavigationLink {
-                        RecipeDetailView(recipe: idx)
-                    } label: {
-                        RecipeContent(recipe: idx, proxy: proxy)
+        Group{
+            switch recipeVM.recipeNetwork {
+            case .loading :
+                LoadingView()
+            case .empty :
+                RecipeNoneView()
+            case .error :
+                ErrorView()
+            case .success:
+                TabView {
+                    ForEach(recipeVM.recipe!, id: \.self.id){ idx in
+                        NavigationLink {
+                            RecipeDetailView(recipe: idx)
+                        } label: {
+                            RecipeContent(recipe: idx, proxy: proxy)
+                        }
                     }
                 }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
-
+        .onAppear{
+            recipeVM.getRecipe()
+        }
     }
 }
 
