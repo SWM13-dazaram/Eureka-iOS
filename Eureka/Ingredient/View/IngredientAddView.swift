@@ -13,6 +13,7 @@ struct IngredientAddView: View {
     @State var search = ""
     @State var category = "MEAT"
     @State var click = [Ingredient]()
+    @Environment(\.presentationMode) var presentationMode
     
     init(revert: Binding<Bool>){
         self._revert = revert
@@ -20,6 +21,17 @@ struct IngredientAddView: View {
     
     var body: some View {
         VStack{
+            HStack{
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Image("close")
+                }
+                Spacer()
+            }
+            .navigationTitle("")
+            .navigationBarHidden(true)
+            .padding(.top)
             HStack{
                 MainTitle("Adding Ingredient".localized())
                 Spacer()
