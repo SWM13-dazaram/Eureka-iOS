@@ -25,8 +25,11 @@ struct IngredientIcon: View{
             Circle()
                 .stroke(color, lineWidth: 1)
                 .frame(width: size, height: size)
-            image
-                .frame(width: size-15, height: size-15)
+                .background {
+                    image
+                        .frame(width: size/2, height: size/2)
+                }
+                .clipShape(Circle())
         }
         
     }
@@ -50,8 +53,10 @@ struct IngredientIconWithExpire : View {
             Circle()
                 .stroke(size == 48 ? DateCalculater.ingredientColor(days: days) : Color.barBackground, lineWidth: 1)
                 .frame(width: size, height: size)
-            image
-                .frame(width: size, height: size)
+                .background {
+                    image
+                        .frame(width: size/2, height: size/2)
+                }
                 .clipShape(Circle())
             if(days<0){
                 Image("alert")
