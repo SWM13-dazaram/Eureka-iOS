@@ -30,13 +30,21 @@ struct ExpireDateView: View{
                         }
                     }
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .tabViewStyle(PageTabViewStyle())
+                .onAppear{
+                    self.setupAppearance()
+                }
             }
         }
         .onAppear{
             recipeVM.getRecipe()
         }
     }
+    
+    func setupAppearance() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.appGreen)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(Color.barBackground)
+      }
 }
 
 //
