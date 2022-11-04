@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IngredientMainView: View {
-    @EnvironmentObject var ingredientVM : IngredientVM
+    @ObservedObject var ingredientVM = IngredientVM()
     @State var addView = false
     
     var body: some View {
@@ -71,14 +71,18 @@ struct IngredientMainView: View {
             }
         }
         .onAppear{
+            print("get Ingredient Open View")
             ingredientVM.getUserIngredient()
         }
     }
     
     func removeRow(at offsets: IndexSet){
-        for index in offsets {
-            ingredientVM.deleteUserIngredient(index: index)
+        if let first = offsets.first {
+            ingredientVM.deleteUserIngredient(index: first)
         }
+//        for index in offsets {
+//            ingredientVM.deleteUserIngredient(index: index)
+//        }
         
         //TODO: 테스트 해보기
 //        ingredientVM.userIngredient.remove(atOffsets: offsets)

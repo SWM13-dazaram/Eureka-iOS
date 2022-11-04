@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserIngredientEditView: View {
-    @EnvironmentObject var ingredientVM: IngredientVM
+    @ObservedObject var ingredientVM = IngredientVM()
     @State var data: UserIngredient
     let original: UserIngredient
     @State var alert = false

@@ -23,6 +23,8 @@ class CustomUserIngredientViewModel: ObservableObject {
             switch response {
             case .success(let result):
                 print("createCustomIngredient: \(result.description)")
+                CacheManager.removeCustomObject(key: .expireRecipe)
+                CacheManager.removeCustomObject(key: .replcedRecipe)
             case .failure(let err):
                 print("createCustomIngredient failure error: \(err.localizedDescription)")
             }

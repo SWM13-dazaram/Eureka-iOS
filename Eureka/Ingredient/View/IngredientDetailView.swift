@@ -9,10 +9,15 @@ import SwiftUI
 
 struct IngredientDetailView: View {
     @Binding var userIngredient: UserIngredient
+//    let userIngredient : UserIngredient
     
     init(_ userIngredient: Binding<UserIngredient>){
         self._userIngredient = userIngredient
     }
+    
+//    init(_ userIngredient: UserIngredient){
+//        self.userIngredient = userIngredient
+//    }
     
     var body: some View {
         VStack(spacing:20){

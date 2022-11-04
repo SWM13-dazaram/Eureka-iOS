@@ -22,20 +22,20 @@ extension SignInWithAppleDelegate: ASAuthorizationControllerDelegate {
 //                    print("authorizationCode : \(String(data: authorizationCode, encoding: .utf8))")
 //                }
                 if let identity_token = appleIdCredential.identityToken {
-                    oauth.signin(token: String(data: identity_token, encoding: .utf8)!, loginProvider: .APPLE)
-//                    print("identity_token : \(String(data: identity_token, encoding: .utf8))")
+//                    oauth.signin(token: String(data: identity_token, encoding: .utf8)!, loginProvider: .APPLE)
+                    print("identity_token : \(String(data: identity_token, encoding: .utf8)!)")
                 }
                 
-                //          print("identityToken: \(String(describing: appleIdCredential.identityToken!))\nauthorizationCode: \(appleIdCredential.authorizationCode!)\nuser: \(credential.user)\nemail: \(String(describing: credential.email))\ncredential: \(credential)")
+//                          print("identityToken: \(String(describing: appleIdCredential.identityToken!))\nauthorizationCode: \(appleIdCredential.authorizationCode!)\nuser: \(credential.user)\nemail: \(String(describing: credential.email))\ncredential: \(credential)")
             } else {
                 print("1️⃣ 로그인함")
                 
 //                if let authorizationCode = appleIdCredential.authorizationCode {
 //                    print("authorizationCode : \(String(data: authorizationCode, encoding: .utf8))")
 //                }
-//                if let identity_token = appleIdCredential.identityToken {
-//                    print("identity_token : \(String(data: identity_token, encoding: .utf8))")
-//                }
+                if let identity_token = appleIdCredential.identityToken {
+                    print("identity_token : \(String(data: identity_token, encoding: .utf8)!)")
+                }
             signInSucceeded(true)
             }
         default:

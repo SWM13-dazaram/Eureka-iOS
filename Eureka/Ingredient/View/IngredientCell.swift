@@ -1,12 +1,17 @@
 import SwiftUI
 
 struct ingredientCell : View {
-    @Binding var userData: UserIngredient
+//    let userData: UserIngredient
+    @Binding var userData : UserIngredient
     @State var expireDate = 0
     
     init(_ ingredient: Binding<UserIngredient>){
         self._userData = ingredient
     }
+    
+//    init(_ userIngredient : UserIngredient){
+//        self.userData = userIngredient
+//    }
     
     var body: some View {
         HStack{

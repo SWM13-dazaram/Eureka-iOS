@@ -13,6 +13,7 @@ enum LoginProvider : String{
     case APPLE = "APPLE"
 }
 
+//TODO: property wrapper로 리팩토링하기!!
 extension UserDefaults {
     static func setToken(_ token: String){
         UserDefaults.standard.set(token, forKey: "TOKEN")

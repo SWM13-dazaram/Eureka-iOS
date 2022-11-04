@@ -38,8 +38,11 @@ class IngredientVM: ObservableObject {
             switch response {
             case .success(let result):
                 print("deleteUserIngredient: \(result.description)")
-                self.dataResponse = .loading
-                self.getUserIngredient()
+//                self.dataResponse = .loading
+                self.userIngredient.remove(at: index)
+                CacheManager.removeCustomObject(key: .expireRecipe)
+                CacheManager.removeCustomObject(key: .replcedRecipe)
+//                self.getUserIngredient()
             case .failure(let err):
                 print("getAllIngredient failure error: \(err.localizedDescription)")
             }

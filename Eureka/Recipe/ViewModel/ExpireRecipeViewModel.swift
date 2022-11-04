@@ -18,7 +18,8 @@ class ExpireRecipeVM: RecipeViewModelProtocol {
     }
     
     func getRecipe(){
-        if let cached = CacheManager.shared.object(forKey: "expire"){
+        if let cached = CacheManager.customObject(key: .expireRecipe){
+            print("⛳️ cache hit !!! : expireRecipe")
             recipeNetwork = .success
             self.recipe = (cached as! [Recipe])
             return
@@ -32,7 +33,8 @@ class ExpireRecipeVM: RecipeViewModelProtocol {
                         let tmp = try JSONDecoder().decode([Recipe].self, from: result.data)
                         self.recipe = tmp
                         self.recipeNetwork = .success
-                        CacheManager.shared.setObject(tmp as AnyObject, forKey: "expire")
+//                        CacheManager.shared.setObject(tmp as AnyObject, forKey: "expire")
+                        CacheManager.setCustomObject(key: .expireRecipe, object: tmp as AnyObject)
                     }
                     else{
                         self.recipeNetwork = .empty

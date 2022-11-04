@@ -195,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				B93B79CF28D8DCF6004D903C /* View */,
-				B93B79D528D8DDD5004D903C /* Model */,
 				B93B79D328D8DD68004D903C /* ViewModel */,
+				B93B79D528D8DDD5004D903C /* Model */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -305,6 +305,9 @@
 		B93B7A1D28DC5717004D903C /* Common-UI */ = {
 			isa = PBXGroup;
 			children = (
+				B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */,
+				B927F4D428C9B76700FB340E /* ErrorView.swift */,
+				B93D86A2289D409A007C2AF1 /* NotMVPView.swift */,
 				B959C51C288FF8FA005FF7D8 /* LoadImage.swift */,
 				B948C5A928A517DA0037F2AA /* SearchContainer.swift */,
 				B969DAE1289266FE003CF65B /* Title.swift */,
@@ -448,9 +451,6 @@
 				B93B79E128D9FB49004D903C /* NetworkManager.swift */,
 				B959C52128900208005FF7D8 /* ExtensionData.swift */,
 				B927F4D228C9B69E00FB340E /* ResponseType.swift */,
-				B927F4D428C9B76700FB340E /* ErrorView.swift */,
-				B93D86A2289D409A007C2AF1 /* NotMVPView.swift */,
-				B9230AAD28A0F1FD00F7C7D2 /* LoadingView.swift */,
 				B93B7A2828DC5854004D903C /* Localizable.strings */,
 				B91463E328EECFD8008C5C9C /* CacheManager.swift */,
 			);

@@ -66,16 +66,16 @@ struct LoginView: View {
 
 extension LoginView {
     private func appleLogin() {
-      appleSignInDelegate = SignInWithAppleDelegate {
-        print("로그인 성공?: \($0)")
-      }
-      let request = ASAuthorizationAppleIDProvider().createRequest()
-      request.requestedScopes = [.fullName, .email]
-   
-      let controller = ASAuthorizationController(authorizationRequests: [request])
-      controller.delegate = appleSignInDelegate
-      controller.presentationContextProvider = appleSignInDelegate
-      controller.performRequests()
+        appleSignInDelegate = SignInWithAppleDelegate {
+            print("로그인 성공?: \($0)")
+        }
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = appleSignInDelegate
+        controller.presentationContextProvider = appleSignInDelegate
+        controller.performRequests()
     }
 }
 

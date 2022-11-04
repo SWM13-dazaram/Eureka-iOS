@@ -19,7 +19,9 @@ class ReplaceRecipeVM: RecipeViewModelProtocol {
     }
     
     func getRecipe(){
-        if let cached = CacheManager.shared.object(forKey: "replaced"){
+
+        if let cached = CacheManager.customObject(key: .replcedRecipe){
+            print("⛳️ cache hit !!! : replacedRecipe")
             recipeNetwork = .success
             self.recipe = (cached as! [Recipe])
             return
@@ -33,7 +35,8 @@ class ReplaceRecipeVM: RecipeViewModelProtocol {
                         let tmp = try JSONDecoder().decode([Recipe].self, from: result.data)
                         self.recipe = tmp
                         self.recipeNetwork = .success
-                        CacheManager.shared.setObject(tmp as AnyObject, forKey: "replaced")
+//                        CacheManager.shared.setObject(tmp as AnyObject, forKey: "replaced")
+                        CacheManager.setCustomObject(key: .replcedRecipe, object: tmp as AnyObject)
                     }
                     else {
                         self.recipeNetwork = .empty

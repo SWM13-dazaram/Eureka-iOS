@@ -113,6 +113,8 @@ class AddIngredientViewModel: ObservableObject {
                     print("setSelectedIngredient success : \(result)")
                     let data = try JSONDecoder().decode([Int].self, from: result.data)
                     print("setSelectedIngredient response : \(data)")
+                    CacheManager.removeCustomObject(key: .expireRecipe)
+                    CacheManager.removeCustomObject(key: .replcedRecipe)
                 }catch(let err){
                     returnValue = false
                     print(err.localizedDescription)

@@ -6,6 +6,20 @@ struct Ingredient: Codable, Identifiable {
     let id: Int
     var name: String
     var icon: String
+    
+    //TODO: icon optional 고치고 지우기
+    enum CodingKeys : String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case icon = "icon"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.icon = (try? container.decode(String.self, forKey: .icon)) ?? ""
+    }
 }
 
 struct IngredientInfo: Decodable {
@@ -13,7 +27,7 @@ struct IngredientInfo: Decodable {
     let expirePeriod: Int?
 }
 
-struct UserIngredient: Codable {
+struct UserIngredient: Codable , Identifiable{
     let id: Int
     var name: String
     var insertDate: String

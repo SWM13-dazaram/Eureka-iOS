@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct IngredientIcon: View{
-//    let image: LoadImage
-    let image: Image
+    let image: LoadImage
+//    let image: Image
     let size: CGFloat
     let color: Color
     
     init(_ url: String, size: CGFloat = 48, status: Status? = nil){
-//        self.image = LoadImage(url)
-        self.image = Image(url)
+        self.image = LoadImage(url)
+//        self.image = Image(url)
         self.size = size
         switch status {
         case .replaced:
@@ -26,7 +26,7 @@ struct IngredientIcon: View{
                 .stroke(color, lineWidth: 1)
                 .frame(width: size, height: size)
             image
-                .frame(width: size, height: size)
+                .frame(width: size-15, height: size-15)
         }
         
     }
@@ -34,13 +34,13 @@ struct IngredientIcon: View{
 
 struct IngredientIconWithExpire : View {
 //    let image: LoadImage
-    let image: Image
+    let image: LoadImage
     let days: Int
     let size: CGFloat
 
     init(_ url: String, _ days: Int = 0, size: CGFloat = 48){
-//        self.image = LoadImage(url)
-        self.image = Image(url)
+        self.image = LoadImage(url)
+//        self.image = Image(url)
         self.days = days
         self.size = size
     }

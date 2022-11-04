@@ -28,7 +28,7 @@ struct EurekaApp: App {
                 }
 //                .environmentObject(MockVM()) // mockAPI
                 .environmentObject(AddIngredientViewModel())
-                .environmentObject(IngredientVM())
+//                .environmentObject(IngredientVM())
                 .environmentObject(LoginViewModel())
                 .environmentObject(TabSelector())
         }
