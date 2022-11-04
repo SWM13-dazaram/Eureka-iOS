@@ -27,12 +27,12 @@ struct MypageView: View {
                 Spacer()
                 Image("profile-default")
                     .clipShape(Circle())
-                Text("sladuf")
-                NavigationLink {
-                    SetProfileView(complete: $tmp)
-                } label: {
-                    EmptyButton(text: "Edit Profile".localized())
-                }
+                Text("아무개")
+//                NavigationLink {
+//                    SetProfileView(complete: $tmp)
+//                } label: {
+//                    EmptyButton(text: "Edit Profile".localized())
+//                }
                 Spacer()
             }
             .padding(.horizontal, 30)
