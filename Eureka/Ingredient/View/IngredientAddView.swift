@@ -11,7 +11,7 @@ struct IngredientAddView: View {
     @Binding var revert: Bool
     @EnvironmentObject var addVM: AddIngredientViewModel
     @State var search = ""
-    @State var category = "MEAT"
+    @State var categoryId = "ETCC"
     @State var click = [Ingredient]()
     @Environment(\.presentationMode) var presentationMode
     
@@ -39,21 +39,21 @@ struct IngredientAddView: View {
             SearchContiner(placeholder: "식재료를 검색해보세요.", search: $search)
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
-                    ForEach(addVM.allIngredient, id: \.self.categoryId ){ idx in
+                    ForEach(addVM.allIngredient, id: \.self.category.id ){ idx in
                         Button {
-                            category = idx.categoryId
+                            categoryId = idx.category.id
                         } label: {
-                            Text(idx.categoryName)
-                                .foregroundColor(category == idx.categoryId ? .white : Color.appGray)
+                            Text(idx.category.name)
+                                .foregroundColor(categoryId == idx.category.id ? .white : Color.appGray)
                                 .padding(.init(top: 7, leading: 18, bottom: 7, trailing: 18))
-                                .background(category == idx.categoryId ? Color.appGreen : .barBackground)
+                                .background(categoryId == idx.category.id ? Color.appGreen : .barBackground)
                                 .cornerRadius(20)
                         }
                     }
                 }
             }
             .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
-            CategoryView(ingredient: $addVM.allIngredient ,category: $category)
+            CategoryView(ingredient: $addVM.allIngredient ,category: $categoryId)
             Spacer()
             if addVM.countSelected() > 0 {
                 NavigationLink{
@@ -84,10 +84,10 @@ struct CategoryView: View{
     }
     
     var body: some View{
-        ForEach(ingredient, id: \.self.categoryId){ idx in
-            if category == idx.categoryId {
+        ForEach(ingredient, id: \.self.category.id){ idx in
+            if category == idx.category.id {
                 HStack{
-                    Text("\(idx.categoryName)"+"All %d".localized(with: idx.ingredients.count, comment: "총갯수"))
+                    Text("\(idx.category.name)"+"All %d".localized(with: idx.ingredients.count, comment: "총갯수"))
                         .font(.system(size: 12))
                         .foregroundColor(.appBlack)
                     Spacer()

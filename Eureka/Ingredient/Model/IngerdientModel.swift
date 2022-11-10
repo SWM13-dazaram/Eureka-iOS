@@ -47,9 +47,9 @@ struct CustomIngredient: Codable {
 
 struct CategoryIngredient: Decodable {
     //FIXME: API 수정되면 변경
-    let categoryId: String
-    let categoryName: String
-//    let category: Category
+//    let categoryId: String
+//    let categoryName: String
+    let category: Category
     let ingredients: [Ingredient]
     
 }

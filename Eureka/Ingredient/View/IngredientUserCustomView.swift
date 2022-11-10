@@ -93,7 +93,7 @@ struct SelectIconSheet : View{
             .padding()
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns) {
-                    ForEach(addVM.allIngredient, id: \.self.categoryId ){ idx in
+                    ForEach(addVM.allIngredient, id: \.self.category.id ){ idx in
                         ForEach(idx.ingredients, id:\.self.id){ data in
                             Button {
                                 icon = data.icon
