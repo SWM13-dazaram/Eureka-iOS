@@ -102,8 +102,10 @@ class AddIngredientViewModel: ObservableObject {
         }
     }
     
-    func setIngredientData() -> Bool{
-        var returnValue = true
+    
+    func setIngredientData(){
+//    func setIngredientData() -> Bool{
+//        var returnValue = true
         
         provider.request(.setSelectedIngredient(data: userIngredient)) {
             response in
@@ -116,15 +118,15 @@ class AddIngredientViewModel: ObservableObject {
                     CacheManager.removeCustomObject(key: .expireRecipe)
                     CacheManager.removeCustomObject(key: .replcedRecipe)
                 }catch(let err){
-                    returnValue = false
+//                    returnValue = false
                     print(err.localizedDescription)
                 }
             case .failure(let err):
-                returnValue = false
+//                returnValue = false
                 print(err.localizedDescription)
             }
         }
-        return returnValue
+//        return returnValue
     }
     
     func resetTmpData(){

@@ -20,12 +20,12 @@ struct RecipeContent : View {
                     .cornerRadius(22)
                     .shadow(color: .shadow, radius: 6, x: 0, y: 3)
                 RecipeName(recipe.title)
-                if let replaced = recipe.replaceIngredient {
+                if let replaced = recipe.replacement {
                     let old = replaced.missingIngredient.name
                     let new = replaced.ownIngredient.name
                     TextBubble(new:new, old:old)
                 }
-                if let expireDate = recipe.expireIngredient {
+                if let expireDate = recipe.imminentIngredient {
                     TextBubble(expire:expireDate.name)
                 }
                 VStack(alignment: .leading) {
@@ -37,7 +37,7 @@ struct RecipeContent : View {
                             FrameText(text: idx.name)
                         }
                     }
-                    if let similarity = recipe.replaceIngredient {
+                    if let similarity = recipe.replacement {
                         Similarity(similarity, proxy: proxy)
                     }
                 }

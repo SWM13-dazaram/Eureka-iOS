@@ -14,9 +14,11 @@ struct UserIngredientEditView: View {
     @State var alert = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @State var pickerUp = false
+    
     var body: some View {
         VStack{
-            IngredientForm(formData: $data)
+            IngredientForm(formData: $data, pickerUp: $pickerUp)
             if original.name != data.name || original.expireDate != data.expireDate || original.memo != data.memo {
                 Button {
                     ingredientVM.updateUserIngredient(data: data)

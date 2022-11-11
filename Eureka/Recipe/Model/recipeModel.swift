@@ -17,11 +17,11 @@ struct Recipe: Decodable {
 //    let url: String
     let title: String
     let image: String
-    let isLike: Bool
+    let isLike: Bool?
     let ingredients: [Ingredient]
     let recipeSequences: [RecipeSequence]
-    let replaceIngredient: ReplaceIngredient?
-    let expireIngredient: Ingredient?
+    let replacement: ReplaceIngredient?
+    let imminentIngredient: Ingredient?
 }
 
 struct RecipeSequence: Decodable {

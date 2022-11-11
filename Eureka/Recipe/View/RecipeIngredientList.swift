@@ -17,7 +17,7 @@ struct RecipeIngredientList: View{
     }
     var body: some View{
         ForEach(recipe.ingredients, id: \.self.id){ idx in
-            if let replaced = recipe.replaceIngredient {
+            if let replaced = recipe.replacement {
                 if replaced.ownIngredient.id == idx.id {
                     RecipeIngredientCell(replaced.missingIngredient, Status.replaced)
                 }
@@ -25,7 +25,7 @@ struct RecipeIngredientList: View{
                     RecipeIngredientCell(idx)
                 }
             }
-            if let expire = recipe.expireIngredient {
+            if let expire = recipe.imminentIngredient {
                 if expire.id == idx.id {
                     RecipeIngredientCell(idx, Status.expire)
                 }

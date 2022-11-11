@@ -12,6 +12,7 @@ struct RecipeDetailView: View {
     @State var description = ""
     
     var body: some View {
+        Text("Temp")
         ScrollView(showsIndicators: false) {
             LoadImage(recipe.image)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
@@ -19,19 +20,19 @@ struct RecipeDetailView: View {
             VStack{
                 RecipeName(recipe.title)
                 // 식재료 대체 or 유통기한 판별해서 다른 view 노출
-                if let replaced = recipe.replaceIngredient {
+                if let replaced = recipe.replacement {
                     let old = replaced.missingIngredient.name
                     let new = replaced.ownIngredient.name
                     TextBubble(new:new, old:old)
                     Image("replacedInfo")
                         .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
                 }
-                if let expireDate = recipe.expireIngredient {
+                if let expireDate = recipe.imminentIngredient {
                     TextBubble(expire:expireDate.name)
                     Image("expireInfo")
                         .padding(.init(top: 50, leading: 0, bottom: 50, trailing: 0))
                 }
-                
+
                 VStack(alignment:.leading){
                     Text("My Ingredient".localized())
                         .font(.system(size: 15, weight: .bold))

@@ -13,6 +13,8 @@ struct IngredientAddDetailView: View {
     @State var selected = 0
     @State var alert = false
     
+    @State var pickerUp = false
+    
     var body: some View {
         VStack{
             Spacer()
@@ -28,7 +30,7 @@ struct IngredientAddDetailView: View {
             }
             TabView(selection: $selected){
                 ForEach(addVM.userIngredient.indices, id: \.self) { index in
-                    IngredientForm(formData: $addVM.userIngredient[index])
+                    IngredientForm(formData: $addVM.userIngredient[index], pickerUp: $pickerUp)
                         .tag(index)
                 }
             }
@@ -38,13 +40,25 @@ struct IngredientAddDetailView: View {
             Spacer()
             if selected+1 == addVM.userIngredient.count {
                 Button {
-                    alert = true
-                    let _ = addVM.setIngredientData() // 비동기처리..
+                    if pickerUp {
+                        print(pickerUp)
+                        pickerUp.toggle()
+                    }
+                    else{
+                        print(alert)
+                        alert = true
+//                        revert = false
+                        DispatchQueue.global().async {
+                            addVM.setIngredientData()
+                        }
+                    }
+                    
                 } label: {
                     BottomButton(text: "Save".localized())
                 }
                 .alert("Save Text".localized(), isPresented: $alert){
                     Button {
+                        print("button")
                         revert = false
                         addVM.resetTmpData()
                     } label: {

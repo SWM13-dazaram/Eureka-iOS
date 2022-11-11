@@ -4,7 +4,7 @@ struct IngredientForm: View {
     @Binding var formData: UserIngredient
     @State var expire = Date()
     @State var today = Date()
-    @State var toggle = false
+    @Binding var pickerUp : Bool
     
     var body: some View {
         VStack{
@@ -16,6 +16,14 @@ struct IngredientForm: View {
             DateForm(title: "Expire".localized(), range: Date()..., date: $expire)
                 .onChange(of: self.expire) { newValue in
                     formData.expireDate = DateCalculater.changeDateToStr(date: self.expire)
+                }
+                .onTapGesture {
+                    pickerUp = true
+                    print("pickerup : \(pickerUp)")
+                }
+                .onDisappear{
+                    pickerUp = false
+                    print("pickerup disappear : \(pickerUp)")
                 }
             CustomForm(title: "Memo".localized(), placeholder: "Input Memo Please".localized() , text: $formData.memo)
         }

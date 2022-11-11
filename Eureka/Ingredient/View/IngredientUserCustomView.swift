@@ -17,6 +17,8 @@ struct IngredientUserCustomView: View {
     @State var iconModal = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @State var disappear = false
+    
     var body: some View {
         VStack{
             Spacer()

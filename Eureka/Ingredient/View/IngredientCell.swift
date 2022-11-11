@@ -3,10 +3,11 @@ import SwiftUI
 struct ingredientCell : View {
 //    let userData: UserIngredient
     @Binding var userData : UserIngredient
-    @State var expireDate = 0
+    var expireDate = 0
     
     init(_ ingredient: Binding<UserIngredient>){
         self._userData = ingredient
+        self.expireDate = DateCalculater.compareToday(A: userData.expireDate)
     }
     
 //    init(_ userIngredient : UserIngredient){
@@ -33,9 +34,9 @@ struct ingredientCell : View {
             }
         }
         .padding(15)
-        .onAppear{
-            self.expireDate = DateCalculater.compareToday(A: userData.expireDate)
-        }
+//        .onAppear{
+//            self.expireDate = DateCalculater.compareToday(A: userData.expireDate)
+//        }
     }
 }
 
