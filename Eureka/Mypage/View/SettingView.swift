@@ -9,7 +9,7 @@ import SwiftUI
 import MessageUI
 
 struct SettingView: View {
-    @EnvironmentObject var oauth: LoginViewModel
+    @EnvironmentObject var oauth : LoginViewModel
     @State var logoutAelrt = false
     @State var resignAelrt = false
     @State var sendMail = false

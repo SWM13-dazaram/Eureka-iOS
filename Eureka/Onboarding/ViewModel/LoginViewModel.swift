@@ -6,6 +6,10 @@ import AuthenticationServices
 import Moya
 
 class LoginViewModel: ObservableObject {
+    
+    static let shared  = LoginViewModel()
+    private init(){ }
+    
     let provider = MoyaProvider<UserAPI>()
     @Published var status = UserDefaults.loginStatus()
     
@@ -109,6 +113,16 @@ class LoginViewModel: ObservableObject {
 //
 //        controller.performRequests()
 //
+//    }
+    
+//    func appleLogin(appleSignInDelegate : SignInWithAppleDelegate) {
+//        let request = ASAuthorizationAppleIDProvider().createRequest()
+//        request.requestedScopes = [.fullName, .email]
+//
+//        let controller = ASAuthorizationController(authorizationRequests: [request])
+//        controller.delegate = appleSignInDelegate
+//        controller.presentationContextProvider = appleSignInDelegate
+//        controller.performRequests()
 //    }
     
 }

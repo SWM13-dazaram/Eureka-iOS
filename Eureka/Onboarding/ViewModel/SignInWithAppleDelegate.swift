@@ -3,7 +3,7 @@ import SwiftUI
 
 
 class SignInWithAppleDelegate: NSObject {
-    var oauth = LoginViewModel()
+//    @EnvironmentObject var loginVM : LoginViewModel
     
     private let signInSucceeded: (Bool) -> Void
     init(onSignedIn: @escaping (Bool) -> Void) {
@@ -22,8 +22,9 @@ extension SignInWithAppleDelegate: ASAuthorizationControllerDelegate {
 //                    print("authorizationCode : \(String(data: authorizationCode, encoding: .utf8))")
 //                }
                 if let identity_token = appleIdCredential.identityToken {
-//                    oauth.signin(token: String(data: identity_token, encoding: .utf8)!, loginProvider: .APPLE)
-                    print("identity_token : \(String(data: identity_token, encoding: .utf8)!)")
+                    let token = (String(data: identity_token, encoding: .utf8)!)
+                    print("identity_token : \(token)")
+                    LoginViewModel.shared.signin(token: token, loginProvider: .APPLE)
                 }
                 
 //                          print("identityToken: \(String(describing: appleIdCredential.identityToken!))\nauthorizationCode: \(appleIdCredential.authorizationCode!)\nuser: \(credential.user)\nemail: \(String(describing: credential.email))\ncredential: \(credential)")
@@ -34,7 +35,9 @@ extension SignInWithAppleDelegate: ASAuthorizationControllerDelegate {
 //                    print("authorizationCode : \(String(data: authorizationCode, encoding: .utf8))")
 //                }
                 if let identity_token = appleIdCredential.identityToken {
-                    print("identity_token : \(String(data: identity_token, encoding: .utf8)!)")
+                    let token = (String(data: identity_token, encoding: .utf8)!)
+                    print("identity_token : \(token)")
+                    LoginViewModel.shared.signin(token: token, loginProvider: .APPLE)
                 }
             signInSucceeded(true)
             }
